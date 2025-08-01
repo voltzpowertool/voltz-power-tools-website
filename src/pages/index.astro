@@ -1,16 +1,2406 @@
 ---
+import Layout from '@/layouts/Layout.astro';
+import productsData from '@/data/products.json';
 
+// Get top 4 products for homepage
+const topProducts = productsData.slice(0, 4);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  title="Voltz Power Tools - Profesyonel Akülü El Aletleri | Brushless Motor Teknolojisi"
+  description="Voltz Power Tools ile profesyonel işleriniz için güçlü brushless motor teknolojili akülü el aletleri. Matkap, tornavida, taşlama makinesi ve V-PACK batarya sistemi. Uzun ömürlü, yüksek performanslı aletler."
+  keywords="voltz power tools, akülü matkap, brushless motor, akülü alet, profesyonel alet, v-pack batarya, akülü taşlama, tornavida, somun anahtarı"
+>
+	<!-- Hero Section - Full Width Layout -->
+	<section class="hero-section">
+		<!-- Site Background Overlay - Sadece Hero Section'da -->
+		<div class="site-background-overlay"></div>
+		
+		<div class="hero-grid">
+			<!-- Left Side - Large Product Image (Full Left Half) -->
+			<div class="hero-image-container">
+				<img src="/img/hero/hero-slider01.jpg" alt="Voltz Power Tools" class="hero-main-image">
+			</div>
+			
+			<!-- Right Side - Content (Full Right Half) -->
+			<div class="hero-content">
+				<div class="hero-content-inner">
+					<!-- Main Headlines -->
+					<div class="hero-text-section">
+						<h2 class="hero-subtitle">
+							Voltz: Endüstriyel ve İnşaat Profesyonelleri İçin Güvenilir El Aletleri
+						</h2>
+						
+						<h5 class="hero-description">
+							Her zorlu görevin üstesinden gelecek güç, dayanıklılık ve yenilikçi 
+							performans Voltz'da birleşerek profesyonellerin beklentilerini aşıyor.
+						</h5>
+					</div>
+					
+					<!-- Product Cards -->
+					<div class="hero-product-cards">
+						<!-- Drill Card -->
+						<div class="hero-product-card drill-card">
+							<div class="product-card-bg">
+								<div class="product-icon">
+									<img src="/icons/icon-drill.svg" alt="Drill Icon" class="icon-svg">
+								</div>
+								
+								<div class="product-content">
+									<h3 class="product-title">
+										Voltz<br>
+										MATKAPLAR
+									</h3>
+									<p class="product-description">
+										Yoğun kullanıma uygun, kömürsüz motorlu ve metal mandrenli Voltz akülü 
+										matkaplar ile her işte üstün performans ve hassasiyet yakalayın.
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- V-PACK Card -->
+						<div class="hero-product-card vpack-card">
+							<div class="product-card-bg">
+								<div class="product-icon">
+									<img src="/icons/battery-icon.svg" alt="Battery Icon" class="icon-svg">
+								</div>
+								
+								<div class="product-content">
+									<h3 class="product-title">
+										V-PACK<br>
+										Batarya Sistemleri
+									</h3>
+									<p class="product-description">
+										Voltz V-PACK batarya platformu,
+										20V ve 16.8V seçenekleriyle farklı 
+										aletleriniz için ortak güç sunar.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- İncele Butonu -->
+					<div class="hero-incele-button">
+						<a href="/products" class="incele-btn">
+							İNCELE
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section - Redesigned Layout -->
+	<section class="about-section">
+		<div class="container">
+			<div class="about-grid">
+				<!-- Left Side - Text Content -->
+				<div class="about-text-container">
+					<h2 class="about-title">Her işe, her ihtiyaca güçlü <span class="highlight-text">çözümler</span></h2>
+					
+					<div class="about-content">
+						<p class="about-paragraph">
+							Voltz, yoğun ve sürekli kullanım gerektiren endüstriyel ve inşaat 
+							profesyonelleri için özel olarak tasarlanmış bir alet markasıdır. 
+							Markamız; güvenlik ve güvenilirlik, yüksek kalite, üstün performans 
+							ve yüksek değer ilkelerine daima sadık kalmaktadır.
+						</p>
+						
+						<p class="about-paragraph">
+							Voltz, yeni bir marka olmasına rağmen, yenilikçi ürün tasarımı, 
+							titiz kalite kontrolü ve samimi hizmet anlayışı sayesinde profesyonel 
+							kullanıcıların takdirini ve güvenini kazanmayı hedeflemektedir.
+						</p>
+					</div>
+				</div>
+				
+				<!-- Right Side - Product Card -->
+				<div class="about-product-container">
+					<div class="product-slider-container">
+						<div class="product-slider-track">
+							<!-- Product 1 -->
+							<div class="about-product-card active">
+								<img src="/img/products/produts01.png" alt="Voltz Power Tools Product" class="about-product-image">
+							</div>
+							
+							<!-- Product 2 -->
+							<div class="about-product-card">
+								<img src="/img/products/produts01.png" alt="Voltz Power Tools Product" class="about-product-image">
+							</div>
+							
+							<!-- Product 3 -->
+							<div class="about-product-card">
+								<img src="/img/products/produts01.png" alt="Voltz Power Tools Product" class="about-product-image">
+							</div>
+						</div>
+						
+						<!-- Dot Navigation -->
+						<div class="slider-dots">
+							<button class="dot active" data-slide="0"></button>
+							<button class="dot" data-slide="1"></button>
+							<button class="dot" data-slide="2"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+			
+
+
+
+	<!-- Catalog Section -->
+	<section id="katalog" class="catalog-section">
+		<div class="container">
+			<!-- Section Header -->
+			<div class="catalog-header">
+				<h3 class="catalog-title">Voltz Ürün Kataloğunu Keşfedin</h3>
+				
+				<!-- Progress Bar -->
+				<div class="progress-bar">
+					<div class="progress-segment-left"></div>
+					<div class="progress-segment-2"></div>
+					<div class="progress-segment-3"></div>
+				</div>
+			</div>
+			
+			<!-- Catalog Description -->
+			<div class="catalog-description">
+				<p class="catalog-text">
+					Profesyonel İhtiyaçlarınız İçin Kapsamlı Bilgiye Anında Ulaşın – 
+					Voltz Kataloğumuzu <a href="/pdf/voltz-katalog.pdf" download="Voltz-Katalog.pdf" class="download-link">İndirin</a>.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-content">
+				<!-- Footer Logo -->
+				<div class="footer-logo">
+					<img src="/img/logo/footer-logo.svg" alt="Voltz Power Tools" class="footer-logo-img">
+				</div>
+				
+				<!-- Footer Main Content -->
+				<div class="footer-main">
+					<!-- Company Info -->
+					<div class="footer-company">
+						<h4 class="footer-company-title">Voltz Power Tools</h4>
+						<p class="footer-company-desc">
+							Profesyonel el aletlerinde güvenin adresi.
+						</p>
+					</div>
+					
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<div class="footer-address">
+							<p class="footer-contact-title">Adres</p>
+							<p class="footer-contact-text">
+								Teknoloji Caddesi No: 123<br>
+								Sanayi Mahallesi, İstanbul<br>
+								Türkiye 34000
+							</p>
+						</div>
+						
+						<div class="footer-email">
+							<p class="footer-contact-title">İletişim</p>
+							<p class="footer-contact-text">
+								E-posta: <a href="mailto:info@voltzpowertools.com" class="footer-link">info@voltzpowertools.com</a><br>
+								Telefon: <a href="tel:+902123456789" class="footer-link">+90 212 345 67 89</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Footer Bottom -->
+				<div class="footer-bottom">
+					<!-- Social Media -->
+					<div class="footer-social">
+						<a href="#" class="social-link" aria-label="LinkedIn">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+							</svg>
+						</a>
+						<a href="#" class="social-link" aria-label="Instagram">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+							</svg>
+						</a>
+					</div>
+					
+					<!-- Copyright -->
+					<div class="footer-copyright">
+						<p>© 2025 Voltz Power Tools. Tüm hakları saklıdır.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+</Layout>
+
+<style>
+/* ===========================================
+   HERO SECTION - FULL WIDTH LAYOUT
+   ========================================== */
+.hero-section {
+	padding: 0;
+	width: 100vw;
+	position: relative; /* Background overlay için gerekli */
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	z-index: 1; /* Site background overlay'in üzerinde */
+	height: 100vh; /* Hero section yüksekliği */
+	min-height: 600px; /* Minimum yükseklik */
+}
+
+.hero-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr; /* Eşit bölüm ama gap ile ayrılacak */
+	gap: 20px; /* Sol görsel ile sağ içerik arası 20px */
+	min-height: clamp(600px, 70vh, 900px); /* Responsive minimum height - content'e göre ayarlandı */
+	align-items: stretch; /* Her iki column da aynı yükseklikte */
+}
+
+/* Hero Image - Sol Yarı */
+.hero-image-container {
+	position: relative;
+	width: 100%;
+	height: auto; /* Tablet'te otomatik height */
+	min-height: clamp(400px, 50vh, 600px); /* Tablet responsive minimum height */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-main-image {
+	width: 100%;
+	height: 100%; /* Container'ın tam yüksekliği */
+	object-fit: cover; /* Görseli container'a uygun şekilde kes/sığdır */
+	object-position: center; /* Görseli merkeze hizala */
+	border-radius: 12px;
+	/* Hafif gölge efekti */
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Content - Sağ Yarı */
+.hero-content {
+	height: auto; /* Tablet'te otomatik height */
+	padding: clamp(15px, 3vw, 25px) 0; /* Responsive padding */
+	align-items: flex-start; /* Tablet'te üst hizalama */
+}
+
+.hero-content-inner {
+	max-width: clamp(600px, 50vw, 835px); /* Responsive max-width */
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(30px, 4vw, 50px); /* Responsive gap */
+	/* justify-content: center kaldırıldı - artık flex-start hizalaması */
+}
+
+.hero-text-section {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.hero-subtitle {
+	margin: 0; /* Margin sıfırlandı */
+}
+
+.hero-description {
+	font-size: 20px; /* Font boyutu aynı kaldı */
+	line-height: 1.5; /* Satır aralığı genişletildi */
+	color: var(--color-white);
+	margin: 0;
+	font-weight: 500; /* Medium font weight - h5 için uygun */
+}
+
+/* Hero Product Cards */
+.hero-product-cards {
+	display: flex;
+	flex-direction: row; /* Yan yana dizilim */
+	gap: clamp(150px, 12vw, 210px); /* Responsive gap - ekran boyutuna göre ayarlanır */
+	justify-content: flex-start; /* Sol tarafa hizalı */
+	/* Arka plan kaldırıldı - kartların kendilerine uygulanacak */
+}
+
+.hero-product-card {
+	position: relative;
+	flex: 1;
+	max-width: clamp(240px, 20vw, 280px);
+	min-width: 200px;
+}
+
+.product-card-bg {
+	width: 100%; /* Parent'a göre tam genişlik */
+	height: clamp(300px, 25vw, 400px); /* Responsive height */
+	/* Ana yeşil renk #6BE03F tek renk - gradient değil */
+	background: #6BE03F; /* Tek renk arka plan */
+	/* Çeltikli köşe efekti - sağ üst diagonal cut */
+	clip-path: polygon(
+		0% 0%,        /* Sol üst */
+		85% 0%,       /* Sağ üst - kesik başlangıcı */
+		100% 15%,     /* Sağ üst çeltik noktası */
+		100% 100%,    /* Sağ alt */
+		0% 100%       /* Sol alt */
+	);
+	border-radius: 8px 0 8px 8px; /* Sol köşeler yuvarlanır, sağ üst kesik */
+	position: relative;
+	overflow: hidden;
+	/* Modern gölge ve depth efektleri - ana yeşil tonlarında */
+	box-shadow: 
+		0 4px 20px rgba(107, 224, 63, 0.25),
+		inset 0 1px 0 rgba(255, 255, 255, 0.15);
+	/* Subtle texture efekti */
+	background-image: 
+		radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
+	/* Smooth transitions - sadece transform için */
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover efekti */
+.hero-product-card:hover .product-card-bg {
+	transform: translateY(-2px);
+}
+
+/* Large screens (27" vs 14" uyumu için) */
+@media screen and (min-width: 1440px) {
+	.product-card-bg {
+		/* Eski PNG ayarları kaldırıldı - CSS gradient otomatik responsive */
+		/* Çeltik köşesi büyük ekranlarda biraz daha belirgin */
+		clip-path: polygon(
+			0% 0%,        
+			82% 0%,       /* Daha geniş çeltik */
+			100% 18%,     
+			100% 100%,    
+			0% 100%       
+		);
+	}
+	
+	.hero-product-cards {
+		gap: 200px; /* Büyük ekranlarda daha geniş gap */
+	}
+}
+
+/* Ultra wide screens */
+@media screen and (min-width: 1920px) {
+	.product-card-bg {
+		/* Ultra geniş ekranlarda çeltik daha dramatik */
+		clip-path: polygon(
+			0% 0%,        
+			80% 0%,       
+			100% 20%,     
+			100% 100%,    
+			0% 100%       
+		);
+	}
+	
+	.hero-product-cards {
+		gap: clamp(200px, 15vw, 250px);
+	}
+}
+
+/* Laptop screens (MacBook Pro 14" uyumu) */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+	.product-card-bg {
+		/* Laptop ekranlarda optimized çeltik */
+		height: clamp(280px, 22vw, 350px);
+		clip-path: polygon(
+			0% 0%,        
+			87% 0%,       /* Daha ince çeltik */
+			100% 13%,     
+			100% 100%,    
+			0% 100%       
+		);
+	}
+	
+	.hero-product-cards {
+		gap: clamp(120px, 10vw, 180px);
+	}
+	
+	.product-card {
+		max-width: clamp(200px, 18vw, 250px);
+	}
+}
+
+.product-icon {
+	width: clamp(70px, 6vw, 94px); /* Responsive icon boyutu */
+	height: clamp(70px, 6vw, 94px);
+	background: rgba(255,255,255,0.2);
+	border-radius: 8px;
+	position: absolute;
+	top: clamp(12px, 1.5vw, 17px); /* Responsive top position */
+	left: clamp(20px, 2vw, 27px); /* Responsive left position */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon-svg {
+	width: clamp(35px, 3.5vw, 50px); /* Responsive SVG boyutu */
+	height: clamp(35px, 3.5vw, 50px);
+	object-fit: contain;
+}
+
+.product-content {
+	position: absolute;
+	left: clamp(20px, 2vw, 27px); /* Icon ile aynı hizada */
+	top: clamp(100px, 8vw, 130px); /* Responsive top position */
+}
+
+.product-title {
+	color: var(--color-white);
+	margin-bottom: clamp(15px, 1.5vw, 20px); /* Responsive margin */
+	font-weight: 600;
+	font-size: clamp(18px, 1.8vw, 22px); /* Responsive font */
+	line-height: 1.3;
+}
+
+.product-description {
+	color: #0D0D12; /* Siyah renk */
+	font-size: clamp(12px, 1.2vw, 15px); /* Responsive font */
+	font-weight: 600; /* Daha kalın font */
+	line-height: 1.6;
+	max-width: clamp(180px, 15vw, 220px); /* Responsive max-width */
+}
+
+/* Hero İncele Button */
+.hero-incele-button {
+	display: flex;
+	justify-content: center; /* İki kart arasında ortalı */
+	width: 100%; /* Tam genişlik kullan */
+	margin-top: clamp(25px, 3vw, 40px); /* Responsive margin */
+}
+
+.incele-btn {
+	position: relative;
+	width: 110px;
+	height: 36px;
+	background-color: #FFFFFF; /* Beyaz arka plan */
+	color: #6BE03F; /* Yeşil yazı rengi */
+	border: none;
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	/* Sol üst köşe çeltikli efekt */
+	clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
+}
+
+.incele-btn:hover {
+	background-color: #6BE03F;
+	color: #FFFFFF;
+	transform: translateY(-2px);
+}
+
+/* ===========================================
+   ABOUT SECTION - REDESIGNED LAYOUT
+   ========================================== */
+/* About Section */
+.about-section {
+	padding: 80px 0;
+	background-color: #070707;
+	position: relative;
+	z-index: 1; /* Site background overlay'in üzerinde */
+}
+
+.about-grid {
+	display: grid;
+	grid-template-columns: 830px 1fr;
+	gap: 100px;
+	align-items: start;
+}
+
+.about-text-container {
+	margin-top: 0;
+}
+
+.about-title {
+	margin-bottom: 40px;
+}
+
+/* Highlight text - çözümler kelimesi için yeşil renk */
+.highlight-text {
+	color: #6BE03F;
+}
+
+.about-content {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.about-paragraph {
+	font-size: 20px; /* Hero description ile aynı */
+	line-height: 1.5; /* Hero description ile aynı */
+	font-weight: 500; /* Hero description ile aynı */
+}
+
+/* Right Side - Product Card */
+.about-product-container {
+	position: relative;
+	width: 400px;
+	height: 500px;
+	overflow: hidden;
+	z-index: 2;
+	transform: translateX(100px); /* Desktop - daha fazla sağa kaydırıldı */
+}
+
+/* Slider Container */
+.product-slider-container {
+	position: relative;
+	width: 400px; /* Desktop */
+	height: 500px; /* Desktop */
+	overflow: hidden;
+	border-radius: 20px !important; /* Desktop */
+	cursor: grab;
+	user-select: none;
+	z-index: 2;
+	/* Force border-radius clipping */
+	-webkit-clip-path: inset(0 round 20px);
+	clip-path: inset(0 round 20px);
+}
+
+.product-slider-container:hover {
+	box-shadow: 0 4px 20px rgba(68, 214, 44, 0.2);
+	/* transform: translateY(-2px); KALDIRILDI - Yukarı hareket engellendi */
+	transition: box-shadow 0.3s ease; /* Sadece gölge efekti */
+}
+
+.product-slider-track {
+	display: flex;
+	width: 1200px; /* 3 cards × 400px - Desktop */
+	height: 100%;
+	transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Ultra smooth easing */
+	will-change: transform; /* GPU acceleration */
+	touch-action: pan-y pinch-zoom; /* Allow vertical scroll but enable horizontal drag */
+	user-select: none; /* Prevent text selection during drag */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	cursor: grab;
+}
+
+.about-product-card {
+	width: 400px; /* Desktop */
+	height: 500px; /* Desktop */
+	/* Ana yeşil renk kodu ile gradient - #6BE03F */
+	background: linear-gradient(145deg, 
+		rgba(107, 224, 63, 0.67) 0%,     /* Ana yeşil renk kodu #6BE03F */
+		rgba(255, 255, 255, 1) 100%      /* Beyaza tam geçiş */
+	);
+	border-radius: 20px;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+	flex-shrink: 0;
+	/* Basit gölge - ana yeşil tonlarında */
+	box-shadow: 0 8px 32px rgba(107, 224, 63, 0.2);
+	/* Ultra smooth transitions */
+	transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+
+/* About card hover efekti kaldırıldı - gereksiz karmaşa */
+
+/* Product Model Name - Kart İçinde Üstte */
+.product-model-name-card {
+	position: absolute;
+	top: 20px; /* Kartın en üstünde */
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--color-white);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 28px; /* Desktop boyutu */
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7); /* Güçlü gölge */
+	filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8)); /* Ek drop shadow */
+	z-index: 3;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.about-product-image {
+	max-width: 120%; /* Desktop - Büyültüldü */
+	max-height: 120%; /* Desktop - Büyültüldü */
+	object-fit: contain;
+	z-index: 2;
+	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+	margin-top: 40px; /* Ürün adına yer açmak için */
+}
+
+/* Carousel Dots - Kart İçinde, Görsel Altında */
+.product-carousel-dots {
+	position: absolute;
+	bottom: 25px; /* Kart altından yukarıda */
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 8px; /* Figma'daki gap */
+	z-index: 4;
+}
+
+.carousel-dot {
+	width: 16px; /* Figma'dan bir tık küçük */
+	height: 16px; /* Figma'dan bir tık küçük */
+	border-radius: 50%; /* Tam daire */
+	background-color: #D9D9D9; /* Figma'daki inactive renk */
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: none;
+}
+
+.carousel-dot.active {
+	background-color: #6BE03F; /* Ana yeşil renk - active */
+}
+
+.carousel-dot:hover {
+	transform: scale(1.1); /* Hafif büyüme efekti */
+}
+
+/* Slider Dots - Modern ve smooth */
+.slider-dots {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%); /* Ürün görseli ile ortalanmış */
+	display: flex;
+	gap: 12px;
+	z-index: 4;
+}
+
+.slider-dots .dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.6); /* More visible default color */
+	border: none;
+	cursor: pointer;
+	transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Ultra smooth dot transition */
+	outline: none;
+}
+
+.slider-dots .dot:hover:not(.active) {
+	background: rgba(255, 255, 255, 0.8);
+	transform: scale(1.1);
+}
+
+.slider-dots .dot.active {
+	background: #6BE03F !important;
+	transform: scale(1.2) !important;
+	box-shadow: 0 4px 12px rgba(107, 224, 63, 0.4) !important;
+}
+
+.slider-dots .dot.active:hover {
+	background: #6BE03F !important;
+	transform: scale(1.25) !important;
+	box-shadow: 0 6px 16px rgba(107, 224, 63, 0.5) !important;
+}
+
+/* ===========================================
+   PRODUCTS SECTION - 4-COLUMN GRID
+   ========================================== */
+.products-section {
+	padding: 100px 0 120px 0; /* Alt padding artırıldı - ürün isimleri için */
+	background-color: #070707;
+	position: relative;
+	z-index: 5; /* Background overlay'in üzerinde */
+	overflow: visible; /* Arrow'ların görünmesi için */
+}
+
+/* Container artık gerekli değil - arrow'lar section seviyesinde */
+
+.products-header {
+	margin-bottom: 70px;
+}
+
+.products-title {
+	margin-bottom: 7px;
+}
+
+.progress-bar {
+	display: flex;
+	gap: 1px;
+}
+
+.progress-segment-1 {
+	width: 201px;
+	height: 3px;
+	background: var(--color-light-green);
+}
+
+.progress-segment-left {
+	width: 12px;
+	height: 3px;
+	background: var(--color-light-green);
+	/* Sol alt çeltik - sağ çeltiğin ayna görüntüsü */
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%);
+}
+
+.progress-segment-2 {
+	width: 16px;
+	height: 3px;
+	background: var(--color-light-green);
+}
+
+.progress-segment-3 {
+	width: 12px;
+	height: 3px;
+	background: var(--color-light-green);
+	/* Sağ alt çeltik - butonlar gibi */
+	clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
+}
+
+/* Filter Buttons */
+.products-filter-buttons {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 50px;
+	justify-content: flex-start;
+}
+
+.filter-btn {
+	width: 110px;
+	height: 36px;
+	background: var(--color-white); /* Seçilmeyenler beyaz background */
+	border: none;
+	border-radius: 0;
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	/* Çeltikli tasarım - sağ alt köşe kesik */
+	clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
+}
+
+.filter-btn.active {
+	background: var(--color-light-green); /* Seçili yeşil background */
+}
+
+.filter-btn .btn-text {
+	color: var(--color-light-green); /* Seçilmeyenler yeşil font */
+	font-family: 'GeneralSans-Semibold', sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 1.2;
+	text-align: center;
+}
+
+/* "HEPSİ" için normal spacing yeterli */
+
+.filter-btn.active .btn-text {
+	color: var(--color-white); /* Seçili beyaz font */
+}
+
+.filter-btn:hover {
+	background: var(--color-light-green);
+	transform: translateY(-2px);
+}
+
+.filter-btn:hover .btn-text {
+	color: var(--color-white);
+}
+
+/* Products Slider Wrapper */
+.products-slider-wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 1539px;
+	margin: 0 auto;
+}
+
+/* Products Slider Container */
+.products-slider-container {
+	position: relative;
+	width: 100%;
+	overflow: visible; /* Ürün isimleri görünsün */
+}
+
+/* Navigation Arrows */
+.products-nav-arrow {
+	position: absolute;
+	top: 55%;
+	transform: translateY(-50%);
+	width: 50px;
+	height: 50px;
+	background: var(--color-light-green);
+	border: none;
+	border-radius: 50%;
+	color: var(--color-white);
+	cursor: pointer;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	visibility: hidden;
+	opacity: 0;
+}
+
+.products-nav-arrow.prev {
+	left: -70px; /* Wrapper'ın solunda */
+}
+
+.products-nav-arrow.next {
+	right: -70px; /* Wrapper'ın sağında */
+}
+
+.products-nav-arrow:hover {
+	background: var(--color-white);
+	color: var(--color-light-green);
+	transform: translateY(-50%) scale(1.1);
+}
+
+.products-nav-arrow:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.products-nav-arrow:disabled:hover {
+	transform: translateY(-50%);
+	background: var(--color-light-green);
+	color: var(--color-white);
+}
+
+/* Products Grid */
+.products-grid {
+	display: grid !important;
+	grid-template-columns: repeat(4, 1fr) !important;
+	gap: 9px !important;
+	max-width: 1539px !important;
+	margin: 0 auto !important;
+}
+
+/* Products Section Card */
+.products-section .product-card {
+	position: relative;
+	width: 378px;
+	height: 361px;
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.product-card-gradient {
+	position: absolute;
+	top: 0;
+	left: 22px;
+	width: 335px;
+	height: 361px;
+	background: linear-gradient(135deg, 
+		rgba(107, 224, 63, 0.67) 0%, 
+		rgba(255, 255, 255, 1) 100%);
+	border-radius: 61px;
+	z-index: 1;
+}
+
+.product-image-container {
+	position: absolute;
+	top: 39px;
+	left: 0;
+	width: 378px;
+	height: 283px;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.product-image {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.product-name {
+	position: absolute;
+	bottom: -60px; /* Kartın altında - container dışında */
+	left: 189.5px; /* Gradient background'ın merkezi (22 + 335/2) */
+	transform: translateX(-50%);
+	color: var(--color-white);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 1.67;
+	text-align: center;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	z-index: 3;
+	white-space: nowrap; /* İsim kırılmasın */
+}
+
+/* Battery Voltage Icon - DOĞRU MATEMATIK */
+.battery-voltage-icon {
+	position: absolute;
+	bottom: 15px;
+	right: 35px;
+	z-index: 4;
+}
+
+.voltage-icon {
+	width: auto;
+	height: 40px; /* İkon boyutu */
+}
+
+/* ===========================================
+   CATALOG SECTION
+   ========================================== */
+.catalog-section {
+	padding: 100px 0;
+	background-color: #070707;
+	position: relative;
+	z-index: 5;
+}
+
+.catalog-header {
+	margin-bottom: 40px;
+}
+
+.catalog-title {
+	color: var(--color-white);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 1.2;
+	margin-bottom: 7px;
+}
+
+.catalog-description {
+	margin-top: 20px;
+}
+
+.catalog-text {
+	color: var(--color-white);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1.5;
+	max-width: 800px;
+	margin: 0;
+}
+
+.download-link {
+	color: var(--color-light-green);
+	text-decoration: underline;
+	text-decoration-color: var(--color-light-green);
+	text-underline-offset: 3px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.download-link:hover {
+	color: #ffffff;
+	text-decoration-color: #ffffff;
+	transform: translateY(-1px);
+}
+
+/* ===========================================
+   FOOTER SECTION
+   ========================================== */
+.footer-section {
+	margin-top: 150px;
+	padding: 60px 0;
+	background-color: var(--color-light-green);
+	position: relative;
+	z-index: 5;
+}
+
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.footer-logo {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.footer-logo-img {
+	height: 60px;
+	width: auto;
+	object-fit: contain;
+}
+
+.footer-main {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 60px;
+}
+
+.footer-company {
+	flex: 1;
+}
+
+.footer-company-title {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.2;
+	margin: 0 0 10px 0;
+}
+
+.footer-company-desc {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.footer-contact {
+	display: flex;
+	gap: 40px;
+}
+
+.footer-contact-title {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.2;
+	margin: 0 0 8px 0;
+}
+
+.footer-contact-text {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.footer-link {
+	color: var(--color-dark);
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+	color: var(--color-white);
+}
+
+.footer-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 30px;
+	border-top: 1px solid rgba(11, 12, 12, 0.2);
+}
+
+.footer-social {
+	display: flex;
+	gap: 15px;
+}
+
+.social-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: var(--color-dark);
+	color: var(--color-light-green);
+	border-radius: 50%;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.social-link:hover {
+	background-color: var(--color-white);
+	color: var(--color-dark);
+	transform: translateY(-2px);
+}
+
+.footer-copyright {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+}
+
+.footer-copyright p {
+	margin: 0;
+}
+
+/* ===========================================
+   RESPONSIVE ADJUSTMENTS - HERO SECTION
+   ========================================== */
+@media (max-width: 1200px) {
+	.hero-grid {
+		grid-template-columns: 1fr;
+		gap: clamp(15px, 3vw, 25px); /* Responsive gap */
+		min-height: auto;
+	}
+}
+
+/* iPad Responsive (1024px) - Horizontal tablet optimization */
+@media (max-width: 1024px) and (min-width: 769px) {
+	.hero-section {
+		padding: clamp(60px, 8vh, 100px) 0;
+	}
+	
+	.hero-grid {
+		gap: clamp(25px, 4vw, 40px);
+		padding: 0 20px;
+	}
+	
+	.hero-image-container {
+		height: clamp(350px, 45vh, 450px);
+	}
+	
+	.hero-content-inner {
+		gap: clamp(25px, 4vw, 35px);
+		padding: 0 clamp(10px, 2vw, 20px);
+	}
+	
+	.hero-title {
+		font-size: clamp(36px, 7vw, 48px);
+		line-height: 1.2;
+	}
+	
+	.hero-description {
+		font-size: clamp(16px, 3vw, 20px);
+		line-height: 1.4;
+	}
+	
+	.hero-product-card {
+		width: clamp(200px, 40vw, 280px);
+		height: clamp(250px, 50vw, 350px);
+	}
+	
+	.about-product-container {
+		transform: translateX(60px); /* iPad'de orta kaydırma */
+	}
+	
+	.catalog-section,
+	.footer-section {
+		padding: clamp(60px, 10vh, 80px) 0;
+	}
+	
+	.hero-image-container {
+		height: clamp(50vh, 60vw, 70vh); /* Responsive height */
+	}
+	
+	.hero-main-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+	
+	.hero-content {
+		height: auto; /* Tablet'te otomatik height */
+		padding: clamp(15px, 3vw, 25px) 0; /* Responsive padding */
+		align-items: flex-start; /* Tablet'te üst hizalama */
+	}
+	
+	.hero-content-inner {
+		padding: 0 clamp(15px, 3vw, 25px);
+		max-width: 100%;
+		margin-top: 0;
+		gap: clamp(20px, 4vw, 35px);
+	}
+	
+	.hero-incele-button {
+		margin-top: clamp(15px, 3vw, 25px);
+		justify-content: center; /* Tablet'te de ortalı */
+	}
+	
+	.hero-product-cards {
+		flex-direction: column; /* Tablet'te dikey dizilim */
+		gap: 30px; /* Tablet'te uygun gap */
+		padding: 15px;
+	}
+	
+	.hero-product-card {
+		max-width: 100%;
+		min-width: auto;
+	}
+	
+	.product-card-bg {
+		height: clamp(280px, 22vw, 350px); /* Tablet responsive height */
+		/* Tablet'te çeltik köşesi uyumlu */
+		clip-path: polygon(
+			0% 0%,        
+			88% 0%,       /* Tablet'te orta çeltik */
+			100% 12%,     
+			100% 100%,    
+			0% 100%       
+		);
+	}
+	
+	.product-icon {
+		width: clamp(60px, 8vw, 80px); /* Tablet icon boyutu */
+		height: clamp(60px, 8vw, 80px);
+		top: clamp(10px, 2vw, 15px);
+		left: clamp(15px, 3vw, 25px);
+	}
+	
+	.icon-svg {
+		width: clamp(30px, 4vw, 40px);
+		height: clamp(30px, 4vw, 40px);
+	}
+	
+	.product-content {
+		left: clamp(15px, 3vw, 25px);
+		top: clamp(80px, 10vw, 110px);
+	}
+	
+	.product-title {
+		font-size: clamp(16px, 2.2vw, 20px); /* Tablet font */
+		margin-bottom: clamp(12px, 2vw, 18px);
+	}
+	
+	.product-description {
+		font-size: clamp(11px, 1.8vw, 14px); /* Tablet font */
+		max-width: clamp(160px, 20vw, 200px);
+		color: #0D0D12; /* Siyah renk */
+		font-weight: 600; /* Kalın font */
+	}
+	
+	.about-grid {
+		grid-template-columns: 1fr;
+		gap: 50px;
+	}
+	
+	.about-text-container {
+		margin-top: 0;
+	}
+	
+	.about-product-card {
+		width: 100%;
+		max-width: 300px;
+		height: 350px;
+		/* Ana yeşil renk kodu ile gradient - tablet */
+		background: linear-gradient(145deg, 
+			rgba(107, 224, 63, 0.67) 0%, rgba(255, 255, 255, 1) 100%
+		);
+		border-radius: 16px;
+	}
+	
+	.about-product-container {
+		transform: translateX(120px); /* Tablet - daha fazla sağa kaydır */
+	}
+	
+	.product-slider-container {
+		width: 350px;
+		height: 400px;
+		border-radius: 18px !important;
+		-webkit-clip-path: inset(0 round 18px);
+		clip-path: inset(0 round 18px);
+	}
+	
+	.product-slider-track {
+		width: 1050px; /* 3 cards × 350px - Tablet */
+		transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Ultra smooth easing */
+		will-change: transform;
+		touch-action: pan-y pinch-zoom;
+		user-select: none;
+		-webkit-user-select: none;
+		cursor: grab;
+	}
+	
+	.about-product-image {
+		max-width: 115%;
+		max-height: 115%;
+		margin-top: 35px; /* Tablet'te daha az margin */
+	}
+	
+	.product-model-name-card {
+		font-size: 24px; /* Tablet boyutu */
+		top: 15px; /* Tablet'te daha yukarıda */
+	}
+	
+	.carousel-dot {
+		width: 14px; /* Tablet boyutu */
+		height: 14px;
+	}
+	
+	.carousel-dot.active {
+		transform: scale(1.25);
+	}
+	
+	.slider-dots {
+		bottom: 25px; /* Tablet'te biraz daha aşağıda */
+		gap: 11px; /* Tablet gap */
+	}
+	
+	.slider-dots .dot {
+		width: 11px; /* Tablet boyutu */
+		height: 11px;
+	}
+	
+	.carousel-dot:hover {
+		transform: scale(1.15);
+	}
+	
+	.product-carousel-dots {
+		gap: 12px;
+	}
+	
+	.products-filter-buttons {
+		gap: 15px;
+		margin-bottom: 40px;
+		flex-wrap: wrap;
+	}
+	
+	.filter-btn {
+		width: 100px;
+		height: 32px;
+		font-size: 14px;
+	}
+	
+	.filter-btn .btn-text {
+		font-weight: 800; /* Tablet'te de kalın font */
+	}
+	
+	.filter-btn[data-filter="all"] .btn-text {
+		letter-spacing: -0.4px; /* Tablet'te daraltılmış letter-spacing */
+	}
+	
+	.products-slider-container {
+		max-width: 800px;
+		overflow: visible; /* Tablet'te de ürün isimleri görünsün */
+	}
+	
+	.products-nav-arrow {
+		width: 40px;
+		height: 40px;
+		visibility: hidden;
+		opacity: 0;
+	}
+	
+	.products-slider-wrapper {
+		max-width: 800px;
+	}
+	
+	.products-nav-arrow.prev {
+		left: -50px; /* Tablet'te wrapper dışında */
+	}
+	
+	.products-nav-arrow.next {
+		right: -50px; /* Tablet'te wrapper dışında */
+	}
+	
+	.products-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+		gap: 15px !important;
+		max-width: 800px !important;
+	}
+	
+	.products-section .product-card {
+		width: 100%;
+		height: 320px;
+		display: none;
+		opacity: 0;
+	}
+	
+	.product-card-gradient {
+		left: 15px;
+		width: calc(100% - 30px);
+		height: 320px;
+	}
+	
+	.product-image-container {
+		width: 100%;
+		height: 240px;
+		top: 30px;
+	}
+	
+	.product-name {
+		font-size: 24px;
+		bottom: -50px; /* Tablet'te kartın altında */
+	}
+	
+	.battery-voltage-icon {
+		bottom: 12px;
+		right: 25px;
+	}
+	
+	.voltage-icon {
+		height: 32px;
+	}
+	
+	.catalog-title {
+		font-size: 32px;
+	}
+	
+	.catalog-text {
+		font-size: 18px;
+		max-width: 600px;
+	}
+	
+	.download-link {
+		font-size: 18px;
+	}
+	
+	.footer-section {
+		margin-top: 100px;
+		padding: 50px 0;
+	}
+	
+	.footer-main {
+		flex-direction: column;
+		gap: 40px;
+		text-align: center;
+	}
+	
+	.footer-contact {
+		flex-direction: column;
+		gap: 30px;
+	}
+	
+	.footer-bottom {
+		flex-direction: column;
+		gap: 20px;
+		text-align: center;
+	}
+	
+	.footer-logo-img {
+		height: 50px;
+	}
+	
+	.footer-company-title {
+		font-size: 20px;
+	}
+	
+	.footer-company-desc {
+		font-size: 14px;
+	}
+	
+	/* About Product Card - Tablet */
+	.about-product-card {
+		width: 350px; /* Tablet boyutu */
+		height: 400px;
+	}
+
+}
+
+@media (max-width: 768px) {
+	.hero-section {
+		min-height: auto; /* Mobile'da otomatik yükseklik */
+		height: auto;
+		padding: 20px 0;
+	}
+	
+	.hero-grid {
+		grid-template-columns: 1fr; /* Mobile'da tek sütun */
+		gap: clamp(20px, 5vw, 30px);
+		padding: 0 15px;
+	}
+	
+	.hero-image-container {
+		order: 1; /* Görsel üstte */
+		height: clamp(250px, 45vh, 350px); /* Biraz daha büyük */
+		margin-bottom: clamp(20px, 4vh, 30px);
+	}
+	
+	.hero-content {
+		order: 2; /* İçerik altta */
+		gap: clamp(20px, 4vh, 30px);
+		padding: 0;
+		text-align: center; /* Mobile'da merkezi hizalama */
+	}
+	
+	.hero-content-inner {
+		gap: clamp(20px, 5vw, 35px); /* Mobile responsive gap */
+		padding: 0; /* Mobile'da padding kaldırıldı */
+		max-width: 100%;
+	}
+	
+	.hero-subtitle {
+		font-size: clamp(24px, 6vw, 32px); /* Mobile responsive title */
+		line-height: 1.2;
+		text-align: center;
+	}
+	
+	.hero-description {
+		font-size: clamp(16px, 4vw, 18px); /* Mobile responsive description */
+		line-height: 1.4;
+		text-align: center;
+	}
+	
+	.hero-incele-button {
+		margin-top: clamp(20px, 5vw, 30px); /* Mobile responsive margin */
+		justify-content: center; /* Mobile'da da ortalı */
+	}
+	
+	.hero-product-cards {
+		flex-direction: column; /* Mobile'da dikey */
+		gap: clamp(15px, 5vw, 25px); /* Mobile responsive gap */
+		padding: clamp(10px, 3vw, 20px); /* Mobile responsive padding */
+	}
+	
+	.hero-product-card {
+		max-width: 100%;
+		min-width: auto;
+	}
+	
+	.product-card-bg {
+		width: 100%;
+		height: clamp(120px, 20vw, 150px); /* Mobile'da daha düşük */
+		display: flex;
+		align-items: center;
+		padding: clamp(15px, 4vw, 20px);
+		/* Mobile'da çeltik köşesi daha ince */
+		clip-path: polygon(
+			0% 0%,        
+			90% 0%,       /* Mobile'da ince çeltik */
+			100% 10%,     
+			100% 100%,    
+			0% 100%       
+		);
+	}
+	
+	.product-icon {
+		width: clamp(60px, 15vw, 80px); /* Mobile'da daha büyük icon */
+		height: clamp(60px, 15vw, 80px);
+		position: relative;
+		top: auto;
+		left: auto;
+		margin-right: clamp(15px, 4vw, 20px);
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.icon-svg {
+		width: clamp(35px, 8vw, 50px); /* Mobile'da daha büyük */
+		height: clamp(35px, 8vw, 50px);
+	}
+	
+	.product-content {
+		position: relative;
+		left: auto;
+		top: auto;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
+	.product-title {
+		font-size: clamp(16px, 4vw, 20px); /* Mobile'da daha büyük başlık */
+		margin-bottom: clamp(8px, 2vw, 12px);
+		line-height: 1.2;
+	}
+	
+	.product-description {
+		font-size: clamp(12px, 3vw, 14px); /* Mobile'da daha büyük yazı */
+		max-width: 100%;
+		line-height: 1.3;
+		color: #0D0D12; /* Siyah renk */
+		font-weight: 600; /* Kalın font */
+	}
+	
+	.about-product-card {
+		width: 100%;
+		max-width: 300px;
+		height: 350px;
+		/* Ana yeşil renk kodu ile gradient - mobile */
+		background: linear-gradient(145deg, 
+			rgba(107, 224, 63, 0.67) 0%, rgba(255, 255, 255, 1) 100%
+		);
+		border-radius: 16px;
+	}
+	
+
+	
+	.about-grid {
+		grid-template-columns: 1fr; /* Mobile'da tek sütun */
+		gap: 30px;
+		text-align: center;
+	}
+	
+	.about-text-container {
+		order: 2; /* Mobile'da text altta */
+	}
+	
+	.about-title {
+		font-size: clamp(24px, 6vw, 32px);
+		line-height: 1.2;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	
+	.about-paragraph {
+		font-size: clamp(16px, 4vw, 18px);
+		line-height: 1.5;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+	
+	.about-product-container {
+		order: 1; /* Mobile'da product card üstte */
+		transform: translateX(0); /* Mobile'da ortalanmış */
+		margin: 0 auto;
+		width: 100%;
+		max-width: 300px;
+	}
+	
+	.product-slider-container {
+		width: 100%;
+		max-width: 300px;
+		height: 350px;
+		border-radius: 16px !important;
+		-webkit-clip-path: inset(0 round 16px);
+		clip-path: inset(0 round 16px);
+	}
+	
+	.product-slider-track {
+		width: 900px; /* 3 cards × 300px - Mobile */
+		transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Ultra smooth easing */
+		will-change: transform;
+		touch-action: pan-y pinch-zoom;
+		user-select: none;
+		-webkit-user-select: none;
+		cursor: grab;
+	}
+	
+	.about-product-image {
+		max-width: 110%;
+		max-height: 110%;
+		margin-top: 30px; /* Mobile'da daha az margin */
+	}
+	
+	.product-model-name-card {
+		font-size: 20px; /* Mobile boyutu */
+		top: 12px; /* Mobile'da daha yukarıda */
+	}
+	
+	.product-carousel-dots {
+		gap: 10px;
+	}
+	
+	.slider-dots {
+		bottom: 20px; /* Mobile'da daha yukarıda */
+		gap: 10px; /* Mobile'da daha küçük gap */
+	}
+	
+	.slider-dots .dot {
+		width: 10px; /* Mobile'da daha küçük */
+		height: 10px;
+	}
+	
+	.carousel-dot {
+		width: 12px;
+		height: 12px;
+	}
+	
+	.carousel-dot.active {
+		transform: scale(1.2);
+	}
+	
+	.carousel-dot:hover {
+		transform: scale(1.1);
+	}
+	
+	.products-header {
+		margin-bottom: 40px;
+		text-align: center;
+	}
+	
+	.products-title {
+		font-size: clamp(24px, 6vw, 32px);
+		line-height: 1.2;
+	}
+	
+	.products-filter-buttons {
+		gap: 8px;
+		margin-bottom: 30px;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding: 0 10px;
+	}
+	
+	.filter-btn {
+		width: 85px;
+		height: 32px;
+		font-size: 11px;
+		flex-shrink: 0;
+	}
+	
+	.filter-btn .btn-text {
+		font-size: 12px;
+		font-weight: 800; /* Mobile'da da kalın font */
+	}
+	
+	.filter-btn[data-filter="all"] .btn-text {
+		letter-spacing: -0.3px; /* Mobile'da daraltılmış letter-spacing */
+	}
+	
+	.products-slider-container {
+		max-width: 400px;
+		overflow: visible; /* Mobile'da da ürün isimleri görünsün */
+	}
+	
+	.products-nav-arrow {
+		width: 35px;
+		height: 35px;
+		visibility: hidden;
+		opacity: 0;
+	}
+	
+	.products-slider-wrapper {
+		max-width: 400px;
+	}
+	
+	.products-nav-arrow.prev {
+		left: -40px; /* Mobile'da wrapper dışında */
+	}
+	
+	.products-nav-arrow.next {
+		right: -40px; /* Mobile'da wrapper dışında */
+	}
+	
+	.products-slider-wrapper {
+		max-width: 100%;
+		padding: 0 20px;
+	}
+	
+	.products-grid {
+		grid-template-columns: 1fr !important;
+		gap: 25px !important;
+		max-width: 100% !important;
+		justify-items: center;
+	}
+	
+	.products-section .product-card {
+		width: 100%;
+		max-width: 320px;
+		height: 280px;
+		display: none;
+		opacity: 0;
+		margin: 0 auto;
+	}
+	
+	.product-card-gradient {
+		left: 15px;
+		width: calc(100% - 30px);
+		height: 280px;
+		border-radius: 30px;
+	}
+	
+	.product-image-container {
+		width: 100%;
+		height: 200px;
+		top: 25px;
+	}
+	
+	.product-name {
+		font-size: 18px;
+		bottom: -40px; /* Mobile'da kartın altında */
+	}
+	
+	.voltage-icon {
+		height: 28px;
+	}
+	
+	.battery-voltage-icon {
+		bottom: 8px;
+		right: 18px;
+	}
+	
+	.catalog-section {
+		padding: 60px 0;
+		text-align: center;
+	}
+	
+	.catalog-header {
+		margin-bottom: 30px;
+	}
+	
+	.catalog-title {
+		font-size: clamp(24px, 6vw, 28px);
+		line-height: 1.2;
+		text-align: center;
+	}
+	
+	/* Mobile'da progress bar'ı ortala */
+	.progress-bar {
+		justify-content: center; /* Yeşil çizgiyi ortala */
+	}
+	
+	.catalog-description {
+		margin-top: 20px;
+		padding: 0 15px;
+	}
+	
+	.catalog-text {
+		font-size: clamp(14px, 4vw, 16px);
+		line-height: 1.5;
+		max-width: 100%;
+		text-align: center;
+	}
+	
+	.download-link {
+		font-size: clamp(14px, 4vw, 16px);
+		display: inline-block;
+		padding: 2px 0;
+		margin: 5px 0;
+	}
+	
+	.footer-section {
+		margin-top: 60px;
+		padding: 40px 0;
+	}
+	
+	.footer-content {
+		gap: 25px;
+		padding: 0 15px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.footer-logo {
+		margin-bottom: 15px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	
+	.footer-main {
+		gap: 25px;
+		text-align: center;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+	}
+	
+	.footer-contact {
+		gap: 20px;
+		flex-direction: column;
+		text-align: center;
+		width: 100%;
+		align-items: center;
+	}
+	
+	.footer-company {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.footer-address, 
+	.footer-email {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.footer-bottom {
+		gap: 15px;
+		flex-direction: column;
+		text-align: center;
+		padding-top: 20px;
+	}
+	
+	.footer-logo-img {
+		height: 40px;
+	}
+	
+	.footer-company-title {
+		font-size: clamp(16px, 4vw, 18px);
+		margin-bottom: 8px;
+	}
+	
+	.footer-company-desc {
+		font-size: clamp(12px, 3vw, 13px);
+		line-height: 1.4;
+	}
+	
+	.footer-contact-title {
+		font-size: clamp(13px, 3.5vw, 14px);
+		margin-bottom: 5px;
+	}
+	
+	.footer-contact-text {
+		font-size: clamp(11px, 3vw, 12px);
+		line-height: 1.4;
+	}
+	
+	.footer-copyright {
+		font-size: clamp(10px, 3vw, 12px);
+		line-height: 1.3;
+	}
+	
+	.social-link {
+		width: 38px;
+		height: 38px;
+	}
+	
+	.footer-social {
+		justify-content: center;
+		margin-bottom: 10px;
+	}
+
+}
+
+/* ===========================================
+   SITE BACKGROUND OVERLAY
+   ========================================== */
+.site-background-overlay {
+	position: absolute; /* Hero section içinde sabit */
+	top: 0;
+	right: 0; /* Sağ tarafta konumlanmış */
+	width: 60vw; /* Ekranın %60'ı - sağ kısmı kaplayacak */
+	height: 100%; /* Hero section'ın tamamı */
+	background-image: url('/img/sections/background-bg.png');
+	background-size: contain;
+	background-position: center right;
+	background-repeat: no-repeat;
+	opacity: 0.25; /* Biraz daha belirgin - artırıldı */
+	z-index: 0; /* En arkada - tüm içeriklerin altında */
+	pointer-events: none; /* Tıklamayı engelleme */
+	/* Siyah arka plan ile karışım */
+	mix-blend-mode: screen;
+	filter: brightness(0.9) contrast(1.3); /* Daha belirgin filtre */
+}
+
+/* Hero Section - diğer stiller */
+
+/* Site Background Overlay Responsive */
+@media (max-width: 1200px) {
+	.site-background-overlay {
+		width: 70vw; /* Tablet'te biraz daha geniş */
+		opacity: 0.22; /* Daha belirgin - artırıldı */
+	}
+}
+
+@media (max-width: 768px) {
+	.site-background-overlay {
+		width: 80vw; /* Mobile'da daha geniş */
+		opacity: 0.18; /* Daha belirgin - artırıldı */
+		background-position: center;
+	}
+}
+</style>
+
+<script>
+// Products Filter and Slider Functionality
+document.addEventListener('DOMContentLoaded', function() {
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	const productsGrid = document.getElementById('productsGrid');
+	const prevBtn = document.getElementById('prevBtn');
+	const nextBtn = document.getElementById('nextBtn');
+	
+	// Boş elementleri temizle - sadece products section'ındaki kartlar
+	function cleanEmptyElements() {
+		const allCards = document.querySelectorAll('#productsGrid .product-card');
+		const validCards = [];
+		
+		allCards.forEach(card => {
+			const hasName = card.querySelector('.product-name');
+			const hasCategory = card.getAttribute('data-category');
+			
+			if (hasName && hasCategory) {
+				validCards.push(card);
+			} else {
+				card.remove();
+			}
+		});
+		
+		return validCards;
+	}
+	
+	const allProducts = cleanEmptyElements();
+	
+	let currentSlide = 0;
+	let visibleProducts = [];
+	let productsPerSlide = 4;
+	
+	function filterProducts(category) {
+		allProducts.forEach(product => {
+			product.style.display = 'none';
+			product.style.opacity = '0';
+		});
+		
+		visibleProducts = [];
+		
+		allProducts.forEach(product => {
+			const productCategory = product.getAttribute('data-category');
+			
+			if (category === 'all' || productCategory === category) {
+				visibleProducts.push(product);
+			}
+		});
+		
+		currentSlide = 0;
+		updateSlider();
+	}
+	
+	function updateSlider() {
+		const maxSlides = Math.ceil(visibleProducts.length / productsPerSlide);
+		
+		visibleProducts.forEach((product, index) => {
+			const slideIndex = Math.floor(index / productsPerSlide);
+			if (slideIndex === currentSlide) {
+				product.style.display = 'block';
+				product.style.opacity = '1';
+			} else {
+				product.style.display = 'none';
+				product.style.opacity = '0';
+			}
+		});
+		
+		prevBtn.disabled = currentSlide === 0;
+		nextBtn.disabled = currentSlide >= maxSlides - 1;
+		
+		prevBtn.style.visibility = 'visible';
+		prevBtn.style.opacity = '1';
+		nextBtn.style.visibility = 'visible';
+		nextBtn.style.opacity = '1';
+	}
+	
+	filterButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			filterButtons.forEach(btn => btn.classList.remove('active'));
+			button.classList.add('active');
+			
+			const category = button.getAttribute('data-filter');
+			filterProducts(category);
+		});
+	});
+	
+	prevBtn.addEventListener('click', () => {
+		if (currentSlide > 0) {
+			currentSlide--;
+			updateSlider();
+		}
+	});
+	
+	nextBtn.addEventListener('click', () => {
+		const maxSlides = Math.ceil(visibleProducts.length / productsPerSlide);
+		if (currentSlide < maxSlides - 1) {
+			currentSlide++;
+			updateSlider();
+		}
+	});
+	
+	window.addEventListener('resize', () => {
+		forceGridLayout();
+		updateSlider();
+	});
+	
+	function forceGridLayout() {
+		const windowWidth = window.innerWidth;
+		
+		if (windowWidth > 1200) {
+			productsPerSlide = 4;
+			productsGrid.style.setProperty('grid-template-columns', 'repeat(4, 1fr)', 'important');
+			productsGrid.style.setProperty('max-width', '1539px', 'important');
+		} else if (windowWidth > 768) {
+			productsPerSlide = 2;
+			productsGrid.style.setProperty('grid-template-columns', 'repeat(2, 1fr)', 'important');
+			productsGrid.style.setProperty('max-width', '800px', 'important');
+		} else {
+			productsPerSlide = 1;
+			productsGrid.style.setProperty('grid-template-columns', '1fr', 'important');
+			productsGrid.style.setProperty('max-width', '400px', 'important');
+		}
+	}
+	
+	forceGridLayout();
+	filterProducts('all');
+	
+	filterButtons.forEach(btn => btn.classList.remove('active'));
+	document.querySelector('[data-filter="all"]').classList.add('active');
+});
+
+// About Product Slider - Separate DOMContentLoaded listener  
+document.addEventListener('DOMContentLoaded', function() {
+		// Wait a bit more to ensure all elements are rendered
+	setTimeout(() => {
+		const sliderTrack = document.querySelector('.product-slider-track');
+		const dots = document.querySelectorAll('.slider-dots .dot');
+		const productCards = document.querySelectorAll('.about-product-card');
+
+	if (!sliderTrack) {
+		return;
+	}
+	
+	if (!dots.length) {
+		return;
+	}
+	
+	if (!productCards.length) {
+		return;
+	}
+	
+	let currentSlideIndex = 0;
+	const totalSlides = productCards.length;
+	let autoPlayInterval = null;
+	let isTransitioning = false;
+	
+	function getCardWidth() {
+		const screenWidth = window.innerWidth;
+		if (screenWidth <= 768) return 300; // Mobile
+		if (screenWidth <= 1200) return 350; // Tablet
+		return 400; // Desktop
+	}
+	
+	function updateSlider(slideIndex, force = false) {
+		if (isTransitioning && !force) return;
+		
+		// Geçerli slide index kontrolü
+		if (slideIndex < 0 || slideIndex >= totalSlides) return;
+		
+		isTransitioning = true;
+		currentSlideIndex = slideIndex;
+		
+		// Slider'ı hareket ettir
+		const cardWidth = getCardWidth();
+		const translateX = -(slideIndex * cardWidth);
+		sliderTrack.style.transform = `translateX(${translateX}px)`;
+		
+		// Active state'leri güncelle - önce tümünü temizle
+		productCards.forEach((card) => {
+			card.classList.remove('active');
+		});
+		
+		dots.forEach((dot) => {
+			dot.classList.remove('active');
+		});
+		
+		// Sonra sadece seçilen index'e active ekle
+		if (productCards[slideIndex]) {
+			productCards[slideIndex].classList.add('active');
+		}
+		
+		if (dots[slideIndex]) {
+			dots[slideIndex].classList.add('active');
+	
+		}
+		
+		// Transition bitiminde flag'i sıfırla
+		setTimeout(() => {
+			isTransitioning = false;
+		}, 800); // CSS transition süresi ile aynı (0.8s)
+	}
+	
+	function startAutoPlay() {
+		stopAutoPlay();
+		autoPlayInterval = setInterval(() => {
+			const nextIndex = (currentSlideIndex + 1) % totalSlides;
+			updateSlider(nextIndex);
+		}, 5000); // Biraz daha uzun süre - daha rahat
+	}
+	
+	function stopAutoPlay() {
+		if (autoPlayInterval) {
+			clearInterval(autoPlayInterval);
+			autoPlayInterval = null;
+		}
+	}
+	
+	// Dot navigation events
+	dots.forEach((dot, index) => {
+		dot.addEventListener('click', (e) => {
+			e.preventDefault();
+			e.stopPropagation();
+
+			stopAutoPlay();
+			updateSlider(index, true); // Force update
+
+			// Auto-play'i yeniden başlat
+			setTimeout(() => {
+				startAutoPlay();
+			}, 1000);
+		});
+	});
+	
+	// Hover events
+	const sliderContainer = document.querySelector('.product-slider-container');
+	if (sliderContainer) {
+		sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+		sliderContainer.addEventListener('mouseleave', startAutoPlay);
+	}
+	
+	// Touch/Swipe events for manual sliding
+	let startX = 0;
+	let startY = 0;
+	let currentX = 0;
+	let currentY = 0;
+	let isSwping = false;
+	let isDragging = false;
+	
+	if (sliderTrack) {
+		// Touch start
+		sliderTrack.addEventListener('touchstart', (e) => {
+			startX = e.touches[0].clientX;
+			startY = e.touches[0].clientY;
+			isSwping = true;
+			isDragging = false;
+			stopAutoPlay();
+		}, { passive: true });
+		
+		// Touch move
+		sliderTrack.addEventListener('touchmove', (e) => {
+			if (!isSwping) return;
+			
+			currentX = e.touches[0].clientX;
+			currentY = e.touches[0].clientY;
+			
+			const diffX = startX - currentX;
+			const diffY = startY - currentY;
+			
+			// Check if horizontal swipe (not vertical scroll)
+			if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+				isDragging = true;
+				e.preventDefault(); // Prevent page scroll
+			}
+		}, { passive: false });
+		
+		// Touch end
+		sliderTrack.addEventListener('touchend', () => {
+			if (isSwping && isDragging) {
+				const diffX = startX - currentX;
+				const threshold = 50; // Minimum swipe distance
+				
+				if (Math.abs(diffX) > threshold) {
+					if (diffX > 0) {
+						// Swipe left - next slide
+						const nextIndex = Math.min(currentSlideIndex + 1, totalSlides - 1);
+			
+						updateSlider(nextIndex, true);
+					} else {
+						// Swipe right - previous slide
+						const prevIndex = Math.max(currentSlideIndex - 1, 0);
+
+						updateSlider(prevIndex, true);
+					}
+				}
+			}
+			
+			// Reset flags
+			isSwping = false;
+			isDragging = false;
+			
+			// Resume auto-play after delay
+			setTimeout(() => {
+				startAutoPlay();
+			}, 1500);
+		}, { passive: true });
+		
+		// Mouse drag events for desktop
+		let isMouseDown = false;
+		let mouseStartX = 0;
+		
+		sliderTrack.addEventListener('mousedown', (e) => {
+			isMouseDown = true;
+			mouseStartX = e.clientX;
+			stopAutoPlay();
+			sliderTrack.style.cursor = 'grabbing';
+		});
+		
+		sliderTrack.addEventListener('mousemove', (e) => {
+			if (!isMouseDown) return;
+			
+			const diffX = mouseStartX - e.clientX;
+			if (Math.abs(diffX) > 10) {
+				e.preventDefault();
+			}
+		});
+		
+		sliderTrack.addEventListener('mouseup', (e) => {
+			if (!isMouseDown) return;
+			
+			const diffX = mouseStartX - e.clientX;
+			const threshold = 50;
+			
+			if (Math.abs(diffX) > threshold) {
+				if (diffX > 0) {
+					// Drag left - next slide
+					const nextIndex = Math.min(currentSlideIndex + 1, totalSlides - 1);
+					
+					updateSlider(nextIndex, true);
+				} else {
+					// Drag right - previous slide
+					const prevIndex = Math.max(currentSlideIndex - 1, 0);
+
+					updateSlider(prevIndex, true);
+				}
+			}
+			
+			isMouseDown = false;
+			sliderTrack.style.cursor = 'grab';
+			
+			// Resume auto-play after delay
+			setTimeout(() => {
+				startAutoPlay();
+			}, 1500);
+		});
+		
+		sliderTrack.addEventListener('mouseleave', () => {
+			if (isMouseDown) {
+				isMouseDown = false;
+				sliderTrack.style.cursor = 'grab';
+			}
+		});
+		
+		// Set initial cursor
+		sliderTrack.style.cursor = 'grab';
+	}
+	
+	// Keyboard navigation
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'ArrowLeft') {
+			const prevIndex = Math.max(currentSlideIndex - 1, 0);
+			
+			stopAutoPlay();
+			updateSlider(prevIndex, true);
+			setTimeout(() => startAutoPlay(), 2000);
+		} else if (e.key === 'ArrowRight') {
+			const nextIndex = Math.min(currentSlideIndex + 1, totalSlides - 1);
+
+			stopAutoPlay();
+			updateSlider(nextIndex, true);
+			setTimeout(() => startAutoPlay(), 2000);
+		}
+	});
+	
+	// Resize event
+	let resizeTimeout;
+	window.addEventListener('resize', () => {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(() => {
+			updateSlider(currentSlideIndex, true);
+		}, 100);
+	});
+	
+		// Initialize - elements should be available now
+		
+		updateSlider(0, true);
+		startAutoPlay();
+	}, 200); // Delay to ensure DOM is fully rendered
+});
+</script>

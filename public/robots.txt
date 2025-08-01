@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://voltzpowertools.com/sitemap-index.xml
+Sitemap: https://voltzpowertools.com/sitemap-0.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Block access to potentially sensitive files
+Disallow: /api/
+Disallow: *.json$
+Disallow: /src/
+Disallow: /node_modules/
+
+# Allow important pages
+Allow: /products/
+Allow: /about
+Allow: /contact
+Allow: /v-pack
+
+# Contact
+# Web: https://voltzpowertools.com
+# Email: info@voltzpowertools.com 

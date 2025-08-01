@@ -1,0 +1,1755 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import productsData from '@/data/products.json';
+---
+
+<Layout 
+  title="Ürünler - Voltz Power Tools | Akülü El Aletleri Kataloğu"
+  description="Voltz Power Tools tam ürün kataloğu. Brushless motor teknolojili akülü matkaplar, tornavidalar, taşlama makineleri, V-PACK batarya sistemi. 16.8V ve 20V seçenekleri."
+  keywords="voltz ürünler, akülü matkap, akülü tornavida, akülü taşlama, v-pack batarya, 16.8V alet, 20V alet, brushless motor"
+>
+
+	<!-- Products Hero Section -->
+	<section class="products-hero-section">
+		<div class="site-background-overlay"></div>
+		<div class="container">
+			<div class="products-hero-content">
+				<h1 class="products-hero-title">Ürünlerimiz</h1>
+				<p class="products-hero-description">
+					Profesyonel işlerinizi bir üst seviyeye taşıyacak premium kalitede el aletleri. 
+					Her ürün V-PACK batarya sistemi ile uyumlu ve en yeni teknolojilerle donatılmış.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Products Filter & Grid Section -->
+	<section class="products-section">
+		<div class="container">
+			<!-- Section Header -->
+			<div class="products-header">
+				<h3 class="products-title">Voltz Ürün <span class="highlight-text">Kataloğu</span></h3>
+				
+				<!-- Progress Bar -->
+				<div class="progress-bar">
+					<div class="progress-segment-left"></div>
+					<div class="progress-segment-2"></div>
+					<div class="progress-segment-3"></div>
+				</div>
+			</div>
+
+			<!-- Filter Buttons - Desktop -->
+			<div class="products-filters desktop-filters">
+				<button class="filter-btn active" data-filter="all">
+					<span class="btn-text">HEPSİ</span>
+				</button>
+				<button class="filter-btn" data-filter="drill">
+					<span class="btn-text">MATKAPLAR</span>
+				</button>
+				<button class="filter-btn" data-filter="driver">
+					<span class="btn-text">VİDALAMA</span>
+				</button>
+				<button class="filter-btn" data-filter="grinder">
+					<span class="btn-text">TAŞLAMA</span>
+				</button>
+				<button class="filter-btn" data-filter="hammer">
+					<span class="btn-text">KIRICI</span>
+				</button>
+				<button class="filter-btn" data-filter="battery">
+					<span class="btn-text">BATARYA</span>
+				</button>
+				<button class="filter-btn" data-filter="charger">
+					<span class="btn-text">ŞARJ</span>
+				</button>
+				<button class="filter-btn" data-filter="storage">
+					<span class="btn-text">TAŞIMA</span>
+				</button>
+			</div>
+
+					<!-- Mobile Filter Button -->
+		<div class="mobile-filter-container">
+					<button class="mobile-filter-btn" id="mobileFilterBtn">
+			<span class="mobile-filter-text">Kategori Seç</span>
+				<span class="mobile-filter-selected">HEPSİ</span>
+				<svg class="mobile-filter-icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
+					<path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+		</div>
+
+					
+
+
+			<!-- Products Grid -->
+			<div class="products-grid" id="productsGrid">
+				{productsData.map((product) => (
+					<div class="product-card" data-category={product.category} data-voltage={product.voltage ? product.voltage.replace('V', 'v').toLowerCase() : 'n-a'}>
+				
+						
+						<!-- Product Image -->
+						<div class="product-image-container">
+							<img src={product.image} alt={product.title} class="product-image">
+							
+							<!-- Battery Voltage Icon - Görsel bölümünün sağ alt köşesi -->
+							{product.voltage && product.voltage !== "N/A" && product.category !== 'storage' && (
+								<div class="battery-voltage-icon">
+									<img 
+										src={product.voltage.includes("20") ? "/icons/20pack-icon.svg" : "/icons/16.8pack-icon.svg"} 
+										alt={product.voltage} 
+										class="voltage-icon"
+									>
+								</div>
+							)}
+						</div>
+						
+						<!-- Product Info -->
+						<div class="product-info">
+							<h4 class="product-name">{product.title}</h4>
+							<p class="product-description">{product.description}</p>
+							
+							<!-- Product Features -->
+							<div class="product-features">
+								{/* Matkaplar ve Elektrikli Aletler için */}
+								{(product.category === 'drill' || product.category === 'driver' || product.category === 'grinder' || product.category === 'hammer') && (
+									<>
+										{product.voltage && (
+											<div class="feature-item">
+												<span class="feature-label">Voltaj:</span>
+												<span class="feature-value">{product.voltage}</span>
+											</div>
+										)}
+										{product.torque && (
+											<div class="feature-item">
+												<span class="feature-label">Tork:</span>
+												<span class="feature-value">{product.torque}</span>
+											</div>
+										)}
+										{product.speed && (
+											<div class="feature-item">
+												<span class="feature-label">Hız:</span>
+												<span class="feature-value">{product.speed}</span>
+											</div>
+										)}
+										{product.bpm && (
+											<div class="feature-item">
+												<span class="feature-label">Darbe:</span>
+												<span class="feature-value">{product.bpm}</span>
+											</div>
+										)}
+									</>
+								)}
+								
+								{/* Bataryalar için */}
+								{product.category === 'battery' && (
+									<>
+										{product.voltage && (
+											<div class="feature-item">
+												<span class="feature-label">Voltaj:</span>
+												<span class="feature-value">{product.voltage}</span>
+											</div>
+										)}
+										{product.capacity && (
+											<div class="feature-item">
+												<span class="feature-label">Kapasite:</span>
+												<span class="feature-value">{product.capacity}</span>
+											</div>
+										)}
+										{product.energy && (
+											<div class="feature-item">
+												<span class="feature-label">Enerji:</span>
+												<span class="feature-value">{product.energy}</span>
+											</div>
+										)}
+									</>
+								)}
+								
+								{/* Şarj Cihazları için */}
+								{product.category === 'charger' && (
+									<>
+										{product.voltage && (
+											<div class="feature-item">
+												<span class="feature-label">Voltaj:</span>
+												<span class="feature-value">{product.voltage}</span>
+											</div>
+										)}
+										{product.current && (
+											<div class="feature-item">
+												<span class="feature-label">Çıkış:</span>
+												<span class="feature-value">{product.current}</span>
+											</div>
+										)}
+									</>
+								)}
+								
+								{/* V-STACK için özellik gösterme */}
+								{product.category === 'storage' && (
+									<>
+										{product.weight && (
+											<div class="feature-item">
+												<span class="feature-label">Ağırlık:</span>
+												<span class="feature-value">{product.weight}</span>
+											</div>
+										)}
+										{product.capacity && (
+											<div class="feature-item">
+												<span class="feature-label">Kapasite:</span>
+												<span class="feature-value">{product.capacity}</span>
+											</div>
+										)}
+									</>
+								)}
+							</div>
+							
+						</div>
+						
+											<!-- Product Actions -->
+					<div class="product-actions">
+						<a href={`/products/${product.id}`} class="product-detail-btn">DETAYLAR</a>
+					</div>
+					</div>
+				))}
+			</div>
+
+			<!-- No Results Message -->
+			<div id="noResults" class="no-results hidden">
+				<div class="no-results-content">
+					<span class="no-results-icon">🔍</span>
+					<h4 class="no-results-title">Ürün Bulunamadı</h4>
+					<p class="no-results-text">Bu kategoride henüz ürün bulunmamaktadır.</p>
+				</div>
+			</div>
+
+
+		</div>
+	</section>
+
+	<!-- V-PACK CTA Section -->
+	<section class="vpack-cta-section">
+		<div class="container">
+			<div class="vpack-cta-content">
+				<h2 class="vpack-cta-title"><span class="highlight-text">V-PACK</span> Ekosistemi</h2>
+				<p class="vpack-cta-description">
+					Tüm Voltz aletleriniz için tek batarya sistemi. Zaman ve maliyet tasarrufu için V-PACK'i keşfedin.
+				</p>
+				<a href="/v-pack" class="vpack-cta-btn">V-PACK'İ KEŞFET</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-content">
+				<!-- Footer Logo -->
+				<div class="footer-logo">
+					<img src="/img/logo/footer-logo.svg" alt="Voltz Power Tools" class="footer-logo-img">
+				</div>
+				
+				<!-- Footer Main Content -->
+				<div class="footer-main">
+					<!-- Company Info -->
+					<div class="footer-company">
+						<h4 class="footer-company-title">Voltz Power Tools</h4>
+						<p class="footer-company-desc">
+							Profesyonel el aletlerinde güvenin adresi.
+						</p>
+					</div>
+					
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<div class="footer-address">
+							<p class="footer-contact-title">Adres</p>
+							<p class="footer-contact-text">
+								Teknoloji Caddesi No: 123<br>
+								Sanayi Mahallesi, İstanbul<br>
+								Türkiye 34000
+							</p>
+						</div>
+						
+						<div class="footer-email">
+							<p class="footer-contact-title">İletişim</p>
+							<p class="footer-contact-text">
+								E-posta: <a href="mailto:info@voltzpowertools.com" class="footer-link">info@voltzpowertools.com</a><br>
+								Telefon: <a href="tel:+902123456789" class="footer-link">+90 212 345 67 89</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Footer Bottom -->
+				<div class="footer-bottom">
+					<!-- Social Media -->
+					<div class="footer-social">
+						<a href="#" class="social-link" aria-label="LinkedIn">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+							</svg>
+						</a>
+						<a href="#" class="social-link" aria-label="Instagram">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/>
+							</svg>
+						</a>
+					</div>
+					
+					<!-- Copyright -->
+					<div class="footer-copyright">
+						<p>© 2025 Voltz Power Tools. Tüm hakları saklıdır.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</Layout>
+
+<style>
+/* ===========================================
+   PRODUCTS HERO SECTION
+   ========================================== */
+.products-hero-section {
+	position: relative;
+	background-color: #070707;
+	padding: 120px 0 80px 0;
+	overflow: hidden;
+}
+
+.products-hero-content {
+	text-align: center;
+	max-width: 800px;
+	margin: 0 auto;
+	z-index: 2;
+	position: relative;
+}
+
+.products-hero-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: clamp(48px, 8vw, 72px);
+	color: var(--color-white);
+	margin-bottom: 30px;
+	line-height: 1.1;
+}
+
+.products-hero-description {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: clamp(18px, 3vw, 24px);
+	color: var(--color-white);
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* ===========================================
+   PRODUCTS SECTION
+   ========================================== */
+.products-section {
+	padding: 100px 0;
+	background-color: #070707;
+	position: relative;
+}
+
+.products-header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.products-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: clamp(32px, 5vw, 48px);
+	color: var(--color-white);
+	margin-bottom: 30px;
+	line-height: 1.2;
+}
+
+.highlight-text {
+	color: var(--color-primary-green);
+}
+
+/* Progress Bar */
+.progress-bar {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin-bottom: 40px;
+}
+
+.progress-segment-1,
+.progress-segment-left,
+.progress-segment-2,
+.progress-segment-3 {
+	height: 3px;
+	border-radius: 2px;
+}
+
+.progress-segment-1 {
+	width: 60px;
+	background: linear-gradient(90deg, var(--color-primary-green) 0%, var(--color-light-green) 100%);
+}
+
+.progress-segment-left {
+	width: 20px;
+	background: var(--color-light-green);
+	/* Sol alt çeltik - sağ çeltiğin ayna görüntüsü */
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%, 0 0%);
+}
+
+.progress-segment-2 {
+	width: 40px;
+	background: var(--color-primary-green);
+}
+
+.progress-segment-3 {
+	width: 20px;
+	background: var(--color-light-green);
+	/* Çeltikli sağ köşe */
+	clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+}
+
+/* Desktop - Hide ALL Mobile Filter Elements */
+.mobile-filter-container,
+.mobile-filter-modal {
+	display: none !important;
+}
+
+/* Filter Buttons - Ana sayfadaki gibi */
+.products-filters {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 50px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.filter-btn {
+	width: 110px;
+	height: 36px;
+	background: var(--color-white);
+	border: none;
+	border-radius: 0;
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	/* Çeltikli tasarım - sağ alt köşe kesik */
+	clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
+}
+
+.filter-btn.active {
+	background: var(--color-light-green);
+}
+
+.filter-btn .btn-text {
+	color: var(--color-light-green);
+	font-family: 'GeneralSans-Semibold', sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.filter-btn.active .btn-text {
+	color: var(--color-dark);
+}
+
+/* Sub-Category Filters */
+.sub-category-filters {
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+
+
+/* Products Grid */
+.products-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	margin-bottom: 50px;
+	max-width: 1539px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Product Card */
+.product-card {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 20px;
+	padding: 25px;
+	position: relative;
+	transition: all 0.3s ease;
+	overflow: hidden;
+	opacity: 1;
+	transform: translateY(0);
+	display: flex;
+	flex-direction: column;
+	height: 500px; /* Sabit yükseklik */
+}
+
+.product-card.hidden {
+	display: none !important;
+}
+
+.product-card:hover {
+	transform: translateY(-5px);
+	border-color: var(--color-primary-green);
+	box-shadow: 0 10px 40px rgba(68, 214, 44, 0.15);
+}
+
+
+
+.product-image-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 12px;
+	background-color: #ffffff;
+	padding: 20px;
+	height: 220px;
+}
+
+.product-image {
+	width: 100%;
+	height: 180px;
+	object-fit: contain;
+	object-position: center;
+	transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+	transform: scale(1.05);
+}
+
+.product-info {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.product-name {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	color: var(--color-white);
+	margin-bottom: 10px;
+	line-height: 1.2;
+}
+
+.product-description {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.7);
+	line-height: 1.4;
+	margin-bottom: 15px;
+}
+
+.product-features {
+	margin-bottom: 15px;
+}
+
+.feature-item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 8px;
+	font-size: 13px;
+}
+
+.feature-label {
+	color: rgba(255, 255, 255, 0.6);
+	font-family: 'GeneralSans-Regular', sans-serif;
+}
+
+.feature-value {
+	color: var(--color-white);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 600;
+}
+
+
+
+.product-image-container .battery-voltage-icon {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	z-index: 4;
+}
+
+.voltage-icon {
+	width: auto;
+	height: 40px;
+}
+
+.product-actions {
+	display: flex;
+	gap: 10px;
+	margin-top: auto;
+}
+
+.product-detail-btn {
+	flex: 1;
+	background: linear-gradient(135deg, var(--color-primary-green) 0%, var(--color-light-green) 100%);
+	color: var(--color-dark);
+	border: none;
+	padding: 12px 20px;
+	border-radius: 8px;
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+}
+
+.product-detail-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(68, 214, 44, 0.4);
+}
+
+
+
+/* No Results */
+.no-results {
+	text-align: center;
+	padding: 80px 20px;
+}
+
+.no-results.hidden {
+	display: none;
+}
+
+.no-results-content {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.no-results-icon {
+	display: block;
+	font-size: 64px;
+	margin-bottom: 20px;
+}
+
+.no-results-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 24px;
+	color: var(--color-white);
+	margin-bottom: 10px;
+}
+
+.no-results-text {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.6);
+	line-height: 1.5;
+}
+
+
+
+/* ===========================================
+   V-PACK CTA SECTION
+   ========================================== */
+.vpack-cta-section {
+	padding: 80px 0;
+	background: linear-gradient(135deg, rgba(68, 214, 44, 0.1) 0%, rgba(129, 229, 105, 0.05) 100%);
+	position: relative;
+}
+
+.vpack-cta-content {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.vpack-cta-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: clamp(32px, 5vw, 48px);
+	color: var(--color-white);
+	margin-bottom: 20px;
+	line-height: 1.2;
+}
+
+.vpack-cta-description {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	color: var(--color-white);
+	line-height: 1.6;
+	margin-bottom: 40px;
+}
+
+.vpack-cta-btn {
+	display: inline-flex;
+	align-items: center;
+	background: linear-gradient(135deg, var(--color-primary-green) 0%, var(--color-light-green) 100%);
+	color: var(--color-dark);
+	padding: 18px 40px;
+	border-radius: 12px;
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: all 0.3s ease;
+}
+
+.vpack-cta-btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 25px rgba(68, 214, 44, 0.4);
+}
+
+/* ===========================================
+   FOOTER SECTION - Ana sayfadan kopyalanan
+   ========================================== */
+.footer-section {
+	margin-top: 150px;
+	padding: 60px 0;
+	background-color: var(--color-light-green);
+	position: relative;
+	z-index: 5;
+}
+
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.footer-logo {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.footer-logo-img {
+	height: 60px;
+	width: auto;
+	object-fit: contain;
+}
+
+.footer-main {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 60px;
+}
+
+.footer-company {
+	flex: 1;
+}
+
+.footer-company-title {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.2;
+	margin: 0 0 10px 0;
+	text-align: left;
+}
+
+.footer-company-desc {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.footer-contact {
+	display: flex;
+	gap: 40px;
+}
+
+.footer-contact-title {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.2;
+	margin: 0 0 8px 0;
+}
+
+.footer-contact-text {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.footer-link {
+	color: var(--color-dark);
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+	color: var(--color-white);
+}
+
+.footer-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 30px;
+	border-top: 1px solid rgba(11, 12, 12, 0.2);
+}
+
+.footer-social {
+	display: flex;
+	gap: 15px;
+}
+
+.social-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: var(--color-dark);
+	color: var(--color-light-green);
+	border-radius: 50%;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.social-link:hover {
+	background-color: var(--color-white);
+	color: var(--color-dark);
+	transform: translateY(-2px);
+}
+
+.footer-copyright {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+}
+
+.footer-copyright p {
+	margin: 0;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 1200px) {
+	.products-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 25px;
+	}
+	
+	.footer-section {
+		margin-top: 100px;
+		padding: 50px 0;
+	}
+	
+	.footer-main {
+		flex-direction: column;
+		gap: 40px;
+		text-align: left;
+	}
+	
+	.footer-contact {
+		flex-direction: column;
+		gap: 30px;
+	}
+	
+	.footer-bottom {
+		flex-direction: column;
+		gap: 20px;
+		text-align: center;
+	}
+	
+	.footer-logo-img {
+		height: 50px;
+	}
+	
+	.footer-company-title {
+		font-size: 20px;
+		text-align: left;
+	}
+	
+	.footer-company-desc {
+		font-size: 14px;
+	}
+}
+
+/* iPad Responsive (1024px) - Horizontal tablet optimization */
+@media (max-width: 1024px) and (min-width: 769px) {
+	/* iPad - Hide Mobile Filter, Use Desktop Filters */
+	.mobile-filter-container,
+	.mobile-filter-modal {
+		display: none !important;
+	}
+
+	.products-hero-section {
+		padding: clamp(60px, 10vh, 80px) 0 clamp(50px, 8vh, 70px) 0;
+	}
+	
+	.products-hero-title {
+		font-size: clamp(36px, 6vw, 48px);
+		line-height: 1.2;
+	}
+	
+	.products-hero-description {
+		font-size: clamp(16px, 3vw, 20px);
+		max-width: 85%;
+		margin: 0 auto;
+	}
+	
+	.products-section {
+		padding: clamp(60px, 10vh, 80px) 0;
+	}
+	
+	.products-grid {
+		grid-template-columns: repeat(2, 1fr); /* iPad'de 2 sütun */
+		gap: clamp(20px, 4vw, 30px);
+	}
+	
+	.product-card {
+		height: clamp(420px, 55vh, 480px);
+	}
+	
+	.product-image-container {
+		height: clamp(160px, 20vh, 200px);
+	}
+	
+	.products-filters {
+		gap: clamp(12px, 2vw, 18px);
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	.filter-btn {
+		padding: clamp(10px, 2vw, 14px) clamp(18px, 3vw, 25px);
+		font-size: clamp(13px, 2.5vw, 16px);
+	}
+	
+	.vpack-cta-section {
+		padding: clamp(60px, 10vh, 80px) 0;
+	}
+	
+	.cta-title {
+		font-size: clamp(28px, 5vw, 36px);
+	}
+	
+	.cta-description {
+		font-size: clamp(16px, 3vw, 18px);
+		max-width: 85%;
+	}
+}
+
+@media (max-width: 768px) {
+	.products-hero-section {
+		padding: 100px 0 60px 0;
+	}
+
+	/* Mobile Filter System */
+	.desktop-filters {
+		display: none;
+	}
+
+	.mobile-filter-container {
+		display: block !important;
+		margin-bottom: 30px;
+	}
+
+	.mobile-filter-btn {
+		width: 100%;
+		background: #070707;
+		border: 2px solid #6BE03F;
+		border-radius: 8px;
+		padding: 15px 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.mobile-filter-btn:hover {
+		background: rgba(107, 224, 63, 0.1);
+	}
+
+	.mobile-filter-btn.active {
+		background: transparent !important;
+		opacity: 0.5;
+	}
+
+	.mobile-filter-text {
+		color: #6BE03F;
+		font-family: 'GeneralSans-Semibold', sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	.mobile-filter-selected {
+		color: #ffffff;
+		font-family: 'GeneralSans-Medium', sans-serif;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	.mobile-filter-icon {
+		color: #6BE03F;
+		transition: transform 0.3s ease;
+	}
+
+	.mobile-filter-btn.active .mobile-filter-icon {
+		transform: rotate(180deg);
+	}
+
+	/* Mobile Filter Modal */
+	.mobile-filter-modal {
+		position: fixed !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+		z-index: 99999 !important;
+		opacity: 0 !important;
+		visibility: hidden !important;
+		transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+		background-color: rgba(0, 0, 0, 0.6) !important;
+		backdrop-filter: blur(8px) !important;
+		pointer-events: none !important;
+	}
+
+	.mobile-filter-modal.active {
+		opacity: 1 !important;
+		visibility: visible !important;
+		pointer-events: auto !important;
+	}
+	
+	.mobile-filter-modal.active .mobile-filter-modal-content {
+		transform: translateY(0) !important;
+	}
+
+	.mobile-filter-modal-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+	}
+
+	.mobile-filter-modal-content {
+		position: absolute !important;
+		bottom: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		background: #070707 !important;
+		border-radius: 20px 20px 0 0 !important;
+		border: 2px solid #6BE03F !important;
+		transform: translateY(100%) !important;
+		transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+		max-height: 70vh !important;
+		overflow-y: auto !important;
+		box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8) !important;
+		z-index: 100000 !important;
+	}
+
+	.mobile-filter-modal-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 25px;
+		border-bottom: 1px solid rgba(107, 224, 63, 0.2);
+	}
+
+	.mobile-filter-modal-header h3 {
+		color: #ffffff;
+		font-family: 'GeneralSans-Semibold', sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	.mobile-filter-close {
+		background: none;
+		border: none;
+		color: #6BE03F;
+		cursor: pointer;
+		padding: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+	}
+
+	.mobile-filter-close:hover {
+		color: #ffffff;
+		transform: rotate(90deg);
+	}
+
+	.mobile-filter-options {
+		padding: 10px 0;
+		max-height: 50vh;
+		overflow-y: auto;
+	}
+
+	.mobile-filter-option {
+		width: 100%;
+		background: none;
+		border: none;
+		padding: 15px 25px;
+		text-align: left;
+		color: #cccccc;
+		font-family: 'GeneralSans-Medium', sans-serif;
+		font-size: 16px;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	.mobile-filter-option:hover {
+		background: rgba(107, 224, 63, 0.1);
+		color: #6BE03F;
+	}
+
+	.mobile-filter-option.active {
+		color: #6BE03F;
+		background: rgba(107, 224, 63, 0.15);
+	}
+
+	.mobile-filter-option.active::after {
+		content: '✓';
+		position: absolute;
+		right: 25px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	
+	.products-section {
+		padding: 60px 0;
+	}
+	
+	.products-filters {
+		gap: 10px;
+		margin-bottom: 30px;
+		justify-content: center;
+	}
+	
+	.filter-btn {
+		width: 100px;
+		height: 32px;
+	}
+	
+	.filter-btn .btn-text {
+		font-size: 12px;
+	}
+	
+	.sub-category-filters {
+		margin-bottom: 30px;
+	}
+	
+
+	.products-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+	
+	.product-card {
+		padding: 20px;
+		height: 450px; /* Tablet için sabit yükseklik */
+	}
+	
+	.product-image-container {
+		height: 180px;
+	}
+	
+	.product-image {
+		height: 140px;
+	}
+	
+	.product-name {
+		font-size: 16px;
+	}
+	
+	.product-description {
+		font-size: 13px;
+	}
+	
+	.feature-item {
+		font-size: 12px;
+	}
+	
+	.price-value {
+		font-size: 16px;
+	}
+	
+	.product-image-container .battery-voltage-icon {
+		bottom: 8px;
+		right: 8px;
+	}
+	
+	.voltage-icon {
+		height: 35px;
+		width: auto;
+	}
+	
+	.product-actions {
+		flex-direction: column;
+		gap: 8px;
+	}
+	
+	.product-detail-btn {
+		padding: 10px 16px;
+		font-size: 11px;
+		pointer-events: auto;
+		touch-action: manipulation;
+		z-index: 10;
+		position: relative;
+	}
+	
+	.vpack-cta-section {
+		padding: 60px 0;
+	}
+	
+	.footer-section {
+		margin-top: 60px;
+		padding: 40px 0;
+	}
+	
+	.footer-content {
+		gap: 25px;
+		padding: 0 15px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.footer-logo {
+		margin-bottom: 15px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	
+	.footer-main {
+		gap: 25px;
+		text-align: center;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+	}
+	
+	.footer-contact {
+		gap: 20px;
+		flex-direction: column;
+		text-align: center;
+		width: 100%;
+		align-items: center;
+	}
+	
+	.footer-company {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.footer-address, 
+	.footer-email {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.footer-bottom {
+		gap: 15px;
+		flex-direction: column;
+		text-align: center;
+		padding-top: 20px;
+	}
+	
+	.footer-logo-img {
+		height: 40px;
+	}
+	
+	.footer-company-title {
+		font-size: clamp(16px, 4vw, 18px);
+		margin-bottom: 8px;
+		text-align: center;
+	}
+	
+	.footer-company-desc {
+		font-size: clamp(12px, 3vw, 13px);
+		line-height: 1.4;
+	}
+	
+	.footer-contact-title {
+		font-size: clamp(13px, 3.5vw, 14px);
+		margin-bottom: 5px;
+	}
+	
+	.footer-contact-text {
+		font-size: clamp(11px, 3vw, 12px);
+		line-height: 1.4;
+	}
+	
+	.footer-copyright {
+		font-size: clamp(10px, 3vw, 12px);
+		line-height: 1.3;
+	}
+	
+	.social-link {
+		width: 38px;
+		height: 38px;
+	}
+	
+	.footer-social {
+		justify-content: center;
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	.products-grid {
+		grid-template-columns: 1fr;
+		gap: 15px;
+	}
+	
+	.product-card {
+		padding: 15px;
+		height: 420px; /* Mobile için sabit yükseklik */
+	}
+	
+	.product-image-container {
+		height: 160px;
+	}
+	
+	.product-image {
+		height: 120px;
+	}
+	
+	.filter-btn {
+		width: 90px;
+		height: 28px;
+	}
+	
+	.filter-btn .btn-text {
+		font-size: 10px;
+	}
+	
+
+}
+
+/* Site Background Overlay */
+.site-background-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vw;
+	height: 100%;
+	background-image: url('/img/sections/background-bg.png');
+	background-size: auto 100%; /* Icon'un tam boyutunu korur */
+	background-position: right center; /* Tutarlı pozisyon */
+	background-repeat: no-repeat;
+	opacity: 0.25;
+	z-index: 0;
+	pointer-events: none;
+	mix-blend-mode: screen;
+	filter: brightness(0.9) contrast(1.3);
+}
+
+@media (max-width: 1200px) {
+	.site-background-overlay {
+		width: 70vw;
+		opacity: 0.22;
+		background-size: auto 90%; /* Tablet'te de boyut kontrolü */
+		background-position: right center; /* Tutarlı pozisyon */
+	}
+}
+
+@media (max-width: 768px) {
+	.site-background-overlay {
+		width: 80vw;
+		opacity: 0.18;
+		background-size: auto 80%; /* Mobile'da biraz küçült */
+		background-position: right center; /* Tutarlı pozisyon */
+	}
+}
+</style>
+
+<script>
+// Products Filter Functionality - Ana sayfadaki gibi basit
+document.addEventListener('DOMContentLoaded', function() {
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	const productCards = document.querySelectorAll('.product-card');
+	const noResults = document.getElementById('noResults');
+	
+	// Show all products without any filtering
+	function showAllProducts() {
+		productCards.forEach(card => {
+			card.classList.remove('hidden');
+		});
+		
+		// Hide no results message
+		noResults?.classList.add('hidden');
+	}
+	
+	// Filter products based on category
+	function filterProducts(filterValue) {
+		let visibleCount = 0;
+		
+		productCards.forEach(card => {
+			const category = card.getAttribute('data-category').toLowerCase();
+			const voltage = card.getAttribute('data-voltage').toLowerCase();
+			
+			let shouldShow = false;
+			
+			if (filterValue === 'all') {
+				shouldShow = true;
+					} else if (filterValue === 'drill') {
+			// Matkaplar - tüm matkap ürünlerini göster
+			shouldShow = category === 'drill';
+			} else if (filterValue === 'driver') {
+				// Vidalama araçları: tornavida ve somun sökme
+				shouldShow = category === 'driver';
+			} else if (filterValue === 'grinder') {
+				// Taşlama araçları
+				shouldShow = category === 'grinder';
+			} else if (filterValue === 'hammer') {
+				// Kırıcı delici araçları
+				shouldShow = category === 'hammer';
+			} else if (filterValue === 'battery') {
+				// Bataryalar
+				shouldShow = category === 'battery';
+			} else if (filterValue === 'charger') {
+				// Şarj cihazları
+				shouldShow = category === 'charger';
+			} else if (filterValue === 'storage') {
+				// Taşıma kutusu sistemi
+				shouldShow = category === 'storage';
+			} else {
+				shouldShow = category === filterValue;
+			}
+			
+			if (shouldShow) {
+				card.classList.remove('hidden');
+				visibleCount++;
+			} else {
+				card.classList.add('hidden');
+			}
+		});
+		
+		// Show/hide no results message
+		if (visibleCount === 0) {
+			noResults?.classList.remove('hidden');
+		} else {
+			noResults?.classList.add('hidden');
+		}
+	}
+	
+	// Main filter button event listeners
+	filterButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			filterButtons.forEach(btn => btn.classList.remove('active'));
+			button.classList.add('active');
+			
+			const filterValue = button.getAttribute('data-filter');
+			
+			if (filterValue === 'all') {
+				showAllProducts();
+			} else {
+				filterProducts(filterValue);
+			}
+		});
+	});
+	
+	// DETAYLAR buttons are now direct links to product detail pages
+	
+	// Mobile Filter Modal Functionality - With Delay
+	setTimeout(function() {
+		const mobileFilterBtn = document.getElementById('mobileFilterBtn');
+		const mobileFilterModal = document.getElementById('mobileFilterModal');
+		const mobileFilterClose = document.getElementById('mobileFilterClose');
+		const mobileFilterOverlay = document.querySelector('.mobile-filter-modal-overlay');
+		const mobileFilterOptions = document.querySelectorAll('.mobile-filter-option');
+
+
+	const mobileFilterSelected = document.querySelector('.mobile-filter-selected');
+	const mobileFilterIcon = document.querySelector('.mobile-filter-icon');
+
+			// Create modal dynamically
+		function createModal() {
+			const modal = document.createElement('div');
+			modal.id = 'mobileFilterModal';
+			modal.innerHTML = `
+				<div class="mobile-filter-modal-overlay"></div>
+				<div class="mobile-filter-modal-content">
+					<div class="mobile-filter-modal-header">
+						<h3>Kategori Seçin</h3>
+						<button class="mobile-filter-close" id="mobileFilterClose">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+								<path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</button>
+					</div>
+					<div class="mobile-filter-options">
+						<button class="mobile-filter-option active" data-filter="all">HEPSİ</button>
+						<button class="mobile-filter-option" data-filter="drill">MATKAPLAR</button>
+						<button class="mobile-filter-option" data-filter="driver">VİDALAMA</button>
+						<button class="mobile-filter-option" data-filter="grinder">TAŞLAMA</button>
+						<button class="mobile-filter-option" data-filter="hammer">KIRICI</button>
+						<button class="mobile-filter-option" data-filter="battery">BATARYA</button>
+						<button class="mobile-filter-option" data-filter="charger">ŞARJ</button>
+						<button class="mobile-filter-option" data-filter="storage">TAŞIMA</button>
+					</div>
+				</div>
+			`;
+			
+			// Apply styles directly
+			modal.style.cssText = `
+				position: fixed !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
+				z-index: 99999 !important;
+				background-color: rgba(0, 0, 0, 0.3) !important;
+				backdrop-filter: blur(6px) !important;
+				opacity: 1 !important;
+				visibility: visible !important;
+				pointer-events: auto !important;
+			`;
+			
+			const content = modal.querySelector('.mobile-filter-modal-content');
+			content.style.cssText = `
+				position: absolute !important;
+				bottom: 0 !important;
+				left: 0 !important;
+				width: 100% !important;
+				background: #070707 !important;
+				border-radius: 20px 20px 0 0 !important;
+				transform: translateY(0) !important;
+				max-height: 70vh !important;
+				overflow-y: auto !important;
+				box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8) !important;
+				z-index: 100000 !important;
+				padding: 20px !important;
+			`;
+			
+			// Style header
+			const header = modal.querySelector('.mobile-filter-modal-header');
+			if (header) {
+				header.style.cssText = `
+					display: flex !important;
+					justify-content: space-between !important;
+					align-items: center !important;
+					margin-bottom: 20px !important;
+					padding-bottom: 15px !important;
+					border-bottom: 1px solid #333 !important;
+				`;
+				
+				const title = header.querySelector('h3');
+				if (title) {
+					title.style.cssText = `
+						color: white !important;
+						font-family: 'GeneralSans-Semibold', sans-serif !important;
+						font-size: 18px !important;
+						margin: 0 !important;
+					`;
+				}
+			}
+			
+			// Style close button
+			const closeBtn = modal.querySelector('.mobile-filter-close');
+			if (closeBtn) {
+				closeBtn.style.cssText = `
+					background: none !important;
+					border: none !important;
+					color: #6BE03F !important;
+					font-size: 18px !important;
+					cursor: pointer !important;
+					padding: 5px !important;
+				`;
+			}
+			
+			// Style filter options
+			const options = modal.querySelectorAll('.mobile-filter-option');
+			options.forEach(option => {
+				option.style.cssText = `
+					display: block !important;
+					width: 100% !important;
+					padding: 15px 20px !important;
+					margin: 5px 0 !important;
+					background: transparent !important;
+					border: 1px solid #333 !important;
+					border-radius: 8px !important;
+					color: white !important;
+					font-family: 'GeneralSans-Semibold', sans-serif !important;
+					font-size: 14px !important;
+					text-align: left !important;
+					cursor: pointer !important;
+					transition: all 0.3s ease !important;
+				`;
+				
+				if (option.classList.contains('active')) {
+					option.style.cssText += `
+						background: #6BE03F !important;
+						color: #070707 !important;
+						border-color: #6BE03F !important;
+					`;
+				}
+			});
+			
+			document.body.appendChild(modal);
+			return modal;
+		}
+
+		// Open mobile filter modal
+		function openMobileFilter() {
+			// Only work on mobile
+			if (window.innerWidth > 768) {
+				return;
+			}
+			
+			// Remove existing modal if any
+			const existingModal = document.getElementById('mobileFilterModal');
+			if (existingModal) {
+				existingModal.remove();
+			}
+			
+			// Create new modal
+			const modal = createModal();
+			
+			// Add event listeners to new modal
+			const closeBtn = modal.querySelector('.mobile-filter-close');
+			const overlay = modal.querySelector('.mobile-filter-modal-overlay');
+			const options = modal.querySelectorAll('.mobile-filter-option');
+			
+			if (closeBtn) {
+				closeBtn.addEventListener('click', closeMobileFilter);
+			}
+			if (overlay) {
+				overlay.addEventListener('click', closeMobileFilter);
+			}
+			
+			options.forEach(option => {
+				option.addEventListener('click', () => {
+					handleMobileFilterSelection(option);
+				});
+				
+				// Add hover effects
+				option.addEventListener('mouseenter', () => {
+					if (!option.classList.contains('active')) {
+						option.style.background = 'rgba(107, 224, 63, 0.1) !important';
+						option.style.borderColor = '#6BE03F !important';
+					}
+				});
+				
+				option.addEventListener('mouseleave', () => {
+					if (!option.classList.contains('active')) {
+						option.style.background = 'transparent !important';
+						option.style.borderColor = '#333 !important';
+					}
+				});
+			});
+			
+			if (mobileFilterBtn) {
+				mobileFilterBtn.classList.add('active');
+			}
+			document.body.style.overflow = 'hidden';
+		}
+
+			// Close mobile filter modal
+		function closeMobileFilter() {
+			const modal = document.getElementById('mobileFilterModal');
+			if (modal) {
+				modal.remove();
+			}
+			if (mobileFilterBtn) {
+				mobileFilterBtn.classList.remove('active');
+			}
+			document.body.style.overflow = '';
+		}
+
+	// Handle mobile filter selection
+	function handleMobileFilterSelection(selectedOption) {
+		const modal = document.getElementById('mobileFilterModal');
+		if (!modal) return;
+		
+		// Remove active class from all options in current modal
+		const allModalOptions = modal.querySelectorAll('.mobile-filter-option');
+		allModalOptions.forEach(option => option.classList.remove('active'));
+		
+		// Add active class to selected option
+		selectedOption.classList.add('active');
+		
+		// Update the selected text in button
+		if (mobileFilterSelected) {
+			mobileFilterSelected.textContent = selectedOption.textContent;
+		}
+		
+		// Get filter value and apply filter
+		const filterValue = selectedOption.getAttribute('data-filter');
+		
+		// Update desktop filters to match (for consistency)
+		const filterButtons = document.querySelectorAll('.filter-btn');
+		filterButtons.forEach(btn => btn.classList.remove('active'));
+		const correspondingDesktopBtn = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+		if (correspondingDesktopBtn) {
+			correspondingDesktopBtn.classList.add('active');
+		}
+		
+		// Apply the filter
+		if (filterValue === 'all') {
+			showAllProducts();
+		} else {
+			filterProducts(filterValue);
+		}
+		
+		// Close modal
+		closeMobileFilter();
+	}
+
+			// Event listeners for mobile filter
+		if (mobileFilterBtn) {
+			mobileFilterBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				openMobileFilter();
+			});
+		}
+
+			// Note: Close button and overlay listeners are now added dynamically in openMobileFilter
+
+			// Close modal with ESC key
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				const modal = document.getElementById('mobileFilterModal');
+				if (modal) {
+					closeMobileFilter();
+				}
+			}
+		});
+
+	}, 500); // End of setTimeout for mobile filter
+
+	// Initialize - show all products
+	showAllProducts();
+});
+</script> 

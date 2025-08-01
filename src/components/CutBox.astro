@@ -1,0 +1,21 @@
+---
+export interface Props {
+  title: string;
+  children?: any;
+  className?: string;
+}
+
+const { title, className = "" } = Astro.props;
+---
+
+<div 
+  class={`cut-corner ${className}`}
+  style="background-color: var(--clr-neon-green); color: var(--clr-bg-dark); padding: 1.5rem; clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%); position: relative;"
+>
+  <h3 class="font-heading font-bold text-lg mb-3" style="font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 1.125rem; margin-bottom: 0.75rem;">
+    {title}
+  </h3>
+  <div class="space-y-2" style="display: block;">
+    <slot />
+  </div>
+</div> 

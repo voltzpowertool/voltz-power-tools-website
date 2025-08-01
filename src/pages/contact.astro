@@ -1,0 +1,1444 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout 
+  title="İletişim - Voltz Power Tools | Bize Ulaşın, Hızlı Destek Alın"
+  description="Voltz Power Tools ile iletişime geçin. Akülü alet ürünlerimiz hakkında bilgi alın, fiyat teklifi isteyin, teknik destek alın. İstanbul merkezli hızlı müşteri hizmetleri."
+  keywords="voltz iletişim, power tools destek, akülü alet servisi, fiyat teklifi, teknik destek, müşteri hizmetleri"
+>
+
+	<!-- Contact Hero Section -->
+	<section class="contact-hero-section">
+		<div class="site-background-overlay"></div>
+		<div class="container">
+			<div class="contact-hero-content">
+				<h1 class="contact-hero-title">İletişim</h1>
+				<p class="contact-hero-description">
+					Ürünlerimiz hakkında bilgi almak, fiyat teklifi istemek veya 
+					teknik destek için bizimle iletişime geçebilirsiniz.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Form & Info Section -->
+	<section class="contact-section">
+		<div class="container">
+			<div class="contact-grid">
+				<!-- Left Side - Contact Form -->
+				<div class="contact-form-container">
+					<div class="form-header">
+						<h2 class="form-title">Mesaj <span class="highlight-text">Gönderin</span></h2>
+						<p class="form-description">
+							Formu doldurarak bize ulaşın, en kısa sürede size geri döneceğiz.
+						</p>
+					</div>
+
+					<form class="contact-form" id="contact-form">
+						<div class="form-row">
+							<div class="form-group">
+								<label for="firstName" class="form-label">Ad *</label>
+								<input 
+									type="text" 
+									id="firstName" 
+									name="firstName" 
+									required
+									class="form-input"
+								/>
+							</div>
+							<div class="form-group">
+								<label for="lastName" class="form-label">Soyad *</label>
+								<input 
+									type="text" 
+									id="lastName" 
+									name="lastName" 
+									required
+									class="form-input"
+								/>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="form-label">E-posta *</label>
+							<input 
+								type="email" 
+								id="email" 
+								name="email" 
+								required
+								class="form-input"
+							/>
+						</div>
+
+						<div class="form-group">
+							<label for="company" class="form-label">Şirket</label>
+							<input 
+								type="text" 
+								id="company" 
+								name="company"
+								class="form-input"
+							/>
+						</div>
+
+											<div class="form-group">
+						<label for="subject" class="form-label">Konu *</label>
+						
+						<!-- Desktop select -->
+						<select 
+							id="subject" 
+							name="subject" 
+							required
+							class="form-select desktop-select"
+						>
+							<option value="">Konu seçin</option>
+							<option value="product-info">Ürün Bilgisi</option>
+							<option value="price-quote">Fiyat Teklifi</option>
+							<option value="technical-support">Teknik Destek</option>
+							<option value="partnership">İş Ortaklığı</option>
+							<option value="other">Diğer</option>
+						</select>
+
+						<!-- Mobile button -->
+						<button type="button" class="mobile-subject-btn" id="mobileSubjectBtn">
+							<span class="mobile-subject-text">Konu seçin</span>
+							<svg class="mobile-subject-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</button>
+
+						<!-- Hidden select for mobile -->
+						<select id="hiddenSubject" name="subject" required class="mobile-hidden-select" style="display: none;">
+							<option value="">Konu seçin</option>
+							<option value="product-info">Ürün Bilgisi</option>
+							<option value="price-quote">Fiyat Teklifi</option>
+							<option value="technical-support">Teknik Destek</option>
+							<option value="partnership">İş Ortaklığı</option>
+							<option value="other">Diğer</option>
+						</select>
+					</div>
+
+						<div class="form-group">
+							<label for="message" class="form-label">Mesaj *</label>
+							<textarea 
+								id="message" 
+								name="message" 
+								rows="6" 
+								required
+								class="form-textarea"
+								placeholder="Mesajınızı buraya yazın..."
+							></textarea>
+						</div>
+
+						<div class="form-checkbox-group">
+							<input 
+								type="checkbox" 
+								id="consent" 
+								name="consent" 
+								required
+								class="form-checkbox"
+							/>
+							<label for="consent" class="checkbox-label">
+								Kişisel verilerimin işlenmesine ve iletişim kurulmasına onay veriyorum. *
+							</label>
+						</div>
+
+						<button type="submit" class="contact-submit-btn">
+							MESAJ GÖNDER
+						</button>
+					</form>
+				</div>
+
+				<!-- Right Side - Contact Info -->
+				<div class="contact-info-container">
+					<div class="info-header">
+						<h2 class="info-title">İletişim <span class="highlight-text">Bilgileri</span></h2>
+						<p class="info-description">
+							Aşağıdaki bilgilerden bizimle doğrudan iletişime geçebilirsiniz.
+						</p>
+					</div>
+
+					<div class="contact-info-cards">
+						<!-- Address -->
+						<div class="info-card">
+							<div class="info-card-header">
+								<div class="info-icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+									</svg>
+								</div>
+								<h3 class="info-card-title">Merkez Ofis</h3>
+							</div>
+							<div class="info-card-content">
+								<p>Voltz Power Tools A.Ş.</p>
+								<p>Teknoloji Caddesi No: 123</p>
+								<p>Sanayi Mahallesi, İstanbul</p>
+								<p>Türkiye 34000</p>
+							</div>
+						</div>
+
+						<!-- Phone -->
+						<div class="info-card">
+							<div class="info-card-header">
+								<div class="info-icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+									</svg>
+								</div>
+								<h3 class="info-card-title">Telefon</h3>
+							</div>
+							<div class="info-card-content">
+								<p>Satış: <a href="tel:+902123456789" class="info-link">+90 212 345 67 89</a></p>
+								<p>Destek: <a href="tel:+902123456790" class="info-link">+90 212 345 67 90</a></p>
+							</div>
+						</div>
+
+						<!-- Email -->
+						<div class="info-card">
+							<div class="info-card-header">
+								<div class="info-icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+									</svg>
+								</div>
+								<h3 class="info-card-title">E-posta</h3>
+							</div>
+							<div class="info-card-content">
+								<p>Genel: <a href="mailto:info@voltzpowertools.com" class="info-link">info@voltzpowertools.com</a></p>
+								<p>Satış: <a href="mailto:sales@voltzpowertools.com" class="info-link">sales@voltzpowertools.com</a></p>
+								<p>Destek: <a href="mailto:support@voltzpowertools.com" class="info-link">support@voltzpowertools.com</a></p>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Map Section -->
+	<section class="map-section">
+		<div class="container">
+			<div class="map-header">
+				<h2 class="map-title">Bizi <span class="highlight-text">Ziyaret Edin</span></h2>
+				<p class="map-description">Merkez ofisimizde sizleri ağırlamaktan mutluluk duyarız</p>
+			</div>
+
+			<div class="map-container">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.2449380982657!2d28.97953731526943!3d41.01546357929856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9bd6570f4e1%3A0x8239b5fdc8b6c9ec!2sTaksim%20Square!5e0!3m2!1sen!2str!4v1635789012345!5m2!1sen!2str"
+					width="100%"
+					height="400"
+					style="border:0; border-radius: 20px;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					class="google-map">
+				</iframe>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-content">
+				<!-- Footer Logo -->
+				<div class="footer-logo">
+					<img src="/img/logo/footer-logo.svg" alt="Voltz Power Tools" class="footer-logo-img">
+				</div>
+				
+				<!-- Footer Main Content -->
+				<div class="footer-main">
+					<!-- Company Info -->
+					<div class="footer-company">
+						<h4 class="footer-company-title">Voltz Power Tools</h4>
+						<p class="footer-company-desc">
+							Profesyonel el aletlerinde güvenin adresi.
+						</p>
+					</div>
+					
+					<!-- Contact Info -->
+					<div class="footer-contact">
+						<div class="footer-address">
+							<p class="footer-contact-title">Adres</p>
+							<p class="footer-contact-text">
+								Teknoloji Caddesi No: 123<br>
+								Sanayi Mahallesi, İstanbul<br>
+								Türkiye 34000
+							</p>
+						</div>
+						
+						<div class="footer-email">
+							<p class="footer-contact-title">İletişim</p>
+							<p class="footer-contact-text">
+								E-posta: <a href="mailto:info@voltzpowertools.com" class="footer-link">info@voltzpowertools.com</a><br>
+								Telefon: <a href="tel:+902123456789" class="footer-link">+90 212 345 67 89</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Footer Bottom -->
+				<div class="footer-bottom">
+					<!-- Social Media -->
+					<div class="footer-social">
+						<a href="#" class="social-link" aria-label="LinkedIn">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+							</svg>
+						</a>
+						<a href="#" class="social-link" aria-label="Instagram">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+							</svg>
+						</a>
+					</div>
+					
+					<!-- Copyright -->
+					<div class="footer-copyright">
+						<p>© 2025 Voltz Power Tools. Tüm hakları saklıdır.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</Layout>
+
+<style>
+/* ===========================================
+   CONTACT HERO SECTION
+   ========================================== */
+.contact-hero-section {
+	position: relative;
+	background-color: #070707;
+	padding: 120px 0 80px 0;
+	overflow: hidden;
+}
+
+.contact-hero-content {
+	text-align: center;
+	max-width: 800px;
+	margin: 0 auto;
+	z-index: 2;
+	position: relative;
+}
+
+.contact-hero-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: clamp(48px, 8vw, 72px);
+	color: var(--color-white);
+	margin-bottom: 30px;
+	line-height: 1.1;
+}
+
+.contact-hero-description {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: clamp(18px, 3vw, 24px);
+	color: var(--color-white);
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* ===========================================
+   CONTACT SECTION
+   ========================================== */
+.contact-section {
+	padding: 100px 0;
+	background-color: #070707;
+	position: relative;
+}
+
+.contact-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 80px;
+	align-items: flex-start;
+}
+
+/* Form Container */
+.contact-form-container {
+	position: relative;
+}
+
+.form-header {
+	margin-bottom: 50px;
+}
+
+.form-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: clamp(32px, 5vw, 48px);
+	color: var(--color-white);
+	margin-bottom: 20px;
+	line-height: 1.2;
+}
+
+.form-description {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	color: var(--color-white);
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* Form Styles */
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 25px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-label {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	color: var(--color-white);
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	padding: 15px 20px;
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-size: 16px;
+	color: var(--color-white);
+	transition: all 0.3s ease;
+	outline: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+	border-color: var(--color-primary-green);
+	background-color: rgba(255, 255, 255, 0.08);
+	box-shadow: 0 0 0 3px rgba(68, 214, 44, 0.1);
+}
+
+.form-textarea {
+	resize: vertical;
+	min-height: 140px;
+}
+
+.form-select {
+	cursor: pointer;
+}
+
+.form-select option {
+	background-color: #070707;
+	color: var(--color-white);
+}
+
+/* Mobile Subject Button */
+.mobile-subject-btn {
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	padding: 15px 20px;
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-size: 16px;
+	color: var(--color-white);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	outline: none;
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+	text-align: left;
+}
+
+.mobile-subject-btn:hover {
+	border-color: var(--color-primary-green);
+	background-color: rgba(255, 255, 255, 0.08);
+}
+
+.mobile-subject-btn.active {
+	border-color: var(--color-primary-green);
+	background-color: rgba(255, 255, 255, 0.08);
+	box-shadow: 0 0 0 3px rgba(68, 214, 44, 0.1);
+}
+
+.mobile-subject-text {
+	flex: 1;
+}
+
+.mobile-subject-icon {
+	color: var(--color-white);
+	transition: transform 0.3s ease;
+}
+
+.mobile-subject-btn.active .mobile-subject-icon {
+	transform: rotate(180deg);
+}
+
+.mobile-hidden-select {
+	display: none !important;
+}
+
+/* Checkbox */
+.form-checkbox-group {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.form-checkbox {
+	width: 20px;
+	height: 20px;
+	margin-top: 2px;
+	accent-color: var(--color-primary-green);
+}
+
+.checkbox-label {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.5;
+}
+
+/* Submit Button */
+.contact-submit-btn {
+	background: linear-gradient(135deg, var(--color-primary-green) 0%, var(--color-light-green) 100%);
+	color: var(--color-dark);
+	border: none;
+	padding: 18px 40px;
+	border-radius: 12px;
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	align-self: flex-start;
+	min-width: 200px;
+}
+
+.contact-submit-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(68, 214, 44, 0.3);
+}
+
+.contact-submit-btn:active {
+	transform: translateY(0);
+}
+
+/* Info Container */
+.contact-info-container {
+	position: relative;
+}
+
+.info-header {
+	margin-bottom: 50px;
+}
+
+.info-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: clamp(32px, 5vw, 48px);
+	color: var(--color-white);
+	margin-bottom: 20px;
+	line-height: 1.2;
+}
+
+.info-description {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	color: var(--color-white);
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* Info Cards */
+.contact-info-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.info-card {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 20px;
+	padding: 30px;
+	transition: all 0.3s ease;
+}
+
+.info-card:hover {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: var(--color-primary-green);
+	transform: translateY(-2px);
+}
+
+.info-card-header {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.info-icon {
+	width: 50px;
+	height: 50px;
+	background: var(--color-primary-green);
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-dark);
+}
+
+.info-card-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	color: var(--color-white);
+	margin: 0;
+}
+
+.info-card-content {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.6;
+}
+
+.info-card-content p {
+	margin: 0 0 8px 0;
+}
+
+.info-card-content p:last-child {
+	margin-bottom: 0;
+}
+
+.info-link {
+	color: var(--color-primary-green);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.info-link:hover {
+	color: var(--color-white);
+	text-decoration: underline;
+}
+
+/* ===========================================
+   MAP SECTION
+   ========================================== */
+.map-section {
+	padding: 100px 0;
+	background-color: rgba(255, 255, 255, 0.02);
+}
+
+.map-header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.map-title {
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: clamp(32px, 5vw, 48px);
+	color: var(--color-white);
+	margin-bottom: 20px;
+	line-height: 1.2;
+}
+
+.map-description {
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	color: var(--color-white);
+	line-height: 1.6;
+	margin: 0;
+}
+
+.map-container {
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.google-map {
+	width: 100%;
+	height: 400px;
+	border: none;
+	filter: grayscale(20%) contrast(1.1);
+}
+
+/* ===========================================
+   FOOTER SECTION - Ana sayfadan kopyalanan
+   ========================================== */
+.footer-section {
+	margin-top: 150px;
+	padding: 60px 0;
+	background-color: var(--color-light-green);
+	position: relative;
+	z-index: 5;
+}
+
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.footer-logo {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.footer-logo-img {
+	height: 60px;
+	width: auto;
+	object-fit: contain;
+}
+
+.footer-main {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 60px;
+}
+
+.footer-company {
+	flex: 1;
+}
+
+.footer-company-title {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.2;
+	margin: 0 0 10px 0;
+	text-align: left;
+}
+
+.footer-company-desc {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.footer-contact {
+	display: flex;
+	gap: 40px;
+}
+
+.footer-contact-title {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Bold', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.2;
+	margin: 0 0 8px 0;
+}
+
+.footer-contact-text {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.footer-link {
+	color: var(--color-dark);
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+	color: var(--color-white);
+}
+
+.footer-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 30px;
+	border-top: 1px solid rgba(11, 12, 12, 0.2);
+}
+
+.footer-social {
+	display: flex;
+	gap: 15px;
+}
+
+.social-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: var(--color-dark);
+	color: var(--color-light-green);
+	border-radius: 50%;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.social-link:hover {
+	background-color: var(--color-white);
+	color: var(--color-dark);
+	transform: translateY(-2px);
+}
+
+.footer-copyright {
+	color: var(--color-dark);
+	font-family: 'GeneralSans-Regular', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+}
+
+.footer-copyright p {
+	margin: 0;
+}
+
+/* Highlight text */
+.highlight-text {
+	color: var(--color-primary-green);
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 1200px) {
+	.contact-grid {
+		gap: 60px;
+	}
+	
+	.footer-section {
+		margin-top: 100px;
+		padding: 50px 0;
+	}
+	
+	.footer-main {
+		flex-direction: column;
+		gap: 40px;
+		text-align: left;
+	}
+	
+	.footer-contact {
+		flex-direction: column;
+		gap: 30px;
+	}
+	
+	.footer-bottom {
+		flex-direction: column;
+		gap: 20px;
+		text-align: center;
+	}
+	
+	.footer-logo-img {
+		height: 50px;
+	}
+	
+	.footer-company-title {
+		font-size: 20px;
+		text-align: left;
+	}
+	
+	.footer-company-desc {
+		font-size: 14px;
+	}
+}
+
+/* iPad Responsive (1024px) - Horizontal tablet optimization */
+@media (max-width: 1024px) and (min-width: 769px) {
+	.contact-hero-section {
+		padding: clamp(60px, 10vh, 80px) 0 clamp(50px, 8vh, 70px) 0;
+	}
+	
+	.contact-hero-title {
+		font-size: clamp(36px, 6vw, 48px);
+		line-height: 1.2;
+	}
+	
+	.contact-hero-description {
+		font-size: clamp(16px, 3vw, 20px);
+		max-width: 85%;
+		margin: 0 auto;
+	}
+	
+	.contact-section {
+		padding: clamp(60px, 10vh, 80px) 0;
+	}
+	
+	.contact-grid {
+		gap: clamp(50px, 8vw, 70px);
+		grid-template-columns: 1fr;
+	}
+	
+	.contact-form-container,
+	.contact-info-container {
+		max-width: 85%;
+		margin: 0 auto;
+	}
+	
+	.form-row {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+	
+	.map-section {
+		padding: clamp(60px, 10vh, 80px) 0;
+	}
+	
+	.map-title {
+		font-size: clamp(32px, 5vw, 40px);
+	}
+	
+	.map-description {
+		font-size: clamp(16px, 3vw, 18px);
+		max-width: 80%;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.contact-hero-section {
+		padding: 100px 0 60px 0;
+	}
+	
+	.contact-section {
+		padding: 60px 0;
+	}
+	
+	.contact-grid {
+		grid-template-columns: 1fr;
+		gap: 50px;
+	}
+	
+	.form-row {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+	
+	.contact-submit-btn {
+		width: 100%;
+		min-width: auto;
+	}
+	
+	/* Mobile Subject Selection */
+	.desktop-select {
+		display: none !important;
+	}
+	
+	.mobile-subject-btn {
+		display: flex !important;
+	}
+	
+	.contact-info-cards {
+		gap: 20px;
+	}
+	
+	.info-card {
+		padding: 25px;
+	}
+	
+	.map-section {
+		padding: 60px 0;
+	}
+	
+	.map-header {
+		margin-bottom: 40px;
+	}
+	
+	.google-map {
+		height: 300px;
+	}
+	
+	.footer-section {
+		margin-top: 60px;
+		padding: 40px 0;
+	}
+	
+	.footer-content {
+		gap: 25px;
+		padding: 0 15px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.footer-logo {
+		margin-bottom: 15px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	
+	.footer-main {
+		gap: 25px;
+		text-align: center;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+	}
+	
+	.footer-contact {
+		gap: 20px;
+		flex-direction: column;
+		text-align: center;
+		width: 100%;
+		align-items: center;
+	}
+	
+	.footer-company {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.footer-address, 
+	.footer-email {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.footer-bottom {
+		gap: 15px;
+		flex-direction: column;
+		text-align: center;
+		padding-top: 20px;
+	}
+	
+	.footer-logo-img {
+		height: 40px;
+	}
+	
+	.footer-company-title {
+		font-size: clamp(16px, 4vw, 18px);
+		margin-bottom: 8px;
+		text-align: center;
+	}
+	
+	.footer-company-desc {
+		font-size: clamp(12px, 3vw, 13px);
+		line-height: 1.4;
+	}
+	
+	.footer-contact-title {
+		font-size: clamp(13px, 3.5vw, 14px);
+		margin-bottom: 5px;
+	}
+	
+	.footer-contact-text {
+		font-size: clamp(11px, 3vw, 12px);
+		line-height: 1.4;
+	}
+	
+	.footer-copyright {
+		font-size: clamp(10px, 3vw, 12px);
+		line-height: 1.3;
+	}
+	
+	.social-link {
+		width: 38px;
+		height: 38px;
+	}
+	
+	.footer-social {
+		justify-content: center;
+		margin-bottom: 10px;
+	}
+}
+
+/* Site Background Overlay */
+.site-background-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vw;
+	height: 100%;
+	background-image: url('/img/sections/background-bg.png');
+	background-size: auto 100%; /* Icon'un tam boyutunu korur */
+	background-position: right center; /* Tutarlı pozisyon */
+	background-repeat: no-repeat;
+	opacity: 0.25;
+	z-index: 0;
+	pointer-events: none;
+	mix-blend-mode: screen;
+	filter: brightness(0.9) contrast(1.3);
+}
+
+@media (max-width: 1200px) {
+	.site-background-overlay {
+		width: 70vw;
+		opacity: 0.22;
+		background-size: auto 90%; /* Tablet'te de boyut kontrolü */
+		background-position: right center; /* Tutarlı pozisyon */
+	}
+}
+
+@media (max-width: 768px) {
+	.site-background-overlay {
+		width: 80vw;
+		opacity: 0.18;
+		background-size: auto 80%; /* Mobile'da biraz küçült */
+		background-position: right center; /* Tutarlı pozisyon */
+	}
+}
+</style>
+
+<script>
+// Mobile Subject Modal Functions
+function createSubjectModal() {
+	// Remove existing modal if any
+	const existingModal = document.getElementById('mobileSubjectModal');
+	if (existingModal) {
+		existingModal.remove();
+	}
+
+	// Create modal
+	const modal = document.createElement('div');
+	modal.id = 'mobileSubjectModal';
+	modal.className = 'mobile-subject-modal';
+
+	// Create modal content
+	const content = document.createElement('div');
+	content.className = 'mobile-subject-modal-content';
+
+	// Modal HTML
+	content.innerHTML = `
+		<div class="mobile-subject-modal-header">
+			<h3>Konu Seçin</h3>
+			<button type="button" class="mobile-subject-modal-close" id="mobileSubjectModalClose">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+		</div>
+		<div class="mobile-subject-modal-options">
+			<div class="mobile-subject-option" data-value="product-info">Ürün Bilgisi</div>
+			<div class="mobile-subject-option" data-value="price-quote">Fiyat Teklifi</div>
+			<div class="mobile-subject-option" data-value="technical-support">Teknik Destek</div>
+			<div class="mobile-subject-option" data-value="partnership">İş Ortaklığı</div>
+			<div class="mobile-subject-option" data-value="other">Diğer</div>
+		</div>
+	`;
+
+	modal.appendChild(content);
+
+	// Apply styles directly
+	modal.style.cssText = `
+		position: fixed !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+		z-index: 99999 !important;
+		background-color: rgba(0, 0, 0, 0.3) !important;
+		backdrop-filter: blur(6px) !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		pointer-events: auto !important;
+	`;
+
+	content.style.cssText = `
+		position: fixed !important;
+		bottom: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		background: #070707 !important;
+		border-radius: 20px 20px 0 0 !important;
+		transform: translateY(0) !important;
+		max-height: 60vh !important;
+		overflow-y: auto !important;
+		box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3) !important;
+		padding: 0 !important;
+		margin: 0 !important;
+		color: white !important;
+		font-family: 'GeneralSans-Regular', sans-serif !important;
+		font-size: 16px !important;
+		text-align: left !important;
+		transition: transform 0.3s ease !important;
+	`;
+
+	document.body.appendChild(modal);
+
+	// Add event listeners
+	const closeBtn = modal.querySelector('#mobileSubjectModalClose');
+	const options = modal.querySelectorAll('.mobile-subject-option');
+
+	closeBtn.addEventListener('click', closeMobileSubjectModal);
+	modal.addEventListener('click', function(e) {
+		if (e.target === modal) {
+			closeMobileSubjectModal();
+		}
+	});
+
+	options.forEach(option => {
+		option.style.cssText = `
+			padding: 18px 25px !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+			cursor: pointer !important;
+			transition: all 0.3s ease !important;
+			color: white !important;
+			font-size: 16px !important;
+		`;
+
+		option.addEventListener('click', function() {
+			const value = this.getAttribute('data-value');
+			const text = this.textContent;
+
+			// Update button text
+			document.querySelector('.mobile-subject-text').textContent = text;
+
+			// Update hidden select
+			const hiddenSelect = document.getElementById('hiddenSubject');
+			hiddenSelect.value = value;
+
+			// Trigger change event for form validation
+			hiddenSelect.dispatchEvent(new Event('change'));
+
+			closeMobileSubjectModal();
+		});
+
+		option.addEventListener('mouseover', function() {
+			this.style.backgroundColor = 'rgba(107, 224, 63, 0.1) !important';
+		});
+
+		option.addEventListener('mouseout', function() {
+			this.style.backgroundColor = 'transparent !important';
+		});
+	});
+
+	// Style modal header
+	const header = modal.querySelector('.mobile-subject-modal-header');
+	header.style.cssText = `
+		display: flex !important;
+		justify-content: space-between !important;
+		align-items: center !important;
+		padding: 25px 25px 15px 25px !important;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+	`;
+
+	// Style header title
+	const title = header.querySelector('h3');
+	title.style.cssText = `
+		margin: 0 !important;
+		font-size: 18px !important;
+		font-weight: 600 !important;
+		color: white !important;
+	`;
+
+	// Style close button
+	closeBtn.style.cssText = `
+		background: none !important;
+		border: none !important;
+		color: white !important;
+		cursor: pointer !important;
+		padding: 5px !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+	`;
+}
+
+function openMobileSubjectModal() {
+	if (window.innerWidth > 768) { return; }
+
+	createSubjectModal();
+	document.querySelector('.mobile-subject-btn').classList.add('active');
+	
+	// Prevent body scroll
+	document.body.style.overflow = 'hidden';
+}
+
+function closeMobileSubjectModal() {
+	const modal = document.getElementById('mobileSubjectModal');
+	if (modal) {
+		modal.remove();
+	}
+	
+	document.querySelector('.mobile-subject-btn').classList.remove('active');
+	
+	// Restore body scroll
+	document.body.style.overflow = '';
+}
+
+// Contact form handling
+document.addEventListener('DOMContentLoaded', () => {
+	const form = document.getElementById('contact-form');
+	
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		
+		// Mobile subject handling - sync hidden select with visible select
+		const hiddenSubject = document.getElementById('hiddenSubject');
+		const desktopSubject = document.getElementById('subject');
+		
+		if (window.innerWidth <= 768 && hiddenSubject && desktopSubject) {
+			desktopSubject.value = hiddenSubject.value;
+		}
+		
+		// Form validation
+		const formData = new FormData(form);
+		const data = Object.fromEntries(formData);
+		
+		// Basic validation
+		if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message || !data.consent) {
+			showNotification('Lütfen tüm zorunlu alanları doldurun ve onay kutusunu işaretleyin.', 'error');
+			return;
+		}
+		
+		// Email validation
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(data.email)) {
+			showNotification('Lütfen geçerli bir e-posta adresi girin.', 'error');
+			return;
+		}
+		
+		// Submit button'u disable et ve loading state'e geçir
+		const submitBtn = form.querySelector('.contact-submit-btn');
+		const originalText = submitBtn.textContent;
+		submitBtn.disabled = true;
+		submitBtn.textContent = 'GÖNDERİLİYOR...';
+		submitBtn.style.opacity = '0.7';
+		
+		try {
+			// API'ye POST request gönder
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				body: formData
+			});
+			
+			const result = await response.json();
+			
+			if (result.success) {
+				showNotification(result.message, 'success');
+				form.reset();
+			} else {
+				showNotification(result.message, 'error');
+			}
+			
+		} catch (error) {
+			console.error('Form gönderme hatası:', error);
+			showNotification('Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.', 'error');
+		} finally {
+			// Submit button'u eski haline getir
+			submitBtn.disabled = false;
+			submitBtn.textContent = originalText;
+			submitBtn.style.opacity = '1';
+		}
+	});
+	
+	// Notification gösterme fonksiyonu
+	function showNotification(message, type = 'info') {
+		// Mevcut notificationları temizle
+		const existingNotifications = document.querySelectorAll('.form-notification');
+		existingNotifications.forEach(notif => notif.remove());
+		
+		// Yeni notification oluştur
+		const notification = document.createElement('div');
+		notification.className = `form-notification ${type}`;
+		notification.textContent = message;
+		
+		// Notification style'ları
+		notification.style.position = 'fixed';
+		notification.style.top = '20px';
+		notification.style.right = '20px';
+		notification.style.padding = '15px 20px';
+		notification.style.borderRadius = '8px';
+		notification.style.fontSize = '14px';
+		notification.style.fontWeight = '500';
+		notification.style.zIndex = '9999';
+		notification.style.maxWidth = '400px';
+		notification.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+		notification.style.transform = 'translateX(100%)';
+		notification.style.transition = 'transform 0.3s ease-in-out';
+		
+		// Type'a göre renklendirme
+		if (type === 'success') {
+			notification.style.backgroundColor = '#6BE03F';
+			notification.style.color = '#070707';
+		} else if (type === 'error') {
+			notification.style.backgroundColor = '#ff4444';
+			notification.style.color = '#ffffff';
+		} else {
+			notification.style.backgroundColor = '#333333';
+			notification.style.color = '#ffffff';
+		}
+		
+		// DOM'a ekle
+		document.body.appendChild(notification);
+		
+		// Animasyon ile göster
+		setTimeout(() => {
+			notification.style.transform = 'translateX(0)';
+		}, 100);
+		
+		// 5 saniye sonra kaldır
+		setTimeout(() => {
+			notification.style.transform = 'translateX(100%)';
+			setTimeout(() => {
+				if (notification.parentNode) {
+					notification.parentNode.removeChild(notification);
+				}
+			}, 300);
+		}, 5000);
+		
+		// Tıklama ile kaldırma
+		notification.addEventListener('click', () => {
+			notification.style.transform = 'translateX(100%)';
+			setTimeout(() => {
+				if (notification.parentNode) {
+					notification.parentNode.removeChild(notification);
+				}
+			}, 300);
+		});
+	}
+	
+	// Form inputs focus effect enhancement
+	const formInputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
+	
+	formInputs.forEach(input => {
+		input.addEventListener('focus', () => {
+			input.parentElement.style.transform = 'translateY(-2px)';
+		});
+		
+		input.addEventListener('blur', () => {
+			input.parentElement.style.transform = 'translateY(0)';
+		});
+	});
+	
+	// Mobile Subject Button Event Listener
+	const mobileSubjectBtn = document.getElementById('mobileSubjectBtn');
+	if (mobileSubjectBtn) {
+		mobileSubjectBtn.addEventListener('click', openMobileSubjectModal);
+	}
+});
+</script> 

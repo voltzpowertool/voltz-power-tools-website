@@ -1,0 +1,1377 @@
+---
+import '@/styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  keywords?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const { 
+  title, 
+  description = "Voltz Power Tools - Geleceği şekillendiren güç. Premium kalitede profesyonel el aletleri.", 
+  image = "/img/og-image.jpg",
+  keywords = "voltz, power tools, akülü alet, matkap, tornavida, taşlama, professional tools, brushless motor",
+  canonical,
+  noindex = false
+} = Astro.props;
+
+// Canonical URL - if not provided, use current URL
+const canonicalURL = canonical ? new URL(canonical, Astro.site) : Astro.url;
+
+// Google Analytics ID from environment
+const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+---
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="Voltz Power Tools" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+  <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
+  <meta name="theme-color" content="#6BE03F" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href={canonicalURL} />
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, Astro.url)} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Voltz Power Tools" />
+  <meta property="og:locale" content="tr_TR" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalURL} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(image, Astro.url)} />
+  <meta name="twitter:creator" content="@voltzpowertools" />
+
+  <title>{title}</title>
+  
+  <!-- GeneralSans Font -->
+  <link rel="stylesheet" href="/fonts/css/general-sans.css">
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Voltz Power Tools",
+      "url": "https://voltzpowertools.com",
+      "logo": "https://voltzpowertools.com/img/logo/voltz-logo.svg",
+      "description": "Profesyonel akülü el aletleri üreticisi. Brushless motor teknolojisi ile güçlü ve dayanıklı aletler.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+90-212-345-6789",
+        "contactType": "customer service",
+        "availableLanguage": "Turkish"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Atatürk Mahallesi, Ertuğrul Gazi Sokak, No:15/A",
+        "addressLocality": "Ümraniye",
+        "addressRegion": "İstanbul",
+        "postalCode": "34764",
+        "addressCountry": "TR"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/voltzpowertools",
+        "https://www.instagram.com/voltzpowertools"
+      ]
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  {GA_MEASUREMENT_ID && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID, {
+          page_title: title,
+          page_location: canonicalURL.href
+        });
+      </script>
+    </>
+  )}
+  
+  <style is:global>
+    /* ===========================================
+       RESET & BASE STYLES
+       ========================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      font-size: 16px; /* Base font size for rem calculations */
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'GeneralSans-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1;
+      color: #FFFFFF;
+      background-color: #070707;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 170px; /* Header height için padding - artırıldı */
+    }
+
+    /* ===========================================
+       DESIGN SYSTEM - FIGMA COLORS
+       ========================================== */
+    :root {
+      /* Primary Colors - Exact Figma Values */
+      --color-primary-green: #6BE03F;
+      --color-light-green: #6BE03F;
+      --color-white: #FFFFFF;
+      --color-dark: #0B0C0C;
+      --color-bg-dark: #070707;
+      --color-text-light: #FFFFFF;
+      --color-text-dark: #0D0D12;
+      
+      /* Layout Constants - Figma Measurements */
+      --container-max-width: 1728px;
+      --container-padding-x: 72px;
+      --header-logo-width: 160px;
+      --header-logo-height: 120px;
+    }
+
+    /* ===========================================
+       LAYOUT SYSTEM
+       ========================================== */
+    .container {
+      max-width: clamp(1200px, 90vw, 1728px); /* Responsive container width */
+      margin: 0 auto;
+      padding-left: clamp(20px, 4vw, 72px); /* Responsive padding */
+      padding-right: clamp(20px, 4vw, 72px);
+      width: 100%;
+    }
+
+    /* Container için farklı breakpoint'lerde özel ayarlar */
+    @media screen and (min-width: 1440px) {
+      .container {
+        max-width: 1728px; /* Büyük ekranlarda tam genişlik */
+        padding-left: 72px;
+        padding-right: 72px;
+      }
+    }
+    
+    @media screen and (max-width: 1200px) {
+      .container {
+        max-width: 95vw; /* Tablet'te daha geniş */
+        padding-left: clamp(20px, 3vw, 40px);
+        padding-right: clamp(20px, 3vw, 40px);
+      }
+    }
+    
+    /* iPad Responsive (1024px) */
+    @media screen and (max-width: 1024px) {
+      .container {
+        max-width: 96vw; /* iPad'de biraz daha geniş */
+        padding-left: clamp(25px, 4vw, 35px);
+        padding-right: clamp(25px, 4vw, 35px);
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .container {
+        max-width: 100vw; /* Mobile'da tam genişlik */
+        padding-left: clamp(15px, 4vw, 25px);
+        padding-right: clamp(15px, 4vw, 25px);
+      }
+    }
+
+    /* ===========================================
+       HEADER - EXACT FIGMA LAYOUT + STICKY
+       ========================================== */
+    .header {
+      background-color: #070707;
+      padding: 8px 0; /* Header padding azaltıldı */
+      position: fixed;
+      top: 0; /* Desktop'ta tepeye tam yapışık */
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    /* Scrolled state with blur */
+    .header.scrolled {
+      background: rgba(7, 7, 7, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+      top: 0; /* Desktop scroll'da tepede */
+      padding: 10px 0; /* Scroll'da yeterli padding */
+    }
+    
+    .header.scrolled .nav-container {
+      padding: 12px 0; /* Scroll'da yeterli padding */
+    }
+    
+    .header.scrolled .logo-svg {
+      width: var(--header-logo-width); /* Desktop scroll'da logo aynı boyut */
+      height: var(--header-logo-height);
+    }
+    
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: auto;
+      padding: 15px 0; /* Logo ve menü için daha fazla space */
+      width: 100%;
+    }
+    
+    /* Logo Section */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    
+    .logo-svg {
+      width: var(--header-logo-width);
+      height: var(--header-logo-height);
+      display: block;
+    }
+    
+    /* Navigation Menu */
+    .navigation {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 50px; /* Exact Figma spacing */
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: var(--color-white);
+      text-decoration: none;
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+    
+    .nav-link:hover {
+      color: var(--color-primary-green);
+    }
+    
+    /* Contact Button - Using button.svg */
+    .contact-button {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    /* Main Contact Button */
+    .contact-main-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .contact-button-bg {
+      width: 110px;
+      height: 36px;
+      display: block;
+    }
+    
+    .contact-button-text {
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1;
+      color: var(--color-text-dark);
+    }
+    
+    /* Arrow Button */
+    .contact-arrow-button {
+      position: relative;
+      width: 44px;
+      height: 36px;
+      background-color: var(--color-primary-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-arrow-button:hover .contact-arrow {
+      transform: translate(2px, -2px);
+    }
+    
+    .contact-arrow {
+      width: 12px;
+      height: 12px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    /* ===========================================
+       TYPOGRAPHY SYSTEM - FIGMA EXACT SPECS
+       ========================================== */
+    
+    /* H1 - Main Headlines */
+    h1, .h1 {
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 70px;
+      line-height: 1.21;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* H2 - Section Headers */
+    h2, .h2 {
+      font-family: 'GeneralSans-Semibold', sans-serif;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 1.25;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* H3 - Subsection Headers */
+    h3, .h3 {
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 1.47;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* H4 - Product Names */
+    h4, .h4 {
+      font-family: 'GeneralSans-Semibold', sans-serif;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 1.67;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* Subtitle Text */
+    .subtitle {
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.56;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* Body Text */
+    .body-text {
+      font-family: 'GeneralSans-Regular', sans-serif;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 1.56;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* Description Text */
+    .desc-text {
+      font-family: 'GeneralSans-Light', sans-serif;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 1.21;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* Product Text */
+    .product-text {
+      font-family: 'GeneralSans-Semibold', sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1.21;
+      color: var(--color-white);
+      margin: 0;
+    }
+    
+    /* Detail Text */
+    .detail-text {
+      font-family: 'GeneralSans-Light', sans-serif;
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 1.59;
+      color: var(--color-text-dark);
+      margin: 0;
+    }
+
+
+
+    /* ===========================================
+       UTILITIES
+       ========================================== */
+    
+    /* Text Shadows */
+    .text-shadow {
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Gradients */
+    .gradient-green-white {
+      background: linear-gradient(135deg, rgba(68, 214, 44, 0.67) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    
+    .gradient-dark-green {
+      background: linear-gradient(135deg, #0B0B0B 0%, var(--color-light-green) 100%);
+    }
+    
+    .gradient-dark-green-transparent {
+      background: linear-gradient(135deg, rgba(11, 11, 11, 0.63) 0%, var(--color-light-green) 100%);
+    }
+    
+    .gradient-placeholder {
+      background: linear-gradient(135deg, #D9D9D9 0%, #B0B0B0 100%);
+    }
+
+    /* ===========================================
+       RESPONSIVE DESIGN
+       ========================================== */
+    @media (max-width: 1200px) {
+      :root {
+        --container-padding-x: 40px;
+        --header-logo-width: 150px;
+        --header-logo-height: 112px;
+      }
+      
+      .navigation {
+        gap: 30px;
+      }
+      
+      h1, .h1 { font-size: 50px; }
+      h2, .h2 { font-size: 32px; }
+      .body-text { font-size: 24px; }
+    }
+    
+    /* ===========================================
+       MOBILE HAMBURGER MENU
+       ========================================== */
+    .mobile-menu-button {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10001;
+      position: relative;
+    }
+    
+    .hamburger-line {
+      width: 22px;
+      height: 2px;
+      background-color: var(--color-white);
+      margin: 2px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    .mobile-menu-button.active .hamburger-line:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .mobile-menu-button.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-button.active .hamburger-line:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(7, 7, 7, 1.0) !important;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      background-color: rgba(7, 7, 7, 1.0) !important;
+    }
+    
+    .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      padding: 20px;
+      overflow-y: auto;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 40px;
+    }
+    
+    .mobile-logo {
+      height: 200px;
+      width: auto;
+    }
+    
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      color: var(--color-white);
+      cursor: pointer;
+      padding: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-close:hover {
+      color: var(--color-light-green);
+      transform: rotate(90deg);
+    }
+    
+    /* Mobile Navigation */
+    .mobile-navigation {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      color: var(--color-white);
+      text-decoration: none;
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.2;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .mobile-nav-link:hover {
+      color: var(--color-light-green);
+      padding-left: 20px;
+    }
+    
+    .mobile-nav-link:hover::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 20px;
+      background-color: var(--color-light-green);
+      border-radius: 1px;
+    }
+    
+    /* Mobile Contact Button */
+    .mobile-contact-section {
+      padding: 30px 0 0 0;
+      margin: 0 -20px 0 -20px;
+    }
+    
+    .mobile-contact-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px 0;
+      background-color: var(--color-light-green);
+      color: var(--color-dark);
+      text-decoration: none;
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 0;
+      transition: all 0.3s ease;
+      /* Çeltikli tasarım kaldırıldı - tam genişlik düz buton */
+    }
+    
+    .mobile-contact-button:hover {
+      background-color: var(--color-white);
+      color: var(--color-light-green);
+      transform: translateY(-2px);
+    }
+    
+    /* Mobile Menu Spacer */
+    .mobile-menu-spacer {
+      flex: 1;
+      min-height: 50px;
+    }
+
+    /* iPad Responsive (1024px) - Horizontal tablet optimization */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      :root {
+        --container-padding-x: 25px;
+        --header-logo-width: 135px;
+        --header-logo-height: 100px;
+      }
+      
+      .nav-container {
+        padding: 10px 0;
+      }
+      
+      .nav-menu {
+        gap: clamp(25px, 3vw, 35px); /* Responsive nav menu gap */
+      }
+      
+      .nav-link {
+        font-size: clamp(13px, 1.5vw, 16px);
+      }
+      
+      .header-contact-btn {
+        padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 24px);
+        font-size: clamp(12px, 1.4vw, 15px);
+      }
+
+      /* iPad Header - Subtle blur effect */
+      .header.scrolled {
+        background: rgba(7, 7, 7, 0.85); /* Semi-transparent */
+        backdrop-filter: blur(15px); /* Medium blur */
+        -webkit-backdrop-filter: blur(15px); /* Safari compatibility */
+      }
+
+      /* iPad Header - Subtle gradient */
+      .header.scrolled::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 15px;
+        background: linear-gradient(to bottom, rgba(7, 7, 7, 0.2), transparent);
+        pointer-events: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --container-padding-x: 20px;
+        --header-logo-width: 115px;
+        --header-logo-height: 86px;
+      }
+      
+      /* Mobile body - padding sıfır */
+      body {
+        padding-top: 0;
+      }
+      
+      /* Mobile header - kompakt tasarım with subtle blur */
+      .header {
+        position: fixed;
+        top: 0;
+        padding: 8px 0; /* Daha kompakt header */
+        background: rgba(7, 7, 7, 0.9); /* Semi-transparent */
+        backdrop-filter: blur(10px); /* Subtle blur */
+        -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth transitions */
+      }
+
+      /* Mobile header - Enhanced gradient bottom border */
+      .header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: linear-gradient(to bottom, rgba(7, 7, 7, 0.3), transparent);
+        pointer-events: none;
+      }
+      
+      .nav-container {
+        justify-content: space-between;
+        padding: 6px 0; /* Nav container daha minimal padding */
+      }
+      
+      /* Mobile scroll state - Enhanced blur effect */
+      .header.scrolled {
+        position: fixed;
+        top: 0; /* Header her zaman tepede */
+        background: rgba(7, 7, 7, 0.75); /* Semi-transparent background */
+        backdrop-filter: blur(20px); /* Strong blur effect */
+        -webkit-backdrop-filter: blur(20px); /* Safari compatibility */
+        border-bottom: 1px solid rgba(107, 224, 63, 0.1); /* Subtle green border */
+        padding: 6px 0; /* Scroll'da daha kompakt */
+      }
+
+      /* Mobile scroll state - Enhanced gradient */
+      .header.scrolled::after {
+        height: 30px; /* Taller gradient when scrolled */
+        background: linear-gradient(to bottom, rgba(7, 7, 7, 0.5), transparent);
+      }
+      
+      .header.scrolled .nav-container {
+        padding: 4px 0; /* Scroll'da daha minimal nav padding */
+      }
+      
+      .header.scrolled .logo-svg {
+        width: var(--header-logo-width); /* Logo boyutu aynı */
+        height: var(--header-logo-height);
+      }
+      
+      /* Hide desktop navigation and contact button */
+      .desktop-navigation,
+      .desktop-contact-button {
+        display: none;
+      }
+      
+      /* Show mobile hamburger button */
+      .mobile-menu-button {
+        display: flex;
+        z-index: 1100;
+      }
+      
+      /* Mobile menu overlay positioning */
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      
+      /* Mobile main content - header altından başlasın */
+      main {
+        margin-top: 80px; /* Kompakt header için azaltılmış margin */
+      }
+      
+      /* Mobile slogan section - ekstra margin */
+      .slogan-section {
+        margin-top: -20px; /* Main margin'ı kompanse et */
+        padding-top: 25px; /* Üstten biraz padding */
+      }
+      
+      /* Mobile menu adjustments */
+      .mobile-menu-content {
+        padding: 15px;
+        height: 100vh;
+        position: relative;
+        top: 0;
+      }
+      
+      .mobile-contact-section {
+        margin: 0 -15px;
+        padding: 30px 0 0 0;
+      }
+      
+      .mobile-menu-header {
+        padding: 15px 0;
+        margin-bottom: 30px;
+      }
+      
+      .mobile-logo {
+        height: 150px;
+      }
+      
+      .mobile-nav-link {
+        font-size: 20px;
+        padding: 16px 0;
+      }
+      
+      .mobile-contact-section {
+        padding: 30px 0 15px 0;
+      }
+      
+      .mobile-contact-button {
+        padding: 14px 20px;
+        font-size: 16px;
+      }
+      
+      h1, .h1 { font-size: 36px; }
+      h2, .h2 { font-size: 28px; }
+      .subtitle { font-size: 24px; }
+      .body-text { font-size: 18px; }
+    }
+    
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .mobile-nav-link {
+        font-size: 18px;
+        padding: 14px 0;
+      }
+      
+      .mobile-logo {
+        height: 40px;
+      }
+      
+      .mobile-contact-button {
+        padding: 12px 18px;
+        font-size: 14px;
+      }
+      
+      .hamburger-line {
+        width: 20px;
+        height: 2px;
+      }
+    }
+
+    /* ===========================================
+       SLOGAN SECTION
+       ========================================== */
+    .slogan-section {
+      padding: 25px 0; /* Header ile uyumlu spacing */
+      background-color: #070707;
+      text-align: center;
+    }
+    
+    .slogan-text {
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 1.2;
+      color: var(--color-white);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .slogan-highlight {
+      color: #6BE03F;
+      text-decoration: underline;
+      text-decoration-color: #6BE03F;
+      text-underline-offset: 8px;
+      text-decoration-thickness: 3px;
+    }
+  </style>
+  
+  <!-- Sticky Header Scroll Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('.header');
+      let lastScrollTop = 0;
+      
+      function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Mobile'da daha hassas scroll detection
+        const scrollThreshold = window.innerWidth <= 768 ? 30 : 50;
+        
+        if (scrollTop > scrollThreshold) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        
+        lastScrollTop = scrollTop;
+      }
+      
+      // Throttle scroll events for better performance
+      let ticking = false;
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(handleScroll);
+          ticking = true;
+          setTimeout(() => ticking = false, 10);
+        }
+      }
+      
+      window.addEventListener('scroll', requestTick);
+    });
+  </script>
+  
+  <!-- Mobile Menu Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      // Toggle mobile menu
+      function toggleMobileMenu() {
+        const isActive = mobileMenuOverlay.classList.contains('active');
+        
+        mobileMenuButton.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        
+                            if (!isActive) {
+            // Opening menu - Store current scroll position
+            const scrollY = window.scrollY;
+            
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.top = `-${scrollY}px`;
+            // Mobile'da padding zaten 0, desktop'ta var - koşullu kontrol
+            if (window.innerWidth > 768) {
+              document.body.style.paddingTop = '0';
+            }
+            document.documentElement.style.overflow = 'hidden';
+            
+            // Store scroll position for restoration
+            document.body.setAttribute('data-scroll-y', scrollY);
+          } else {
+            // Closing menu - Restore scroll position
+            const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0');
+            
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            // Desktop'ta padding restore et, mobile'da gerek yok
+            if (window.innerWidth > 768) {
+              document.body.style.paddingTop = '';
+            }
+            document.documentElement.style.overflow = '';
+            
+            // Restore scroll position
+            window.scrollTo(0, scrollY);
+            document.body.removeAttribute('data-scroll-y');
+          }
+      }
+      
+      // Close mobile menu
+      function closeMobileMenu() {
+        const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0');
+        
+        mobileMenuButton.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        
+        // Reset inline background style
+        mobileMenuOverlay.style.backgroundColor = '';
+        
+        // Restore scroll
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        // Desktop'ta padding restore et, mobile'da gerek yok
+        if (window.innerWidth > 768) {
+          document.body.style.paddingTop = '';
+        }
+        document.documentElement.style.overflow = '';
+        
+        // Restore scroll position
+        window.scrollTo(0, scrollY);
+        document.body.removeAttribute('data-scroll-y');
+      }
+      
+      // Event listeners
+      mobileMenuButton.addEventListener('click', toggleMobileMenu);
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+      
+      // Close menu when clicking overlay background
+      mobileMenuOverlay.addEventListener('click', function(e) {
+        if (e.target === mobileMenuOverlay) {
+          closeMobileMenu();
+        }
+      });
+      
+      // Close menu when clicking navigation links
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Force solid background during transition
+          mobileMenuOverlay.style.backgroundColor = 'rgba(7, 7, 7, 1.0)';
+          
+          // Menüyü hemen kapatmak yerine, sayfa yüklendikten sonra kapat
+          setTimeout(() => {
+            closeMobileMenu();
+          }, 150);
+        });
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+          closeMobileMenu();
+        }
+      });
+      
+      // Prevent scroll when menu is open
+      let startY = 0;
+      mobileMenuOverlay.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].clientY;
+      });
+      
+      mobileMenuOverlay.addEventListener('touchmove', function(e) {
+        const currentY = e.touches[0].clientY;
+        const menuContent = document.querySelector('.mobile-menu-content');
+        
+        if (menuContent.scrollTop === 0 && currentY > startY) {
+          e.preventDefault();
+        }
+        
+        if (menuContent.scrollTop >= menuContent.scrollHeight - menuContent.clientHeight && currentY < startY) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+  
+  <!-- Product Slider Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sliderTrack = document.querySelector('.product-slider-track');
+      const allDots = document.querySelectorAll('.carousel-dot'); // Tüm kartlardaki tüm dots
+      const allProductNames = document.querySelectorAll('.product-model-name-card'); // Tüm kart içindeki ürün isimleri
+      const sliderContainer = document.querySelector('.product-slider-container');
+      
+      if (!sliderTrack || !allDots || !allProductNames || !sliderContainer) return;
+      
+      let currentSlide = 0;
+      const totalSlides = 3;
+      
+      // Get current slide width based on screen size
+      function getSlideWidth() {
+        if (window.innerWidth <= 768) {
+          return 300;
+        } else if (window.innerWidth <= 1200) {
+          return 350;
+        } else {
+          return 400;
+        }
+      }
+      
+      // Product data
+      const products = [
+        { name: 'VZIM-20' },
+        { name: 'VZID-24' }
+      ];
+      
+      function updateSlider(slideIndex) {
+        const slideWidth = getSlideWidth();
+        
+        // Update track position with smooth animation
+        const translateX = -(slideIndex * slideWidth);
+        sliderTrack.style.transform = `translateX(${translateX}px)`;
+        
+        // Update ALL dots in ALL cards (sync them) - Daha performanslı
+        allDots.forEach((dot, dotIndex) => {
+          const localDotIndex = dotIndex % 3; // Bu dot'un slide index'i
+          
+          if (localDotIndex === slideIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+        
+        // Update ALL product names in ALL cards
+        allProductNames.forEach((nameElement, nameIndex) => {
+          nameElement.style.opacity = '0.7';
+          setTimeout(() => {
+            nameElement.textContent = products[slideIndex].name;
+            nameElement.style.opacity = '1';
+          }, 150);
+        });
+        
+        currentSlide = slideIndex;
+      }
+      
+      // Dot click handlers - HER dot için
+      allDots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation(); // Event bubbling'i engelle
+          const localDotIndex = dotIndex % 3; // Bu dot hangi slide'a tekabül ediyor
+          updateSlider(localDotIndex);
+        });
+      });
+      
+      // Mouse drag functionality - İyileştirildi
+      let isDragging = false;
+      let startX = 0;
+      let currentX = 0;
+      let dragThreshold = 30; /* Daha düşük threshold - daha hassas */
+      let dragSensitivity = 0.8; /* Drag hassasiyeti artırıldı */
+      
+      sliderContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        currentX = startX;
+        sliderContainer.style.cursor = 'grabbing';
+        sliderContainer.style.userSelect = 'none';
+        e.preventDefault();
+      });
+      
+      sliderContainer.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        currentX = e.clientX;
+        
+        // Daha smooth visual feedback
+        const deltaX = (currentX - startX) * dragSensitivity;
+        const currentTransform = -(currentSlide * getSlideWidth());
+        const previewTransform = currentTransform + deltaX;
+        sliderTrack.style.transform = `translateX(${previewTransform}px)`;
+        
+        e.preventDefault();
+      });
+      
+      sliderContainer.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        sliderContainer.style.cursor = 'grab';
+        sliderContainer.style.userSelect = 'auto';
+        
+        const deltaX = currentX - startX;
+        
+        // Daha akıcı geçiş mantığı
+        if (Math.abs(deltaX) > dragThreshold) {
+          if (deltaX > 0 && currentSlide > 0) {
+            // Drag right - önceki slide
+            updateSlider(currentSlide - 1);
+          } else if (deltaX < 0 && currentSlide < totalSlides - 1) {
+            // Drag left - sonraki slide  
+            updateSlider(currentSlide + 1);
+          } else {
+            // Sınırda - mevcut konuma geri dön
+            updateSlider(currentSlide);
+          }
+        } else {
+          // Yeterli hareket yok - mevcut slide'da kal
+          updateSlider(currentSlide);
+        }
+        
+        // Reset values
+        startX = 0;
+        currentX = 0;
+      });
+      
+      sliderContainer.addEventListener('mouseleave', () => {
+        if (isDragging) {
+          isDragging = false;
+          sliderContainer.style.cursor = 'grab';
+          sliderContainer.style.userSelect = 'auto';
+          updateSlider(currentSlide); // Snap back
+          startX = 0;
+          currentX = 0;
+        }
+      });
+      
+      // Touch events for mobile - İyileştirildi
+      let startTouchX = 0;
+      let currentTouchX = 0;
+      let touchMoved = false;
+      let touchSensitivity = 0.6; /* Touch hassasiyeti */
+      
+      sliderContainer.addEventListener('touchstart', (e) => {
+        startTouchX = e.touches[0].clientX;
+        currentTouchX = startTouchX;
+        touchMoved = false;
+      }, { passive: true });
+      
+      sliderContainer.addEventListener('touchmove', (e) => {
+        currentTouchX = e.touches[0].clientX;
+        touchMoved = true;
+        
+        // Daha smooth touch preview
+        const deltaX = (currentTouchX - startTouchX) * touchSensitivity;
+        const currentTransform = -(currentSlide * getSlideWidth());
+        const previewTransform = currentTransform + deltaX;
+        sliderTrack.style.transform = `translateX(${previewTransform}px)`;
+        
+        if (Math.abs(deltaX) > 15) {
+          e.preventDefault(); // Scroll'u engelle
+        }
+      }, { passive: false });
+      
+      sliderContainer.addEventListener('touchend', (e) => {
+        if (!touchMoved) return;
+        
+        const deltaX = currentTouchX - startTouchX;
+        
+        // Touch için daha düşük threshold
+        if (Math.abs(deltaX) > 25) {
+          if (deltaX > 0 && currentSlide > 0) {
+            updateSlider(currentSlide - 1);
+          } else if (deltaX < 0 && currentSlide < totalSlides - 1) {
+            updateSlider(currentSlide + 1);
+          } else {
+            updateSlider(currentSlide);
+          }
+        } else {
+          updateSlider(currentSlide);
+        }
+        
+        // Reset touch values
+        startTouchX = 0;
+        currentTouchX = 0;
+        touchMoved = false;
+      }, { passive: true });
+      
+      // Handle window resize - Throttled
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          updateSlider(currentSlide);
+        }, 100);
+      });
+      
+      // Initialize with smooth transition
+      allProductNames.forEach(nameElement => {
+        nameElement.style.transition = 'opacity 0.3s ease';
+      });
+      updateSlider(0);
+      
+      // Auto-play functionality (optional - can be enabled)
+      /*
+      let autoPlayInterval;
+      const startAutoPlay = () => {
+        autoPlayInterval = setInterval(() => {
+          const nextSlide = (currentSlide + 1) % totalSlides;
+          updateSlider(nextSlide);
+        }, 4000);
+      };
+      
+      const stopAutoPlay = () => {
+        clearInterval(autoPlayInterval);
+      };
+      
+      // Auto-play controls
+      sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+      sliderContainer.addEventListener('mouseleave', startAutoPlay);
+      startAutoPlay(); // Start auto-play
+      */
+    });
+  </script>
+</head>
+<body class="bg-bg-dark text-light-gray">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+          <a href="/" class="logo-link">
+            <img src="/img/logo/voltz-logo.svg" alt="Voltz Power Tools" class="logo-svg">
+          </a>
+        </div>
+        
+        <!-- Desktop Navigation Menu -->
+        <ul class="navigation desktop-navigation">
+          <li><a href="/" class="nav-link">ANASAYFA</a></li>
+          <li><a href="/about" class="nav-link">HAKKIMIZDA</a></li>
+          <li><a href="/products" class="nav-link">ÜRÜNLERİMİZ</a></li>
+          						<li><a href="/#katalog" class="nav-link">ÜRÜN KATALOĞU</a></li>
+        </ul>
+        
+        <!-- Desktop Contact Button -->
+        <a href="/contact" class="contact-button desktop-contact-button">
+          <div class="contact-main-button">
+            <img src="/icons/button.svg" alt="İletişim Butonu" class="contact-button-bg">
+            <div class="contact-button-text">
+              İLETİŞİM
+            </div>
+          </div>
+          <div class="contact-arrow-button">
+            <img src="/icons/header-arrow-icon.svg" alt="Arrow" class="contact-arrow">
+          </div>
+        </a>
+        
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Menü">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <img src="/img/logo/voltz-logo.svg" alt="Voltz Power Tools" class="mobile-logo">
+          <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Menüyü Kapat">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        
+        <ul class="mobile-navigation">
+          <li><a href="/" class="mobile-nav-link">ANASAYFA</a></li>
+          <li><a href="/about" class="mobile-nav-link">HAKKIMIZDA</a></li>
+          <li><a href="/products" class="mobile-nav-link">ÜRÜNLERİMİZ</a></li>
+          						<li><a href="/#katalog" class="mobile-nav-link">ÜRÜN KATALOĞU</a></li>
+        </ul>
+        
+        <div class="mobile-contact-section">
+          <a href="/contact" class="mobile-contact-button">
+            İLETİŞİM
+          </a>
+        </div>
+        
+        <!-- Spacer for bottom spacing -->
+        <div class="mobile-menu-spacer"></div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- Main Content -->
+  <main>
+    <slot />
+  </main>
+
+
+</body>
+</html> 

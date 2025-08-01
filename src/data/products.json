@@ -1,0 +1,309 @@
+[
+  {
+    "id": "vzdr-201",
+    "title": "VZDR-201",
+    "voltage": "20V",
+    "torque": "60 N.m",
+    "speed": "0-450 / 0-2000 RPM",
+    "bpm": "0-30.000 BPM",
+    "weight": "1.02 kg",
+    "chuck": "13mm Metal Mandren",
+    "features": ["Kömürsüz Motor", "Metal Mandren", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vzdr-201.png",
+    "images": [
+      "/img/products/tools/thumbs/vzdr-201.png",
+      "/img/products/tools/thumbs/vzdr-201-1.png",
+      "/img/products/tools/thumbs/vzdr-201-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vzdr-201.png",
+      "/img/products/tools/large/vzdr-201-1.png",
+      "/img/products/tools/large/vzdr-201-2.png"
+    ],
+    "category": "drill",
+    "subcategory": "Akülü Darbeli Matkap",
+    "description": "Profesyonel işler için tasarlanmış brushless motor teknolojili darbeli matkap. Yüksek tork ve uzun pil ömrü.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vzdr-161",
+    "title": "VZDR-161", 
+    "voltage": "16.8V",
+    "torque": "50 N.m",
+    "speed": "0-450 / 0-2000 RPM",
+    "bpm": "0-30.000 BPM",
+    "weight": "0.83 kg",
+    "chuck": "10mm Metal Mandren",
+    "features": ["Kömürsüz Motor", "Metal Mandren", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vzdr-161.png",
+    "images": [
+      "/img/products/tools/thumbs/vzdr-161.png",
+      "/img/products/tools/thumbs/vzdr-161-1.png",
+      "/img/products/tools/thumbs/vzdr-161-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vzdr-161.png",
+      "/img/products/tools/large/vzdr-161-1.png",
+      "/img/products/tools/large/vzdr-161-2.png"
+    ],
+    "category": "drill",
+    "subcategory": "Akülü Darbeli Matkap",
+    "description": "Kompakt tasarım ve güçlü performans sunan brushless darbeli matkap. Günlük kullanım için ideal.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vzsd-20",
+    "title": "VZSD-20",
+    "voltage": "20V", 
+    "torque": "100 / 180 / 230 N.m",
+    "speed": "1800 / 2600 / 3300 RPM",
+    "bpm": "2300 / 3600 / 4500 BPM",
+    "weight": "1.07 kg",
+    "chuck": "1/4\" Hızlı Değiştirme",
+    "features": ["Kömürsüz Motor", "1/4\" Hızlı Değiştirme", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vzsd-20.png",
+    "images": [
+      "/img/products/tools/thumbs/vzsd-20.png",
+      "/img/products/tools/thumbs/vzsd-20-1.png",
+      "/img/products/tools/thumbs/vzsd-20-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vzsd-20.png",
+      "/img/products/tools/large/vzsd-20-1.png",
+      "/img/products/tools/large/vzsd-20-2.png"
+    ],
+    "category": "driver",
+    "subcategory": "Akülü Tornavida",
+    "description": "Profesyonel vidalama işleri için yüksek performanslı tornavida. 3 modlu çalışma.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vzsd-161",
+    "title": "VZSD-161",
+    "voltage": "16.8V",
+    "torque": "50 / 110 / 150 N.m", 
+    "speed": "1200 / 2400 / 3200 RPM",
+    "bpm": "1500 / 3300 / 3800 BPM",
+    "weight": "0.82 kg",
+    "chuck": "1/4\" Hızlı Değiştirme",
+    "features": ["Kömürsüz Motor", "1/4\" Hızlı Değiştirme", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vzsd-161.png",
+    "images": [
+      "/img/products/tools/thumbs/vzsd-161.png",
+      "/img/products/tools/thumbs/vzsd-161-1.png",
+      "/img/products/tools/thumbs/vzsd-161-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vzsd-161.png",
+      "/img/products/tools/large/vzsd-161-1.png",
+      "/img/products/tools/large/vzsd-161-2.png"
+    ],
+    "category": "driver",
+    "subcategory": "Akülü Tornavida",
+    "description": "Hassas vidalama işleri için ideal brushless tornavida. Çok kademeli hız kontrolü.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vziw-20",
+    "title": "VZIW-20",
+    "voltage": "20V",
+    "torque": "300 / 480 / 500 N.m",
+    "speed": "0-2000 / 0-2300 / 0-2500 RPM", 
+    "bpm": "2800 / 2900 / 3300 BPM",
+    "weight": "1.14 kg",
+    "chuck": "1/2\" Kare Sürücü",
+    "features": ["Kömürsüz Motor", "1/2\" Kare Sürücü", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vziw-20.png",
+    "images": [
+      "/img/products/tools/thumbs/vziw-20.png",
+      "/img/products/tools/thumbs/vziw-20-1.png",
+      "/img/products/tools/thumbs/vziw-20-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vziw-20.png",
+      "/img/products/tools/large/vziw-20-1.png",
+      "/img/products/tools/large/vziw-20-2.png"
+    ],
+    "category": "driver",
+    "subcategory": "Akülü Somun Sökme",
+    "description": "Yüksek torklu somun sökme ve sıkma işleri için güçlü impact driver. 3 hız kademeli.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vziw-16",
+    "title": "VZIW-16", 
+    "voltage": "16.8V",
+    "torque": "100 / 200 / 280 N.m",
+    "speed": "0-2400 RPM",
+    "bpm": "0-4000 BPM",
+    "weight": "0.90 kg", 
+    "chuck": "1/2\" Kare Sürücü",
+    "features": ["Kömürsüz Motor", "1/2\" Kare Sürücü", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vziw-16.png",
+    "images": [
+      "/img/products/tools/thumbs/vziw-16.png",
+      "/img/products/tools/thumbs/vziw-16-1.png",
+      "/img/products/tools/thumbs/vziw-16-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vziw-16.png",
+      "/img/products/tools/large/vziw-16-1.png",
+      "/img/products/tools/large/vziw-16-2.png"
+    ],
+    "category": "driver", 
+    "subcategory": "Akülü Somun Sökme",
+    "description": "Orta kademe işler için ideal somun sökme makinesi. Kompakt ve ergonomik tasarım.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vzag-20",
+    "title": "VZAG-20",
+    "voltage": "20V",
+    "speed": "3300 / 9500 RPM",
+    "weight": "1.40 kg",
+    "diskSize": "115mm",
+    "cuttingDepth": "35mm",
+    "features": ["Kömürsüz Motor", "Mil Kilidi", "2 Pozisyonlu Tutamak", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vzag-20.png",
+    "images": [
+      "/img/products/tools/thumbs/vzag-20.png",
+      "/img/products/tools/thumbs/vzag-20-1.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vzag-20.png",
+      "/img/products/tools/large/vzag-20-1.png"
+    ],
+    "category": "grinder",
+    "subcategory": "Akülü Taşlama", 
+    "description": "Metal ve taş kesme işleri için yüksek devirli avuç taşlama. Çift hız kademeli.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vzhd-20",
+    "title": "VZHD-20",
+    "voltage": "20V",
+    "speed": "0-1400 RPM", 
+    "bpm": "0-4800 BPM",
+    "weight": "2.05 kg",
+    "drillDiameter": "24mm",
+    "impactEnergy": "2.5J",
+    "features": ["Kömürsüz Motor", "SDS Plus", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vzhd-20.png",
+    "images": [
+      "/img/products/tools/thumbs/vzhd-20.png",
+      "/img/products/tools/thumbs/vzhd-20-1.png",
+      "/img/products/tools/thumbs/vzhd-20-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/large/vzhd-20.png",
+      "/img/products/tools/large/vzhd-20-1.png",
+      "/img/products/tools/large/vzhd-20-2.png"
+    ],
+    "category": "hammer",
+    "subcategory": "Akülü Kırıcı Delici",
+    "description": "Beton ve taş işleri için güçlü kırıcı delici. SDS-Plus uç sistemi ve titreşim önleyici teknoloji.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vz20-li50a",
+    "title": "VZ20-LI50A",
+    "voltage": "20V",
+    "capacity": "5.0Ah", 
+    "energy": "100Wh",
+    "weight": "0.65 kg",
+    "features": ["Lithium Ion", "Hızlı Şarj", "LED Gösterge", "V-PACK Uyumlu"],
+    "image": "/img/products/batteries/thumbs/vz20-li50a.png",
+    "images": [
+      "/img/products/batteries/thumbs/vz20-li50a.png"
+    ],
+    "imagesHd": [
+      "/img/products/batteries/large/vz20-li50a.png"
+    ],
+    "category": "battery",
+    "subcategory": "20V Batarya",
+    "description": "Yüksek kapasiteli 20V lithium batarya. Tüm V-PACK sistemi ile uyumlu."
+  },
+  {
+    "id": "vz16-li20a", 
+    "title": "VZ16-LI20A",
+    "voltage": "16.8V",
+    "capacity": "2.0Ah",
+    "energy": "32Wh", 
+    "weight": "0.35 kg",
+    "features": ["Lithium Ion", "Kompakt Tasarım", "LED Gösterge", "V-PACK Uyumlu"],
+    "image": "/img/products/batteries/thumbs/vz16-li20a.png",
+    "images": [
+      "/img/products/batteries/thumbs/vz16-li20a.png"
+    ],
+    "imagesHd": [
+      "/img/products/batteries/large/vz16-li20a.png"
+    ],
+    "category": "battery",
+    "subcategory": "16.8V Batarya", 
+    "description": "Kompakt 16.8V lithium batarya. Hafif kullanım için ideal."
+  },
+  {
+    "id": "vz20-ch",
+    "title": "VZ20-CH", 
+    "voltage": "20VDC",
+    "current": "4A",
+    "weight": "0.8 kg",
+    "features": ["Hızlı Şarj", "LED Gösterge", "Otomatik Durdurma", "V-PACK Uyumlu"],
+    "image": "/img/products/chargers/thumbs/vz20-ch.png",
+    "images": [
+      "/img/products/chargers/thumbs/vz20-ch.png",
+      "/img/products/chargers/thumbs/vz20-ch-1.png"
+    ],
+    "imagesHd": [
+      "/img/products/chargers/large/vz20-ch.png",
+      "/img/products/chargers/large/vz20-ch-1.png"
+    ], 
+    "category": "charger",
+    "subcategory": "20V Şarj Cihazı",
+    "description": "20V bataryalar için hızlı şarj cihazı. Otomatik durdurma özelliği."
+  },
+  {
+    "id": "vz16-ch",
+    "title": "VZ16-CH",
+    "voltage": "16.8VDC", 
+    "current": "1.3A",
+    "weight": "0.6 kg",
+    "features": ["Kompakt Şarj", "LED Gösterge", "Otomatik Durdurma", "V-PACK Uyumlu"],
+    "image": "/img/products/chargers/thumbs/vz16-ch.png",
+    "images": [
+      "/img/products/chargers/thumbs/vz16-ch.png"
+    ],
+    "imagesHd": [
+      "/img/products/chargers/large/vz16-ch.png"
+    ],
+    "category": "charger", 
+    "subcategory": "16.8V Şarj Cihazı",
+    "description": "16.8V bataryalar için kompakt şarj cihazı. Güvenli şarj teknolojisi."
+  },
+  {
+    "id": "v-stack",
+    "title": "V-STACK",
+    "weight": "2.5 kg",
+    "dimensions": "Modüler boyutlar",
+    "capacity": "Çoklu organize bölme",
+    "features": ["Modüler Sistem", "İstiflenebilir", "Taşıma Kolları", "Güvenli Kilit", "Organize Bölmeler"],
+    "image": "/img/products/storage/thumbs/v-stack.png",
+    "images": [
+      "/img/products/storage/thumbs/v-stack.png"
+    ],
+    "imagesHd": [
+      "/img/products/storage/large/v-stack.png"
+    ],
+    "category": "storage",
+    "subcategory": "Taşıma Kutusu Sistemi", 
+    "description": "Profesyonel taşıma kutusu sistemi. İstiflenebilir modüler tasarım."
+  }
+] 
