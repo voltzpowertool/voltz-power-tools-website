@@ -30,7 +30,7 @@ const featuredProducts = productsData.slice(0, 8);
             ÜRÜNLERİ KEŞFET
             <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
-          <a href="/v-pack" class="btn-angular btn-border">
+          <a href="/v-pack" class="btn-angular btn-dark-solid">
             V-PACK SİSTEM
             <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
@@ -144,11 +144,25 @@ const featuredProducts = productsData.slice(0, 8);
     </div>
   </section>
 
-  <!-- LINEUP SHOWCASE -->
-  <section class="lineup-section">
-    <div class="container">
-      <div class="lineup-inner">
-        <img src="/img/products/voltz-lineup.jpeg" alt="Voltz Power Tools Tam Ürün Ailesi" class="lineup-img" />
+  <!-- CTA SHOWCASE -->
+  <section class="showcase-cta">
+    <div class="showcase-bg">
+      <img src="/img/products/voltz-lineup.jpeg" alt="Voltz Power Tools" />
+      <div class="showcase-overlay"></div>
+    </div>
+    <div class="container showcase-inner">
+      <span class="showcase-tag">VOLTZ POWER TOOLS</span>
+      <h2 class="showcase-title">PROFESYONEL İŞLER İÇİN<br/><span class="text-green">PROFESYONEL ALETLER</span></h2>
+      <p class="showcase-desc">13'ten fazla ürünle tam ekosistem. Brushless motor teknolojisi, V-PACK batarya platformu ve endüstriyel dayanıklılık.</p>
+      <div class="showcase-actions">
+        <a href="/products" class="btn-angular btn-green">
+          ÜRÜNLERİ KEŞFET
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="/contact" class="btn-angular btn-dark-solid">
+          İLETİŞİME GEÇİN
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -617,23 +631,98 @@ const featuredProducts = productsData.slice(0, 8);
 
   .about-image:hover img { transform: scale(1.03); }
 
-  /* ========== LINEUP SHOWCASE ========== */
-  .lineup-section {
-    padding: 0;
-    background: var(--gray-100);
-  }
-
-  .lineup-inner {
-    max-width: 100%;
+  /* ========== SHOWCASE CTA ========== */
+  .showcase-cta {
+    position: relative;
+    padding: 120px 0;
     overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
   }
 
-  .lineup-img {
+  .showcase-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .showcase-bg img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
-    max-height: 600px;
+    object-position: center 30%;
+  }
+
+  .showcase-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(17,17,17,0.92) 0%, rgba(17,17,17,0.75) 50%, rgba(17,17,17,0.5) 100%);
+  }
+
+  .showcase-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+
+  .showcase-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    border: 1px solid var(--green);
+  }
+
+  .showcase-title {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .showcase-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 36px;
+    max-width: 550px;
+  }
+
+  .showcase-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-dark-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    transition: all var(--transition);
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-dark-solid:hover {
+    background: rgba(255,255,255,0.22);
   }
 
   /* ========== FOOTER ========== */
