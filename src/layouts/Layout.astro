@@ -19,10 +19,7 @@ const {
   noindex = false
 } = Astro.props;
 
-// Canonical URL - if not provided, use current URL
 const canonicalURL = canonical ? new URL(canonical, Astro.site) : Astro.url;
-
-// Google Analytics ID from environment
 const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 ---
 
@@ -41,7 +38,6 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
   <link rel="canonical" href={canonicalURL} />
   <meta name="generator" content={Astro.generator} />
   
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
@@ -52,7 +48,6 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
   <meta property="og:site_name" content="Voltz Power Tools" />
   <meta property="og:locale" content="tr_TR" />
   
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content={canonicalURL} />
   <meta name="twitter:title" content={title} />
@@ -62,10 +57,8 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 
   <title>{title}</title>
   
-  <!-- GeneralSans Font -->
   <link rel="stylesheet" href="/fonts/css/general-sans.css">
   
-  <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -95,7 +88,6 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     }
   </script>
 
-  <!-- Google Analytics -->
   {GA_MEASUREMENT_ID && (
     <>
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
@@ -112,1256 +104,389 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
   )}
   
   <style is:global>
-    /* ===========================================
-       RESET & BASE STYLES
-       ========================================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     html {
-      font-size: 16px; /* Base font size for rem calculations */
+      font-size: 16px;
       scroll-behavior: smooth;
     }
     
     body {
       font-family: 'GeneralSans-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1;
+      line-height: 1.6;
       color: #1A1A1A;
       background-color: #FFFFFF;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      padding-top: 170px;
+      padding-top: 80px;
     }
 
-    /* ===========================================
-       DESIGN SYSTEM - FIGMA COLORS
-       ========================================== */
     :root {
-      /* Primary Colors */
-      --color-primary-green: #6BE03F;
-      --color-light-green: #6BE03F;
-      --color-white: #FFFFFF;
-      --color-dark: #1A1A1A;
-      --color-bg-light: #FFFFFF;
-      --color-bg-alt: #F5F6F8;
-      --color-text-heading: #1A1A1A;
-      --color-text-body: #4A4A4A;
-      --color-text-muted: #7A7A7A;
-      --color-text-dark: #1A1A1A;
-      --color-text-light: #FFFFFF;
-      --color-border: #E5E7EB;
-      --color-dark-footer: #1A1A1A;
-      
-      /* Layout Constants */
-      --container-max-width: 1728px;
-      --container-padding-x: 72px;
-      --header-logo-width: 160px;
-      --header-logo-height: 120px;
+      --green: #6BE03F;
+      --green-dark: #5BC935;
+      --dark: #1A1A1A;
+      --gray-900: #2D2D2D;
+      --gray-700: #4A4A4A;
+      --gray-500: #7A7A7A;
+      --gray-300: #C4C4C4;
+      --gray-100: #F5F6F8;
+      --gray-50: #FAFAFA;
+      --white: #FFFFFF;
+      --border: #E5E7EB;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+      --shadow-green: 0 4px 20px rgba(107,224,63,0.2);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ===========================================
-       LAYOUT SYSTEM
-       ========================================== */
     .container {
-      max-width: clamp(1200px, 90vw, 1728px); /* Responsive container width */
+      max-width: 1280px;
       margin: 0 auto;
-      padding-left: clamp(20px, 4vw, 72px); /* Responsive padding */
-      padding-right: clamp(20px, 4vw, 72px);
+      padding: 0 24px;
       width: 100%;
     }
 
-    /* Container için farklı breakpoint'lerde özel ayarlar */
-    @media screen and (min-width: 1440px) {
-      .container {
-        max-width: 1728px; /* Büyük ekranlarda tam genişlik */
-        padding-left: 72px;
-        padding-right: 72px;
-      }
-    }
-    
-    @media screen and (max-width: 1200px) {
-      .container {
-        max-width: 95vw; /* Tablet'te daha geniş */
-        padding-left: clamp(20px, 3vw, 40px);
-        padding-right: clamp(20px, 3vw, 40px);
-      }
-    }
-    
-    /* iPad Responsive (1024px) */
-    @media screen and (max-width: 1024px) {
-      .container {
-        max-width: 96vw; /* iPad'de biraz daha geniş */
-        padding-left: clamp(25px, 4vw, 35px);
-        padding-right: clamp(25px, 4vw, 35px);
-      }
-    }
-    
-    @media screen and (max-width: 768px) {
-      .container {
-        max-width: 100vw; /* Mobile'da tam genişlik */
-        padding-left: clamp(15px, 4vw, 25px);
-        padding-right: clamp(15px, 4vw, 25px);
-      }
+    @media (min-width: 1440px) {
+      .container { max-width: 1360px; padding: 0 40px; }
     }
 
-    /* ===========================================
-       HEADER - EXACT FIGMA LAYOUT + STICKY
-       ========================================== */
-    .header {
-      background-color: #1A1A1A;
-      padding: 8px 0;
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+    }
+
+    /* ========== HEADER ========== */
+    .site-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      width: 100%;
-      transition: all 0.3s ease;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition), background var(--transition);
     }
-    
-    .header.scrolled {
-      background: rgba(26, 26, 26, 0.95);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(107, 224, 63, 0.15);
-      z-index: 1000;
-      top: 0;
-      padding: 10px 0;
+
+    .site-header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      border-bottom-color: transparent;
     }
-    
-    .header.scrolled .nav-container {
-      padding: 12px 0; /* Scroll'da yeterli padding */
-    }
-    
-    .header.scrolled .logo-svg {
-      width: var(--header-logo-width); /* Desktop scroll'da logo aynı boyut */
-      height: var(--header-logo-height);
-    }
-    
-    .nav-container {
+
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: auto;
-      padding: 15px 0; /* Logo ve menü için daha fazla space */
-      width: 100%;
+      height: 80px;
     }
-    
-    /* Logo Section */
-    .logo-section {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-    
-    .logo-svg {
-      width: var(--header-logo-width);
-      height: var(--header-logo-height);
+
+    .header-logo img {
+      height: 60px;
+      width: auto;
       display: block;
     }
-    
-    /* Navigation Menu */
-    .navigation {
+
+    .header-nav {
       display: flex;
+      align-items: center;
+      gap: 40px;
       list-style: none;
-      margin: 0;
-      padding: 0;
-      gap: 50px; /* Exact Figma spacing */
-      align-items: center;
     }
-    
-    .nav-link {
-      color: var(--color-white);
+
+    .header-nav a {
+      color: var(--dark);
       text-decoration: none;
-      font-family: 'GeneralSans-Bold', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 1;
-      transition: color 0.3s ease;
-      white-space: nowrap;
-    }
-    
-    .nav-link:hover {
-      color: var(--color-primary-green);
-    }
-    
-    /* Contact Button - Using button.svg */
-    .contact-button {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      text-decoration: none;
-      flex-shrink: 0;
-      white-space: nowrap;
-      transition: transform 0.3s ease;
-    }
-    
-    .contact-button:hover {
-      transform: translateY(-2px);
-    }
-    
-    /* Main Contact Button */
-    .contact-main-button {
+      font-family: 'GeneralSans-Semibold', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color var(--transition);
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    
-    .contact-button-bg {
-      width: 110px;
-      height: 36px;
-      display: block;
-    }
-    
-    .contact-button-text {
+
+    .header-nav a::after {
+      content: '';
       position: absolute;
-      top: 50%;
-      left: 54%;
-      transform: translate(-50%, -50%);
-      font-family: 'GeneralSans-Bold', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 1;
-      color: var(--color-text-dark);
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--green);
+      transition: width var(--transition);
     }
-    
-    /* Arrow Button */
-    .contact-arrow-button {
-      position: relative;
-      width: 44px;
-      height: 36px;
-      background-color: var(--color-primary-green);
-      display: flex;
+
+    .header-nav a:hover { color: var(--green); }
+    .header-nav a:hover::after { width: 100%; }
+
+    .header-cta {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 0;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-arrow-button:hover .contact-arrow {
-      transform: translate(2px, -2px);
-    }
-    
-    .contact-arrow {
-      width: 12px;
-      height: 12px;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    /* ===========================================
-       TYPOGRAPHY SYSTEM - FIGMA EXACT SPECS
-       ========================================== */
-    
-    h1, .h1 {
+      gap: 8px;
+      padding: 10px 24px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
       font-family: 'GeneralSans-Bold', sans-serif;
       font-weight: 700;
-      font-size: 70px;
-      line-height: 1.21;
-      color: var(--color-text-heading);
-      margin: 0;
-    }
-    
-    h2, .h2 {
-      font-family: 'GeneralSans-Semibold', sans-serif;
-      font-weight: 600;
-      font-size: 40px;
-      line-height: 1.25;
-      color: var(--color-text-heading);
-      margin: 0;
-    }
-    
-    h3, .h3 {
-      font-family: 'GeneralSans-Bold', sans-serif;
-      font-weight: 700;
-      font-size: 34px;
-      line-height: 1.47;
-      color: var(--color-text-heading);
-      margin: 0;
-    }
-    
-    h4, .h4 {
-      font-family: 'GeneralSans-Semibold', sans-serif;
-      font-weight: 600;
-      font-size: 30px;
-      line-height: 1.67;
-      color: var(--color-text-heading);
-      margin: 0;
-    }
-    
-    .subtitle {
-      font-family: 'GeneralSans-Bold', sans-serif;
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 1.56;
-      color: var(--color-text-heading);
-      margin: 0;
-    }
-    
-    .body-text {
-      font-family: 'GeneralSans-Regular', sans-serif;
-      font-weight: 400;
-      font-size: 32px;
-      line-height: 1.56;
-      color: var(--color-text-body);
-      margin: 0;
-    }
-    
-    .desc-text {
-      font-family: 'GeneralSans-Light', sans-serif;
-      font-weight: 300;
-      font-size: 24px;
-      line-height: 1.21;
-      color: var(--color-text-body);
-      margin: 0;
-    }
-    
-    .product-text {
-      font-family: 'GeneralSans-Semibold', sans-serif;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 1.21;
-      color: var(--color-text-heading);
-      margin: 0;
-    }
-    
-    .detail-text {
-      font-family: 'GeneralSans-Light', sans-serif;
-      font-weight: 300;
-      font-size: 22px;
-      line-height: 1.59;
-      color: var(--color-text-body);
-      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
     }
 
-
-
-    /* ===========================================
-       UTILITIES
-       ========================================== */
-    
-    /* Text Shadows */
-    .text-shadow {
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-    
-    /* Gradients */
-    .gradient-green-white {
-      background: linear-gradient(135deg, rgba(68, 214, 44, 0.67) 0%, rgba(255, 255, 255, 1) 100%);
-    }
-    
-    .gradient-dark-green {
-      background: linear-gradient(135deg, #1A1A1A 0%, var(--color-light-green) 100%);
-    }
-    
-    .gradient-dark-green-transparent {
-      background: linear-gradient(135deg, rgba(26, 26, 26, 0.63) 0%, var(--color-light-green) 100%);
-    }
-    
-    .gradient-placeholder {
-      background: linear-gradient(135deg, #D9D9D9 0%, #B0B0B0 100%);
+    .header-cta:hover {
+      background: var(--dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
     }
 
-    /* ===========================================
-       RESPONSIVE DESIGN
-       ========================================== */
-    @media (max-width: 1200px) {
-      :root {
-        --container-padding-x: 40px;
-        --header-logo-width: 150px;
-        --header-logo-height: 112px;
-      }
-      
-      .navigation {
-        gap: 30px;
-      }
-      
-      h1, .h1 { font-size: 50px; }
-      h2, .h2 { font-size: 32px; }
-      .body-text { font-size: 24px; }
+    .header-cta svg {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--transition);
     }
-    
-    /* ===========================================
-       MOBILE HAMBURGER MENU
-       ========================================== */
-    .mobile-menu-button {
+
+    .header-cta:hover svg { transform: translateX(2px); }
+
+    .menu-toggle {
       display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: none;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 10001;
       position: relative;
+      z-index: 1100;
     }
-    
-    .hamburger-line {
-      width: 22px;
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
       height: 2px;
-      background-color: var(--color-white);
-      margin: 2px 0;
-      transition: all 0.3s ease;
+      background: var(--dark);
+      margin: 5px auto;
+      transition: all var(--transition);
       border-radius: 2px;
     }
-    
-    .mobile-menu-button.active .hamburger-line:nth-child(1) {
-      transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .mobile-menu-button.active .hamburger-line:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .mobile-menu-button.active .hamburger-line:nth-child(3) {
-      transform: rotate(45deg) translate(-5px, -6px);
-    }
-    
-    /* Mobile Menu Overlay */
-    .mobile-menu-overlay {
+
+    .menu-toggle.active span:nth-child(1) { transform: rotate(-45deg) translate(-6px, 6px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(45deg) translate(-6px, -6px); }
+
+    /* Mobile Menu */
+    .mobile-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(26, 26, 26, 1.0) !important;
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      z-index: 10000;
+      inset: 0;
+      background: var(--white);
+      z-index: 1050;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      overflow: hidden;
-    }
-    
-    .mobile-menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-      background-color: rgba(26, 26, 26, 1.0) !important;
-    }
-    
-    .mobile-menu-content {
+      transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      padding: 20px;
-      overflow-y: auto;
-      position: relative;
-      top: 0;
-      left: 0;
+      padding: 100px 24px 40px;
     }
-    
-    .mobile-menu-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 40px;
+
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
     }
-    
-    .mobile-logo {
-      height: 200px;
-      width: auto;
-    }
-    
-    .mobile-menu-close {
-      background: none;
-      border: none;
-      color: var(--color-white);
-      cursor: pointer;
-      padding: 12px;
-      transition: all 0.3s ease;
-    }
-    
-    .mobile-menu-close:hover {
-      color: var(--color-light-green);
-      transform: rotate(90deg);
-    }
-    
-    /* Mobile Navigation */
-    .mobile-navigation {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+
+    .mobile-overlay nav {
       display: flex;
       flex-direction: column;
       gap: 0;
+      flex: 1;
     }
-    
-    .mobile-nav-link {
-      display: block;
-      color: var(--color-white);
+
+    .mobile-overlay nav a {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+      color: var(--dark);
       text-decoration: none;
       font-family: 'GeneralSans-Bold', sans-serif;
       font-weight: 700;
       font-size: 24px;
-      line-height: 1.2;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
-      position: relative;
+      border-bottom: 1px solid var(--border);
+      transition: all var(--transition);
     }
-    
-    .mobile-nav-link:hover {
-      color: var(--color-light-green);
-      padding-left: 20px;
+
+    .mobile-overlay nav a:hover {
+      color: var(--green);
+      padding-left: 12px;
     }
-    
-    .mobile-nav-link:hover::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 2px;
-      height: 20px;
-      background-color: var(--color-light-green);
-      border-radius: 1px;
-    }
-    
-    /* Mobile Contact Button */
-    .mobile-contact-section {
-      padding: 30px 0 0 0;
-      margin: 0 -20px 0 -20px;
-    }
-    
-    .mobile-contact-button {
+
+    .mobile-overlay .mobile-cta {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      padding: 16px 0;
-      background-color: var(--color-light-green);
-      color: var(--color-dark);
+      padding: 16px;
+      background: var(--green);
+      color: var(--white);
       text-decoration: none;
       font-family: 'GeneralSans-Bold', sans-serif;
       font-weight: 700;
-      font-size: 18px;
-      text-align: center;
-      border-radius: 0;
-      transition: all 0.3s ease;
-      /* Çeltikli tasarım kaldırıldı - tam genişlik düz buton */
-    }
-    
-    .mobile-contact-button:hover {
-      background-color: var(--color-white);
-      color: var(--color-light-green);
-      transform: translateY(-2px);
-    }
-    
-    /* Mobile Menu Spacer */
-    .mobile-menu-spacer {
-      flex: 1;
-      min-height: 50px;
+      font-size: 16px;
+      border-radius: var(--radius-sm);
+      margin-top: 32px;
     }
 
-    /* iPad Responsive (1024px) - Horizontal tablet optimization */
-    @media (max-width: 1024px) and (min-width: 769px) {
-      :root {
-        --container-padding-x: 25px;
-        --header-logo-width: 135px;
-        --header-logo-height: 100px;
-      }
-      
-      .nav-container {
-        padding: 10px 0;
-      }
-      
-      .nav-menu {
-        gap: clamp(25px, 3vw, 35px); /* Responsive nav menu gap */
-      }
-      
-      .nav-link {
-        font-size: clamp(13px, 1.5vw, 16px);
-      }
-      
-      .header-contact-btn {
-        padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 24px);
-        font-size: clamp(12px, 1.4vw, 15px);
-      }
+    /* ========== TYPOGRAPHY ========== */
+    h1 {
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.1;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
 
-      .header.scrolled {
-        background: rgba(26, 26, 26, 0.95);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-      }
+    h2 {
+      font-family: 'GeneralSans-Bold', sans-serif;
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 40px);
+      line-height: 1.15;
+      color: var(--dark);
+    }
 
-      .header.scrolled::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 15px;
-        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.2), transparent);
-        pointer-events: none;
-      }
+    h3 {
+      font-family: 'GeneralSans-Semibold', sans-serif;
+      font-weight: 600;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.3;
+      color: var(--dark);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .header-nav { gap: 24px; }
+      .header-nav a { font-size: 13px; }
     }
 
     @media (max-width: 768px) {
-      :root {
-        --container-padding-x: 20px;
-        --header-logo-width: 115px;
-        --header-logo-height: 86px;
-      }
-      
-      /* Mobile body - padding sıfır */
-      body {
-        padding-top: 0;
-      }
-      
-      .header {
-        position: fixed;
-        top: 0;
-        padding: 8px 0;
-        background: rgba(26, 26, 26, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      }
+      body { padding-top: 70px; }
 
-      .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 20px;
-        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.3), transparent);
-        pointer-events: none;
-      }
-      
-      .nav-container {
-        justify-content: space-between;
-        padding: 6px 0; /* Nav container daha minimal padding */
-      }
-      
-      .header.scrolled {
-        position: fixed;
-        top: 0;
-        background: rgba(26, 26, 26, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(107, 224, 63, 0.15);
-        padding: 6px 0;
-      }
+      .header-inner { height: 70px; }
+      .header-logo img { height: 48px; }
 
-      .header.scrolled::after {
-        height: 30px;
-        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.5), transparent);
-      }
-      
-      .header.scrolled .nav-container {
-        padding: 4px 0; /* Scroll'da daha minimal nav padding */
-      }
-      
-      .header.scrolled .logo-svg {
-        width: var(--header-logo-width); /* Logo boyutu aynı */
-        height: var(--header-logo-height);
-      }
-      
-      /* Hide desktop navigation and contact button */
-      .desktop-navigation,
-      .desktop-contact-button {
-        display: none;
-      }
-      
-      /* Show mobile hamburger button */
-      .mobile-menu-button {
-        display: flex;
-        z-index: 1100;
-      }
-      
-      /* Mobile menu overlay positioning */
-      .mobile-menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-      }
-      
-      /* Mobile main content - header altından başlasın */
-      main {
-        margin-top: 80px; /* Kompakt header için azaltılmış margin */
-      }
-      
-      /* Mobile slogan section - ekstra margin */
-      .slogan-section {
-        margin-top: -20px; /* Main margin'ı kompanse et */
-        padding-top: 25px; /* Üstten biraz padding */
-      }
-      
-      /* Mobile menu adjustments */
-      .mobile-menu-content {
-        padding: 15px;
-        height: 100vh;
-        position: relative;
-        top: 0;
-      }
-      
-      .mobile-contact-section {
-        margin: 0 -15px;
-        padding: 30px 0 0 0;
-      }
-      
-      .mobile-menu-header {
-        padding: 15px 0;
-        margin-bottom: 30px;
-      }
-      
-      .mobile-logo {
-        height: 150px;
-      }
-      
-      .mobile-nav-link {
-        font-size: 20px;
-        padding: 16px 0;
-      }
-      
-      .mobile-contact-section {
-        padding: 30px 0 15px 0;
-      }
-      
-      .mobile-contact-button {
-        padding: 14px 20px;
-        font-size: 16px;
-      }
-      
-      h1, .h1 { font-size: 36px; }
-      h2, .h2 { font-size: 28px; }
-      .subtitle { font-size: 24px; }
-      .body-text { font-size: 18px; }
-    }
-    
-    /* Extra small devices */
-    @media (max-width: 480px) {
-      .mobile-nav-link {
-        font-size: 18px;
-        padding: 14px 0;
-      }
-      
-      .mobile-logo {
-        height: 40px;
-      }
-      
-      .mobile-contact-button {
-        padding: 12px 18px;
-        font-size: 14px;
-      }
-      
-      .hamburger-line {
-        width: 20px;
-        height: 2px;
-      }
-    }
+      .desktop-only { display: none !important; }
+      .menu-toggle { display: block; }
 
-    /* ===========================================
-       SLOGAN SECTION
-       ========================================== */
-    .slogan-section {
-      padding: 25px 0;
-      background-color: var(--color-bg-alt);
-      text-align: center;
-    }
-    
-    .slogan-text {
-      font-family: 'GeneralSans-Bold', sans-serif;
-      font-weight: 700;
-      font-size: 42px;
-      line-height: 1.2;
-      color: var(--color-text-heading);
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    
-    .slogan-highlight {
-      color: #6BE03F;
-      text-decoration: underline;
-      text-decoration-color: #6BE03F;
-      text-underline-offset: 8px;
-      text-decoration-thickness: 3px;
+      .mobile-overlay { padding: 90px 20px 32px; }
+      .mobile-overlay nav a { font-size: 20px; padding: 16px 0; }
     }
   </style>
   
-  <!-- Sticky Header Scroll Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const header = document.querySelector('.header');
-      let lastScrollTop = 0;
+      const header = document.querySelector('.site-header');
+      let ticking = false;
       
-      function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Mobile'da daha hassas scroll detection
-        const scrollThreshold = window.innerWidth <= 768 ? 30 : 50;
-        
-        if (scrollTop > scrollThreshold) {
+      function onScroll() {
+        if (window.scrollY > 20) {
           header.classList.add('scrolled');
         } else {
           header.classList.remove('scrolled');
         }
-        
-        lastScrollTop = scrollTop;
+        ticking = false;
       }
       
-      // Throttle scroll events for better performance
-      let ticking = false;
-      function requestTick() {
+      window.addEventListener('scroll', function() {
         if (!ticking) {
-          requestAnimationFrame(handleScroll);
+          requestAnimationFrame(onScroll);
           ticking = true;
-          setTimeout(() => ticking = false, 10);
         }
-      }
-      
-      window.addEventListener('scroll', requestTick);
+      });
     });
   </script>
   
-  <!-- Mobile Menu Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuButton = document.getElementById('mobileMenuButton');
-      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-      const mobileMenuClose = document.getElementById('mobileMenuClose');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      const toggle = document.getElementById('menuToggle');
+      const overlay = document.getElementById('mobileOverlay');
+      const links = overlay.querySelectorAll('a');
       
-      // Toggle mobile menu
-      function toggleMobileMenu() {
-        const isActive = mobileMenuOverlay.classList.contains('active');
-        
-        mobileMenuButton.classList.toggle('active');
-        mobileMenuOverlay.classList.toggle('active');
-        
-                            if (!isActive) {
-            // Opening menu - Store current scroll position
-            const scrollY = window.scrollY;
-            
-            document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
-            document.body.style.top = `-${scrollY}px`;
-            // Mobile'da padding zaten 0, desktop'ta var - koşullu kontrol
-            if (window.innerWidth > 768) {
-              document.body.style.paddingTop = '0';
-            }
-            document.documentElement.style.overflow = 'hidden';
-            
-            // Store scroll position for restoration
-            document.body.setAttribute('data-scroll-y', scrollY);
-          } else {
-            // Closing menu - Restore scroll position
-            const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0');
-            
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
-            document.body.style.top = '';
-            // Desktop'ta padding restore et, mobile'da gerek yok
-            if (window.innerWidth > 768) {
-              document.body.style.paddingTop = '';
-            }
-            document.documentElement.style.overflow = '';
-            
-            // Restore scroll position
-            window.scrollTo(0, scrollY);
-            document.body.removeAttribute('data-scroll-y');
-          }
+      function openMenu() {
+        toggle.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
       }
       
-      // Close mobile menu
-      function closeMobileMenu() {
-        const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0');
-        
-        mobileMenuButton.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        
-        // Reset inline background style
-        mobileMenuOverlay.style.backgroundColor = '';
-        
-        // Restore scroll
+      function closeMenu() {
+        toggle.classList.remove('active');
+        overlay.classList.remove('active');
         document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.style.top = '';
-        // Desktop'ta padding restore et, mobile'da gerek yok
-        if (window.innerWidth > 768) {
-          document.body.style.paddingTop = '';
-        }
-        document.documentElement.style.overflow = '';
-        
-        // Restore scroll position
-        window.scrollTo(0, scrollY);
-        document.body.removeAttribute('data-scroll-y');
       }
       
-      // Event listeners
-      mobileMenuButton.addEventListener('click', toggleMobileMenu);
-      mobileMenuClose.addEventListener('click', closeMobileMenu);
-      
-      // Close menu when clicking overlay background
-      mobileMenuOverlay.addEventListener('click', function(e) {
-        if (e.target === mobileMenuOverlay) {
-          closeMobileMenu();
+      toggle.addEventListener('click', function() {
+        if (overlay.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
         }
       });
       
-      // Close menu when clicking navigation links
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          // Force solid background during transition
-          mobileMenuOverlay.style.backgroundColor = 'rgba(26, 26, 26, 1.0)';
-          
-          // Menüyü hemen kapatmak yerine, sayfa yüklendikten sonra kapat
-          setTimeout(() => {
-            closeMobileMenu();
-          }, 150);
+      links.forEach(function(link) {
+        link.addEventListener('click', function() {
+          setTimeout(closeMenu, 100);
         });
       });
       
-      // Close menu on escape key
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
-          closeMobileMenu();
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+          closeMenu();
         }
       });
-      
-      // Prevent scroll when menu is open
-      let startY = 0;
-      mobileMenuOverlay.addEventListener('touchstart', function(e) {
-        startY = e.touches[0].clientY;
-      });
-      
-      mobileMenuOverlay.addEventListener('touchmove', function(e) {
-        const currentY = e.touches[0].clientY;
-        const menuContent = document.querySelector('.mobile-menu-content');
-        
-        if (menuContent.scrollTop === 0 && currentY > startY) {
-          e.preventDefault();
-        }
-        
-        if (menuContent.scrollTop >= menuContent.scrollHeight - menuContent.clientHeight && currentY < startY) {
-          e.preventDefault();
-        }
-      });
-    });
-  </script>
-  
-  <!-- Product Slider Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const sliderTrack = document.querySelector('.product-slider-track');
-      const allDots = document.querySelectorAll('.carousel-dot'); // Tüm kartlardaki tüm dots
-      const allProductNames = document.querySelectorAll('.product-model-name-card'); // Tüm kart içindeki ürün isimleri
-      const sliderContainer = document.querySelector('.product-slider-container');
-      
-      if (!sliderTrack || !allDots || !allProductNames || !sliderContainer) return;
-      
-      let currentSlide = 0;
-      const totalSlides = 3;
-      
-      // Get current slide width based on screen size
-      function getSlideWidth() {
-        if (window.innerWidth <= 768) {
-          return 300;
-        } else if (window.innerWidth <= 1200) {
-          return 350;
-        } else {
-          return 400;
-        }
-      }
-      
-      // Product data
-      const products = [
-        { name: 'VZIM-20' },
-        { name: 'VZID-24' }
-      ];
-      
-      function updateSlider(slideIndex) {
-        const slideWidth = getSlideWidth();
-        
-        // Update track position with smooth animation
-        const translateX = -(slideIndex * slideWidth);
-        sliderTrack.style.transform = `translateX(${translateX}px)`;
-        
-        // Update ALL dots in ALL cards (sync them) - Daha performanslı
-        allDots.forEach((dot, dotIndex) => {
-          const localDotIndex = dotIndex % 3; // Bu dot'un slide index'i
-          
-          if (localDotIndex === slideIndex) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
-        });
-        
-        // Update ALL product names in ALL cards
-        allProductNames.forEach((nameElement, nameIndex) => {
-          nameElement.style.opacity = '0.7';
-          setTimeout(() => {
-            nameElement.textContent = products[slideIndex].name;
-            nameElement.style.opacity = '1';
-          }, 150);
-        });
-        
-        currentSlide = slideIndex;
-      }
-      
-      // Dot click handlers - HER dot için
-      allDots.forEach((dot, dotIndex) => {
-        dot.addEventListener('click', (e) => {
-          e.stopPropagation(); // Event bubbling'i engelle
-          const localDotIndex = dotIndex % 3; // Bu dot hangi slide'a tekabül ediyor
-          updateSlider(localDotIndex);
-        });
-      });
-      
-      // Mouse drag functionality - İyileştirildi
-      let isDragging = false;
-      let startX = 0;
-      let currentX = 0;
-      let dragThreshold = 30; /* Daha düşük threshold - daha hassas */
-      let dragSensitivity = 0.8; /* Drag hassasiyeti artırıldı */
-      
-      sliderContainer.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.clientX;
-        currentX = startX;
-        sliderContainer.style.cursor = 'grabbing';
-        sliderContainer.style.userSelect = 'none';
-        e.preventDefault();
-      });
-      
-      sliderContainer.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        currentX = e.clientX;
-        
-        // Daha smooth visual feedback
-        const deltaX = (currentX - startX) * dragSensitivity;
-        const currentTransform = -(currentSlide * getSlideWidth());
-        const previewTransform = currentTransform + deltaX;
-        sliderTrack.style.transform = `translateX(${previewTransform}px)`;
-        
-        e.preventDefault();
-      });
-      
-      sliderContainer.addEventListener('mouseup', (e) => {
-        if (!isDragging) return;
-        isDragging = false;
-        sliderContainer.style.cursor = 'grab';
-        sliderContainer.style.userSelect = 'auto';
-        
-        const deltaX = currentX - startX;
-        
-        // Daha akıcı geçiş mantığı
-        if (Math.abs(deltaX) > dragThreshold) {
-          if (deltaX > 0 && currentSlide > 0) {
-            // Drag right - önceki slide
-            updateSlider(currentSlide - 1);
-          } else if (deltaX < 0 && currentSlide < totalSlides - 1) {
-            // Drag left - sonraki slide  
-            updateSlider(currentSlide + 1);
-          } else {
-            // Sınırda - mevcut konuma geri dön
-            updateSlider(currentSlide);
-          }
-        } else {
-          // Yeterli hareket yok - mevcut slide'da kal
-          updateSlider(currentSlide);
-        }
-        
-        // Reset values
-        startX = 0;
-        currentX = 0;
-      });
-      
-      sliderContainer.addEventListener('mouseleave', () => {
-        if (isDragging) {
-          isDragging = false;
-          sliderContainer.style.cursor = 'grab';
-          sliderContainer.style.userSelect = 'auto';
-          updateSlider(currentSlide); // Snap back
-          startX = 0;
-          currentX = 0;
-        }
-      });
-      
-      // Touch events for mobile - İyileştirildi
-      let startTouchX = 0;
-      let currentTouchX = 0;
-      let touchMoved = false;
-      let touchSensitivity = 0.6; /* Touch hassasiyeti */
-      
-      sliderContainer.addEventListener('touchstart', (e) => {
-        startTouchX = e.touches[0].clientX;
-        currentTouchX = startTouchX;
-        touchMoved = false;
-      }, { passive: true });
-      
-      sliderContainer.addEventListener('touchmove', (e) => {
-        currentTouchX = e.touches[0].clientX;
-        touchMoved = true;
-        
-        // Daha smooth touch preview
-        const deltaX = (currentTouchX - startTouchX) * touchSensitivity;
-        const currentTransform = -(currentSlide * getSlideWidth());
-        const previewTransform = currentTransform + deltaX;
-        sliderTrack.style.transform = `translateX(${previewTransform}px)`;
-        
-        if (Math.abs(deltaX) > 15) {
-          e.preventDefault(); // Scroll'u engelle
-        }
-      }, { passive: false });
-      
-      sliderContainer.addEventListener('touchend', (e) => {
-        if (!touchMoved) return;
-        
-        const deltaX = currentTouchX - startTouchX;
-        
-        // Touch için daha düşük threshold
-        if (Math.abs(deltaX) > 25) {
-          if (deltaX > 0 && currentSlide > 0) {
-            updateSlider(currentSlide - 1);
-          } else if (deltaX < 0 && currentSlide < totalSlides - 1) {
-            updateSlider(currentSlide + 1);
-          } else {
-            updateSlider(currentSlide);
-          }
-        } else {
-          updateSlider(currentSlide);
-        }
-        
-        // Reset touch values
-        startTouchX = 0;
-        currentTouchX = 0;
-        touchMoved = false;
-      }, { passive: true });
-      
-      // Handle window resize - Throttled
-      let resizeTimeout;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          updateSlider(currentSlide);
-        }, 100);
-      });
-      
-      // Initialize with smooth transition
-      allProductNames.forEach(nameElement => {
-        nameElement.style.transition = 'opacity 0.3s ease';
-      });
-      updateSlider(0);
-      
-      // Auto-play functionality (optional - can be enabled)
-      /*
-      let autoPlayInterval;
-      const startAutoPlay = () => {
-        autoPlayInterval = setInterval(() => {
-          const nextSlide = (currentSlide + 1) % totalSlides;
-          updateSlider(nextSlide);
-        }, 4000);
-      };
-      
-      const stopAutoPlay = () => {
-        clearInterval(autoPlayInterval);
-      };
-      
-      // Auto-play controls
-      sliderContainer.addEventListener('mouseenter', stopAutoPlay);
-      sliderContainer.addEventListener('mouseleave', startAutoPlay);
-      startAutoPlay(); // Start auto-play
-      */
     });
   </script>
 </head>
-<body class="bg-bg-light text-body-text">
-  <!-- Header -->
-  <header class="header">
+<body>
+  <header class="site-header">
     <div class="container">
-      <nav class="nav-container">
-        <!-- Logo Section -->
-        <div class="logo-section">
-          <a href="/" class="logo-link">
-            <img src="/img/logo/voltz-logo.svg" alt="Voltz Power Tools" class="logo-svg">
-          </a>
-        </div>
-        
-        <!-- Desktop Navigation Menu -->
-        <ul class="navigation desktop-navigation">
-          <li><a href="/" class="nav-link">ANASAYFA</a></li>
-          <li><a href="/about" class="nav-link">HAKKIMIZDA</a></li>
-          <li><a href="/products" class="nav-link">ÜRÜNLERİMİZ</a></li>
-          						<li><a href="/#katalog" class="nav-link">ÜRÜN KATALOĞU</a></li>
-        </ul>
-        
-        <!-- Desktop Contact Button -->
-        <a href="/contact" class="contact-button desktop-contact-button">
-          <div class="contact-main-button">
-            <img src="/icons/button.svg" alt="İletişim Butonu" class="contact-button-bg">
-            <div class="contact-button-text">
-              İLETİŞİM
-            </div>
-          </div>
-          <div class="contact-arrow-button">
-            <img src="/icons/header-arrow-icon.svg" alt="Arrow" class="contact-arrow">
-          </div>
+      <div class="header-inner">
+        <a href="/" class="header-logo">
+          <img src="/img/logo/voltz-logo.svg" alt="Voltz Power Tools">
         </a>
         
-        <!-- Mobile Hamburger Button -->
-        <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Menü">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-      </nav>
-    </div>
-    
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-      <div class="mobile-menu-content">
-        <div class="mobile-menu-header">
-          <img src="/img/logo/voltz-logo.svg" alt="Voltz Power Tools" class="mobile-logo">
-          <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Menüyü Kapat">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
-        </div>
-        
-        <ul class="mobile-navigation">
-          <li><a href="/" class="mobile-nav-link">ANASAYFA</a></li>
-          <li><a href="/about" class="mobile-nav-link">HAKKIMIZDA</a></li>
-          <li><a href="/products" class="mobile-nav-link">ÜRÜNLERİMİZ</a></li>
-          						<li><a href="/#katalog" class="mobile-nav-link">ÜRÜN KATALOĞU</a></li>
+        <ul class="header-nav desktop-only">
+          <li><a href="/">ANASAYFA</a></li>
+          <li><a href="/about">HAKKIMIZDA</a></li>
+          <li><a href="/products">ÜRÜNLERİMİZ</a></li>
+          <li><a href="/#katalog">KATALOG</a></li>
         </ul>
         
-        <div class="mobile-contact-section">
-          <a href="/contact" class="mobile-contact-button">
-            İLETİŞİM
-          </a>
-        </div>
+        <a href="/contact" class="header-cta desktop-only">
+          İLETİŞİM
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
         
-        <!-- Spacer for bottom spacing -->
-        <div class="mobile-menu-spacer"></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
 
+  <div class="mobile-overlay" id="mobileOverlay">
+    <nav>
+      <a href="/">ANASAYFA</a>
+      <a href="/about">HAKKIMIZDA</a>
+      <a href="/products">ÜRÜNLERİMİZ</a>
+      <a href="/#katalog">KATALOG</a>
+    </nav>
+    <a href="/contact" class="mobile-cta">İLETİŞİM</a>
+  </div>
 
-
-  <!-- Main Content -->
   <main>
     <slot />
   </main>
-
-
 </body>
-</html> 
+</html>
