@@ -205,6 +205,25 @@ function getCategoryName(category) {
             </ul>
           </div>
         )}
+
+        <!-- Marketplace Links -->
+        <div class="pd-marketplace">
+          <h3 class="pd-marketplace-title">SATIN AL</h3>
+          <div class="pd-mp-grid">
+            <a href={`https://www.hepsiburada.com/ara?q=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="pd-mp-btn pd-mp-hb">
+              <span class="pd-mp-name">hepsiburada</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l8-8M7 4h5v5"/></svg>
+            </a>
+            <a href={`https://www.trendyol.com/sr?q=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="pd-mp-btn pd-mp-ty">
+              <span class="pd-mp-name">trendyol</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l8-8M7 4h5v5"/></svg>
+            </a>
+            <a href={`https://www.amazon.com.tr/s?k=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="pd-mp-btn pd-mp-az">
+              <span class="pd-mp-name">amazon</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l8-8M7 4h5v5"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -836,6 +855,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
 .pd-check-icon {
   flex-shrink: 0;
+}
+
+/* ── MARKETPLACE ── */
+.pd-marketplace {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 2px solid var(--border);
+}
+
+.pd-marketplace-title {
+  font-family: 'GeneralSans-Bold', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.pd-mp-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.pd-mp-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: 2px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.pd-mp-name {
+  font-family: 'GeneralSans-Bold', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.pd-mp-hb .pd-mp-name { color: #FF6000; }
+.pd-mp-hb svg { stroke: #FF6000; }
+.pd-mp-hb:hover { background: #FF6000; border-color: #FF6000; }
+.pd-mp-hb:hover .pd-mp-name { color: #FFF; }
+.pd-mp-hb:hover svg { stroke: #FFF; }
+
+.pd-mp-ty .pd-mp-name { color: #F27A1A; }
+.pd-mp-ty svg { stroke: #F27A1A; }
+.pd-mp-ty:hover { background: #F27A1A; border-color: #F27A1A; }
+.pd-mp-ty:hover .pd-mp-name { color: #FFF; }
+.pd-mp-ty:hover svg { stroke: #FFF; }
+
+.pd-mp-az .pd-mp-name { color: #232F3E; }
+.pd-mp-az svg { stroke: #232F3E; }
+.pd-mp-az:hover { background: #FF9900; border-color: #FF9900; }
+.pd-mp-az:hover .pd-mp-name { color: #232F3E; }
+.pd-mp-az:hover svg { stroke: #232F3E; }
+
+@media (max-width: 480px) {
+  .pd-mp-grid { flex-direction: column; }
 }
 
 /* ── PACKAGE CONTENTS ── */

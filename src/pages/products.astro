@@ -44,17 +44,33 @@ const categories = [
 
       <div class="products-grid" id="productsGrid">
         {productsData.map((product) => (
-          <a href={`/products/${product.id}`} class="product-card" data-category={product.category}>
-            <div class="card-img">
-              <img src={product.image} alt={product.title} loading="lazy">
-              {product.voltage && <span class="voltage-badge">{product.voltage}</span>}
+          <div class="product-card" data-category={product.category}>
+            <a href={`/products/${product.id}`} class="card-main-link">
+              <div class="card-img">
+                <img src={product.image} alt={product.title} loading="lazy">
+                {product.voltage && <span class="voltage-badge">{product.voltage}</span>}
+              </div>
+              <div class="card-body">
+                <span class="card-category">{product.subcategory}</span>
+                <h3 class="card-title">{product.title}</h3>
+                <span class="card-link">DETAYLAR &gt;</span>
+              </div>
+            </a>
+            <div class="card-marketplaces">
+              <span class="mp-label">SATIN AL</span>
+              <div class="mp-links">
+                <a href={`https://www.hepsiburada.com/ara?q=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="mp-btn mp-hb" title="Hepsiburada'da Ara">
+                  <span class="mp-name">hepsiburada</span>
+                </a>
+                <a href={`https://www.trendyol.com/sr?q=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="mp-btn mp-ty" title="Trendyol'da Ara">
+                  <span class="mp-name">trendyol</span>
+                </a>
+                <a href={`https://www.amazon.com.tr/s?k=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="mp-btn mp-az" title="Amazon'da Ara">
+                  <span class="mp-name">amazon</span>
+                </a>
+              </div>
             </div>
-            <div class="card-body">
-              <span class="card-category">{product.subcategory}</span>
-              <h3 class="card-title">{product.title}</h3>
-              <span class="card-link">DETAYLAR &gt;</span>
-            </div>
-          </a>
+          </div>
         ))}
       </div>
 
@@ -287,6 +303,71 @@ const categories = [
     letter-spacing: 1px;
     transition: letter-spacing 0.2s ease;
   }
+
+  .card-main-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* ── MARKETPLACE ── */
+  .card-marketplaces {
+    padding: 12px 20px 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mp-label {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .mp-links {
+    display: flex;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .mp-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
+  }
+
+  .mp-name {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.3px;
+    text-transform: lowercase;
+  }
+
+  .mp-hb { background: #FFF; }
+  .mp-hb .mp-name { color: #FF6000; }
+  .mp-hb:hover { background: #FF6000; border-color: #FF6000; }
+  .mp-hb:hover .mp-name { color: #FFF; }
+
+  .mp-ty { background: #FFF; }
+  .mp-ty .mp-name { color: #F27A1A; }
+  .mp-ty:hover { background: #F27A1A; border-color: #F27A1A; }
+  .mp-ty:hover .mp-name { color: #FFF; }
+
+  .mp-az { background: #FFF; }
+  .mp-az .mp-name { color: #232F3E; }
+  .mp-az:hover { background: #FF9900; border-color: #FF9900; }
+  .mp-az:hover .mp-name { color: #232F3E; }
 
   .product-card:hover .card-link {
     letter-spacing: 2px;

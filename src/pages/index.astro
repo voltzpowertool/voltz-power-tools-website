@@ -48,22 +48,29 @@ const featuredProducts = productsData.slice(0, 8);
       </div>
       <div class="products-grid">
         {featuredProducts.map((product) => (
-          <a href={`/products/${product.id}`} class="product-card">
-            <div class="product-card-img">
-              <img src={product.image} alt={product.title} loading="lazy" />
-              {product.voltage && (
-                <span class="voltage-badge">{product.voltage}</span>
-              )}
+          <div class="product-card">
+            <a href={`/products/${product.id}`} class="product-card-main">
+              <div class="product-card-img">
+                <img src={product.image} alt={product.title} loading="lazy" />
+                {product.voltage && (
+                  <span class="voltage-badge">{product.voltage}</span>
+                )}
+              </div>
+              <div class="product-card-body">
+                <h3 class="product-card-title">{product.title}</h3>
+                <span class="product-card-model">{product.subcategory}</span>
+                <span class="product-card-link">
+                  DETAYLAR
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </span>
+              </div>
+            </a>
+            <div class="product-card-mp">
+              <a href={`https://www.hepsiburada.com/ara?q=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="pmp pmp-hb" title="Hepsiburada">hepsiburada</a>
+              <a href={`https://www.trendyol.com/sr?q=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="pmp pmp-ty" title="Trendyol">trendyol</a>
+              <a href={`https://www.amazon.com.tr/s?k=Voltz+${product.title}`} target="_blank" rel="noopener noreferrer" class="pmp pmp-az" title="Amazon">amazon</a>
             </div>
-            <div class="product-card-body">
-              <h3 class="product-card-title">{product.title}</h3>
-              <span class="product-card-model">{product.subcategory}</span>
-              <span class="product-card-link">
-                DETAYLAR
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-              </span>
-            </div>
-          </a>
+          </div>
         ))}
       </div>
       <div class="products-cta">
@@ -490,6 +497,39 @@ const featuredProducts = productsData.slice(0, 8);
   }
 
   .product-card:hover .product-card-link { gap: 10px; }
+
+  .product-card-main {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-card-mp {
+    display: flex;
+    gap: 4px;
+    padding: 10px 20px 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .pmp {
+    flex: 1;
+    text-align: center;
+    padding: 5px 4px;
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 800;
+    font-size: 8px;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+  }
+
+  .pmp-hb { color: #FF6000; }
+  .pmp-hb:hover { background: #FF6000; color: #FFF; border-color: #FF6000; }
+  .pmp-ty { color: #F27A1A; }
+  .pmp-ty:hover { background: #F27A1A; color: #FFF; border-color: #F27A1A; }
+  .pmp-az { color: #232F3E; }
+  .pmp-az:hover { background: #FF9900; color: #232F3E; border-color: #FF9900; }
 
   .products-cta {
     text-align: center;
