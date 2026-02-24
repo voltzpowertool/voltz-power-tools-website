@@ -311,7 +311,7 @@ import Layout from '@/layouts/Layout.astro';
    ========================================== */
 .contact-hero-section {
 	position: relative;
-	background-color: #070707;
+	background-color: var(--color-bg-alt);
 	padding: 120px 0 80px 0;
 	overflow: hidden;
 }
@@ -328,7 +328,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: clamp(48px, 8vw, 72px);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 30px;
 	line-height: 1.1;
 }
@@ -337,7 +337,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: clamp(18px, 3vw, 24px);
-	color: var(--color-white);
+	color: var(--color-text-body);
 	line-height: 1.6;
 	margin: 0;
 }
@@ -347,7 +347,7 @@ import Layout from '@/layouts/Layout.astro';
    ========================================== */
 .contact-section {
 	padding: 100px 0;
-	background-color: #070707;
+	background-color: #FFFFFF;
 	position: relative;
 }
 
@@ -371,7 +371,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: clamp(32px, 5vw, 48px);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 20px;
 	line-height: 1.2;
 }
@@ -380,7 +380,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 18px;
-	color: var(--color-white);
+	color: var(--color-text-body);
 	line-height: 1.6;
 	margin: 0;
 }
@@ -407,7 +407,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 16px;
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 10px;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
@@ -416,13 +416,13 @@ import Layout from '@/layouts/Layout.astro';
 .form-input,
 .form-select,
 .form-textarea {
-	background-color: rgba(255, 255, 255, 0.05);
-	border: 2px solid rgba(255, 255, 255, 0.1);
+	background-color: #F5F6F8;
+	border: 2px solid #E5E7EB;
 	border-radius: 12px;
 	padding: 15px 20px;
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-size: 16px;
-	color: var(--color-white);
+	color: #1A1A1A;
 	transition: all 0.3s ease;
 	outline: none;
 }
@@ -431,7 +431,7 @@ import Layout from '@/layouts/Layout.astro';
 .form-select:focus,
 .form-textarea:focus {
 	border-color: var(--color-primary-green);
-	background-color: rgba(255, 255, 255, 0.08);
+	background-color: #FFFFFF;
 	box-shadow: 0 0 0 3px rgba(68, 214, 44, 0.1);
 }
 
@@ -445,20 +445,20 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .form-select option {
-	background-color: #070707;
-	color: var(--color-white);
+	background-color: #FFFFFF;
+	color: #1A1A1A;
 }
 
 /* Mobile Subject Button */
 .mobile-subject-btn {
 	width: 100%;
-	background-color: rgba(255, 255, 255, 0.05);
-	border: 2px solid rgba(255, 255, 255, 0.1);
+	background-color: #F5F6F8;
+	border: 2px solid #E5E7EB;
 	border-radius: 12px;
 	padding: 15px 20px;
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-size: 16px;
-	color: var(--color-white);
+	color: #1A1A1A;
 	cursor: pointer;
 	transition: all 0.3s ease;
 	outline: none;
@@ -513,7 +513,7 @@ import Layout from '@/layouts/Layout.astro';
 .checkbox-label {
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-size: 14px;
-	color: rgba(255, 255, 255, 0.8);
+	color: #4A4A4A;
 	line-height: 1.5;
 }
 
@@ -557,7 +557,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: clamp(32px, 5vw, 48px);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 20px;
 	line-height: 1.2;
 }
@@ -566,7 +566,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 18px;
-	color: var(--color-white);
+	color: var(--color-text-body);
 	line-height: 1.6;
 	margin: 0;
 }
@@ -579,15 +579,16 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .info-card {
-	background: rgba(255, 255, 255, 0.03);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: #FFFFFF;
+	border: 1px solid #E5E7EB;
 	border-radius: 20px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 	padding: 30px;
 	transition: all 0.3s ease;
 }
 
 .info-card:hover {
-	background: rgba(255, 255, 255, 0.05);
+	background: #FFFFFF;
 	border-color: var(--color-primary-green);
 	transform: translateY(-2px);
 }
@@ -614,14 +615,14 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 20px;
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin: 0;
 }
 
 .info-card-content {
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-size: 16px;
-	color: rgba(255, 255, 255, 0.8);
+	color: #4A4A4A;
 	line-height: 1.6;
 }
 
@@ -640,7 +641,7 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .info-link:hover {
-	color: var(--color-white);
+	color: #1A1A1A;
 	text-decoration: underline;
 }
 
@@ -649,7 +650,7 @@ import Layout from '@/layouts/Layout.astro';
    ========================================== */
 .map-section {
 	padding: 100px 0;
-	background-color: rgba(255, 255, 255, 0.02);
+	background-color: var(--color-bg-alt);
 }
 
 .map-header {
@@ -661,7 +662,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: clamp(32px, 5vw, 48px);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 20px;
 	line-height: 1.2;
 }
@@ -670,7 +671,7 @@ import Layout from '@/layouts/Layout.astro';
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 20px;
-	color: var(--color-white);
+	color: var(--color-text-body);
 	line-height: 1.6;
 	margin: 0;
 }
@@ -694,7 +695,7 @@ import Layout from '@/layouts/Layout.astro';
 .footer-section {
 	margin-top: 150px;
 	padding: 60px 0;
-	background-color: var(--color-light-green);
+	background-color: #1A1A1A;
 	position: relative;
 	z-index: 5;
 }
@@ -729,7 +730,7 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .footer-company-title {
-	color: var(--color-dark);
+	color: #FFFFFF;
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 24px;
@@ -739,7 +740,7 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .footer-company-desc {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.85);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -753,7 +754,7 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .footer-contact-title {
-	color: var(--color-dark);
+	color: #FFFFFF;
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 16px;
@@ -762,7 +763,7 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .footer-contact-text {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.85);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -771,14 +772,14 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .footer-link {
-	color: var(--color-dark);
+	color: var(--color-primary-green);
 	text-decoration: none;
 	font-weight: 500;
 	transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-	color: var(--color-white);
+	color: var(--color-light-green);
 }
 
 .footer-bottom {
@@ -786,7 +787,7 @@ import Layout from '@/layouts/Layout.astro';
 	justify-content: space-between;
 	align-items: center;
 	padding-top: 30px;
-	border-top: 1px solid rgba(11, 12, 12, 0.2);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-social {
@@ -800,21 +801,21 @@ import Layout from '@/layouts/Layout.astro';
 	justify-content: center;
 	width: 40px;
 	height: 40px;
-	background-color: var(--color-dark);
-	color: var(--color-light-green);
+	background-color: rgba(255, 255, 255, 0.15);
+	color: #FFFFFF;
 	border-radius: 50%;
 	text-decoration: none;
 	transition: all 0.3s ease;
 }
 
 .social-link:hover {
-	background-color: var(--color-white);
-	color: var(--color-dark);
+	background-color: var(--color-primary-green);
+	color: #FFFFFF;
 	transform: translateY(-2px);
 }
 
 .footer-copyright {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.7);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -1087,11 +1088,11 @@ import Layout from '@/layouts/Layout.astro';
 	background-size: auto 100%; /* Icon'un tam boyutunu korur */
 	background-position: right center; /* Tutarlı pozisyon */
 	background-repeat: no-repeat;
-	opacity: 0.25;
+	opacity: 0.06;
 	z-index: 0;
 	pointer-events: none;
-	mix-blend-mode: screen;
-	filter: brightness(0.9) contrast(1.3);
+	mix-blend-mode: multiply;
+	filter: brightness(1.1) contrast(0.8);
 }
 
 @media (max-width: 1200px) {
@@ -1172,7 +1173,7 @@ function createSubjectModal() {
 		bottom: 0 !important;
 		left: 0 !important;
 		width: 100% !important;
-		background: #070707 !important;
+		background: #1A1A1A !important;
 		border-radius: 20px 20px 0 0 !important;
 		transform: translateY(0) !important;
 		max-height: 60vh !important;

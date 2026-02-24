@@ -902,7 +902,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Product Detail Styles */
 .product-detail-hero {
   min-height: 100vh;
-  background-color: #070707;
+  background-color: #FFFFFF;
   position: relative;
   padding: 100px 0 50px 0;
 }
@@ -917,7 +917,9 @@ document.addEventListener('DOMContentLoaded', function() {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right center;
-  opacity: 0.3;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  filter: brightness(1.1) contrast(0.8);
   z-index: 1;
 }
 
@@ -957,7 +959,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .product-badge.heavy-duty {
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #6BE03F;
 }
 
@@ -973,7 +975,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .product-category {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: clamp(18px, 3vw, 24px);
-  color: var(--color-white);
+  color: var(--color-text-body);
   margin-bottom: 0;
 }
 
@@ -994,10 +996,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 15px;
   padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
@@ -1015,7 +1018,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 14px;
-  color: var(--color-white);
+  color: var(--color-text-heading);
   margin-bottom: 8px;
   line-height: 1.2;
 }
@@ -1023,7 +1026,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .feature-description {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #4A4A4A;
   line-height: 1.4;
 }
 
@@ -1293,14 +1296,14 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Related Products Section */
 .related-products-section {
   padding: 80px 0;
-  background: var(--color-bg-dark);
+  background: var(--color-bg-alt);
 }
 
 .related-title {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 42px;
-  color: var(--color-white);
+  color: #1A1A1A;
   text-align: center;
   margin-bottom: 60px;
 }
@@ -1324,10 +1327,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .related-product-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 20px;
   padding: 25px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
   text-align: center;
 }
@@ -1375,14 +1379,14 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 20px;
-  color: var(--color-white);
+  color: #1A1A1A;
   margin-bottom: 12px;
 }
 
 .related-product-specs {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #7A7A7A;
   margin-bottom: 20px;
 }
 
@@ -1399,7 +1403,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .related-product-link:hover {
-  color: #ffffff;
+  color: #1A1A1A;
   transform: translateX(5px);
 }
 
@@ -1464,11 +1468,12 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .package-content-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 20px;
   padding: 25px;
   width: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
 }
 
@@ -1489,7 +1494,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 18px;
-  color: var(--color-white);
+  color: var(--color-text-heading);
   margin: 0;
 }
 
@@ -1505,7 +1510,7 @@ document.addEventListener('DOMContentLoaded', function() {
   align-items: center;
   gap: 12px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--color-bg-alt);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
@@ -1524,7 +1529,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .item-text {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 14px;
-  color: var(--color-white);
+  color: #1A1A1A;
   flex-grow: 1;
 }
 
@@ -1620,7 +1625,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Semibold', sans-serif;
   font-weight: 600;
   font-size: 14px;
-  color: var(--color-white);
+  color: #1A1A1A;
 }
 
 /* Technical Specifications */
@@ -1647,8 +1652,8 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .tech-specs-table {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 15px;
   overflow: hidden;
 }
@@ -1658,7 +1663,7 @@ document.addEventListener('DOMContentLoaded', function() {
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .spec-row:last-child {
@@ -1669,7 +1674,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Semibold', sans-serif;
   font-weight: 600;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #7A7A7A;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -1678,12 +1683,12 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: var(--color-white);
+  color: #1A1A1A;
 }
 
 /* Related Products */
 .related-products-section {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: var(--color-bg-alt);
   padding: 80px 0;
 }
 
@@ -1691,7 +1696,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: clamp(32px, 5vw, 48px);
-  color: var(--color-white);
+  color: #1A1A1A;
   text-align: center;
   margin-bottom: 50px;
 }
@@ -1709,10 +1714,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .related-product-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 20px;
   padding: 25px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
@@ -1760,14 +1766,14 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 18px;
-  color: var(--color-white);
+  color: #1A1A1A;
   margin-bottom: 10px;
 }
 
 .related-product-specs {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #7A7A7A;
   margin-bottom: 15px;
 }
 
@@ -1781,12 +1787,12 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .related-product-link:hover {
-  color: #ffffff;
+  color: #1A1A1A;
 }
 
 /* Footer Styles - Copy from index.astro */
 .footer-section {
-  background-color: #6BE03F;
+  background-color: #1A1A1A;
   padding: 60px 0 30px 0;
   margin-top: 100px;
 }
@@ -1815,7 +1821,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  color: #000000;
+  color: #FFFFFF;
   margin-bottom: 15px;
   text-align: left;
 }
@@ -1823,7 +1829,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .footer-company-desc {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 16px;
-  color: #000000;
+  color: rgba(255, 255, 255, 0.7);
   max-width: 300px;
   line-height: 1.5;
 }
@@ -1837,25 +1843,25 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: #000000;
+  color: #6BE03F;
   margin-bottom: 10px;
 }
 
 .footer-contact-text {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 14px;
-  color: #000000;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
 .footer-link {
-  color: #000000;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  opacity: 0.7;
+  color: #6BE03F;
 }
 
 .footer-bottom {
@@ -1864,7 +1870,7 @@ document.addEventListener('DOMContentLoaded', function() {
   align-items: center;
   width: 100%;
   padding-top: 30px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-social {
@@ -1874,17 +1880,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .social-link {
   color: #6BE03F;
-  transition: color 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  color: #000000;
+  background: #6BE03F;
+  color: #1A1A1A;
 }
 
 .footer-copyright {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 14px;
-  color: #000000;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Animations */

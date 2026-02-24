@@ -129,27 +129,33 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     body {
       font-family: 'GeneralSans-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1;
-      color: #FFFFFF;
-      background-color: #070707;
+      color: #1A1A1A;
+      background-color: #FFFFFF;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      padding-top: 170px; /* Header height için padding - artırıldı */
+      padding-top: 170px;
     }
 
     /* ===========================================
        DESIGN SYSTEM - FIGMA COLORS
        ========================================== */
     :root {
-      /* Primary Colors - Exact Figma Values */
+      /* Primary Colors */
       --color-primary-green: #6BE03F;
       --color-light-green: #6BE03F;
       --color-white: #FFFFFF;
-      --color-dark: #0B0C0C;
-      --color-bg-dark: #070707;
+      --color-dark: #1A1A1A;
+      --color-bg-light: #FFFFFF;
+      --color-bg-alt: #F5F6F8;
+      --color-text-heading: #1A1A1A;
+      --color-text-body: #4A4A4A;
+      --color-text-muted: #7A7A7A;
+      --color-text-dark: #1A1A1A;
       --color-text-light: #FFFFFF;
-      --color-text-dark: #0D0D12;
+      --color-border: #E5E7EB;
+      --color-dark-footer: #1A1A1A;
       
-      /* Layout Constants - Figma Measurements */
+      /* Layout Constants */
       --container-max-width: 1728px;
       --container-padding-x: 72px;
       --header-logo-width: 160px;
@@ -205,10 +211,10 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
        HEADER - EXACT FIGMA LAYOUT + STICKY
        ========================================== */
     .header {
-      background-color: #070707;
-      padding: 8px 0; /* Header padding azaltıldı */
+      background-color: #1A1A1A;
+      padding: 8px 0;
       position: fixed;
-      top: 0; /* Desktop'ta tepeye tam yapışık */
+      top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
@@ -216,15 +222,14 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
       transition: all 0.3s ease;
     }
     
-    /* Scrolled state with blur */
     .header.scrolled {
-      background: rgba(7, 7, 7, 0.85);
+      background: rgba(26, 26, 26, 0.95);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(107, 224, 63, 0.15);
       z-index: 1000;
-      top: 0; /* Desktop scroll'da tepede */
-      padding: 10px 0; /* Scroll'da yeterli padding */
+      top: 0;
+      padding: 10px 0;
     }
     
     .header.scrolled .nav-container {
@@ -352,93 +357,84 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
        TYPOGRAPHY SYSTEM - FIGMA EXACT SPECS
        ========================================== */
     
-    /* H1 - Main Headlines */
     h1, .h1 {
       font-family: 'GeneralSans-Bold', sans-serif;
       font-weight: 700;
       font-size: 70px;
       line-height: 1.21;
-      color: var(--color-white);
+      color: var(--color-text-heading);
       margin: 0;
     }
     
-    /* H2 - Section Headers */
     h2, .h2 {
       font-family: 'GeneralSans-Semibold', sans-serif;
       font-weight: 600;
       font-size: 40px;
       line-height: 1.25;
-      color: var(--color-white);
+      color: var(--color-text-heading);
       margin: 0;
     }
     
-    /* H3 - Subsection Headers */
     h3, .h3 {
       font-family: 'GeneralSans-Bold', sans-serif;
       font-weight: 700;
       font-size: 34px;
       line-height: 1.47;
-      color: var(--color-white);
+      color: var(--color-text-heading);
       margin: 0;
     }
     
-    /* H4 - Product Names */
     h4, .h4 {
       font-family: 'GeneralSans-Semibold', sans-serif;
       font-weight: 600;
       font-size: 30px;
       line-height: 1.67;
-      color: var(--color-white);
+      color: var(--color-text-heading);
       margin: 0;
     }
     
-    /* Subtitle Text */
     .subtitle {
       font-family: 'GeneralSans-Bold', sans-serif;
       font-weight: 700;
       font-size: 32px;
       line-height: 1.56;
-      color: var(--color-white);
+      color: var(--color-text-heading);
       margin: 0;
     }
     
-    /* Body Text */
     .body-text {
       font-family: 'GeneralSans-Regular', sans-serif;
       font-weight: 400;
       font-size: 32px;
       line-height: 1.56;
-      color: var(--color-white);
+      color: var(--color-text-body);
       margin: 0;
     }
     
-    /* Description Text */
     .desc-text {
       font-family: 'GeneralSans-Light', sans-serif;
       font-weight: 300;
       font-size: 24px;
       line-height: 1.21;
-      color: var(--color-white);
+      color: var(--color-text-body);
       margin: 0;
     }
     
-    /* Product Text */
     .product-text {
       font-family: 'GeneralSans-Semibold', sans-serif;
       font-weight: 600;
       font-size: 24px;
       line-height: 1.21;
-      color: var(--color-white);
+      color: var(--color-text-heading);
       margin: 0;
     }
     
-    /* Detail Text */
     .detail-text {
       font-family: 'GeneralSans-Light', sans-serif;
       font-weight: 300;
       font-size: 22px;
       line-height: 1.59;
-      color: var(--color-text-dark);
+      color: var(--color-text-body);
       margin: 0;
     }
 
@@ -459,11 +455,11 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     }
     
     .gradient-dark-green {
-      background: linear-gradient(135deg, #0B0B0B 0%, var(--color-light-green) 100%);
+      background: linear-gradient(135deg, #1A1A1A 0%, var(--color-light-green) 100%);
     }
     
     .gradient-dark-green-transparent {
-      background: linear-gradient(135deg, rgba(11, 11, 11, 0.63) 0%, var(--color-light-green) 100%);
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.63) 0%, var(--color-light-green) 100%);
     }
     
     .gradient-placeholder {
@@ -535,7 +531,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(7, 7, 7, 1.0) !important;
+      background-color: rgba(26, 26, 26, 1.0) !important;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       z-index: 10000;
@@ -548,7 +544,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     .mobile-menu-overlay.active {
       opacity: 1;
       visibility: visible;
-      background-color: rgba(7, 7, 7, 1.0) !important;
+      background-color: rgba(26, 26, 26, 1.0) !important;
     }
     
     .mobile-menu-content {
@@ -692,14 +688,12 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
         font-size: clamp(12px, 1.4vw, 15px);
       }
 
-      /* iPad Header - Subtle blur effect */
       .header.scrolled {
-        background: rgba(7, 7, 7, 0.85); /* Semi-transparent */
-        backdrop-filter: blur(15px); /* Medium blur */
-        -webkit-backdrop-filter: blur(15px); /* Safari compatibility */
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
       }
 
-      /* iPad Header - Subtle gradient */
       .header.scrolled::after {
         content: '';
         position: absolute;
@@ -707,7 +701,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
         left: 0;
         right: 0;
         height: 15px;
-        background: linear-gradient(to bottom, rgba(7, 7, 7, 0.2), transparent);
+        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.2), transparent);
         pointer-events: none;
       }
     }
@@ -724,18 +718,16 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
         padding-top: 0;
       }
       
-      /* Mobile header - kompakt tasarım with subtle blur */
       .header {
         position: fixed;
         top: 0;
-        padding: 8px 0; /* Daha kompakt header */
-        background: rgba(7, 7, 7, 0.9); /* Semi-transparent */
-        backdrop-filter: blur(10px); /* Subtle blur */
-        -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
-        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth transitions */
+        padding: 8px 0;
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       }
 
-      /* Mobile header - Enhanced gradient bottom border */
       .header::after {
         content: '';
         position: absolute;
@@ -743,7 +735,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
         left: 0;
         right: 0;
         height: 20px;
-        background: linear-gradient(to bottom, rgba(7, 7, 7, 0.3), transparent);
+        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.3), transparent);
         pointer-events: none;
       }
       
@@ -752,21 +744,19 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
         padding: 6px 0; /* Nav container daha minimal padding */
       }
       
-      /* Mobile scroll state - Enhanced blur effect */
       .header.scrolled {
         position: fixed;
-        top: 0; /* Header her zaman tepede */
-        background: rgba(7, 7, 7, 0.75); /* Semi-transparent background */
-        backdrop-filter: blur(20px); /* Strong blur effect */
-        -webkit-backdrop-filter: blur(20px); /* Safari compatibility */
-        border-bottom: 1px solid rgba(107, 224, 63, 0.1); /* Subtle green border */
-        padding: 6px 0; /* Scroll'da daha kompakt */
+        top: 0;
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(107, 224, 63, 0.15);
+        padding: 6px 0;
       }
 
-      /* Mobile scroll state - Enhanced gradient */
       .header.scrolled::after {
-        height: 30px; /* Taller gradient when scrolled */
-        background: linear-gradient(to bottom, rgba(7, 7, 7, 0.5), transparent);
+        height: 30px;
+        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.5), transparent);
       }
       
       .header.scrolled .nav-container {
@@ -876,8 +866,8 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
        SLOGAN SECTION
        ========================================== */
     .slogan-section {
-      padding: 25px 0; /* Header ile uyumlu spacing */
-      background-color: #070707;
+      padding: 25px 0;
+      background-color: var(--color-bg-alt);
       text-align: center;
     }
     
@@ -886,7 +876,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
       font-weight: 700;
       font-size: 42px;
       line-height: 1.2;
-      color: var(--color-white);
+      color: var(--color-text-heading);
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -1028,7 +1018,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
       mobileNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           // Force solid background during transition
-          mobileMenuOverlay.style.backgroundColor = 'rgba(7, 7, 7, 1.0)';
+          mobileMenuOverlay.style.backgroundColor = 'rgba(26, 26, 26, 1.0)';
           
           // Menüyü hemen kapatmak yerine, sayfa yüklendikten sonra kapat
           setTimeout(() => {
@@ -1292,7 +1282,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     });
   </script>
 </head>
-<body class="bg-bg-dark text-light-gray">
+<body class="bg-bg-light text-body-text">
   <!-- Header -->
   <header class="header">
     <div class="container">

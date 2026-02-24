@@ -4,11 +4,17 @@
 @tailwind utilities;
 
 :root {
-  --clr-bg-dark: #111215;
+  --clr-bg-light: #FFFFFF;
+  --clr-bg-alt: #F5F6F8;
   --clr-steel-gray: #2A2D34;
   --clr-light-gray: #F5F5F5;
   --clr-neon-green: #6BE03F;
   --clr-accent-blue: #00A3FF;
+  --clr-heading: #1A1A1A;
+  --clr-body: #4A4A4A;
+  --clr-muted: #7A7A7A;
+  --clr-border: #E5E7EB;
+  --clr-dark-footer: #1A1A1A;
 }
 
 @layer base {
@@ -17,8 +23,8 @@
   }
   
   body {
-    background-color: var(--clr-bg-dark);
-    color: var(--clr-light-gray);
+    background-color: var(--clr-bg-light);
+    color: var(--clr-body);
   }
 }
 
@@ -32,10 +38,10 @@
   }
   
   .btn-primary {
-    @apply bg-neon-green text-bg-dark px-6 py-3 rounded-lg font-semibold hover:bg-accent-blue transition-colors duration-200;
+    @apply bg-neon-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-blue transition-colors duration-200;
   }
   
   .card-hover {
     @apply hover:scale-105 transition-transform duration-200;
   }
-} 
+}

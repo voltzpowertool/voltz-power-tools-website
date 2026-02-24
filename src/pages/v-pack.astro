@@ -221,7 +221,8 @@ import Layout from '@/layouts/Layout.astro';
 
 /* Global Variables */
 :root {
-  --color-bg-dark: #070707;
+  --color-bg-dark: #FFFFFF;
+  --color-bg-alt: #F5F6F8;
   --color-white: #ffffff;
   --color-primary-green: #6BE03F;
   --color-light-green: #6BE03F;
@@ -230,7 +231,7 @@ import Layout from '@/layouts/Layout.astro';
 /* Hero Section */
 .vpack-hero-section {
   min-height: 100vh;
-  background-color: #070707;
+  background-color: #FFFFFF;
   position: relative;
   padding: 80px 0 80px 0;
   display: flex;
@@ -247,11 +248,11 @@ import Layout from '@/layouts/Layout.astro';
   background-size: auto 100%; /* Icon'un tam boyutunu korur */
   background-repeat: no-repeat;
   background-position: right center; /* Tutarlı pozisyon */
-  opacity: 0.25; /* Diğer sayfalarla aynı opacity */
+  opacity: 0.06; /* Diğer sayfalarla aynı opacity */
   z-index: 0; /* Diğer sayfalarla aynı z-index */
   pointer-events: none;
-  mix-blend-mode: screen;
-  filter: brightness(0.9) contrast(1.3);
+  mix-blend-mode: multiply;
+  filter: brightness(1.1) contrast(0.8);
 }
 
 /* Responsive Overlay Adjustments */
@@ -313,7 +314,7 @@ import Layout from '@/layouts/Layout.astro';
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 72px;
-  color: var(--color-white);
+  color: #1A1A1A;
   margin-bottom: 30px;
   line-height: 1.1;
 }
@@ -325,7 +326,7 @@ import Layout from '@/layouts/Layout.astro';
 .vpack-hero-description {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 24px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #4A4A4A;
   margin-bottom: 50px;
   line-height: 1.4;
 }
@@ -381,13 +382,13 @@ import Layout from '@/layouts/Layout.astro';
 .stat-label {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #7A7A7A;
 }
 
 /* Benefits Section */
 .vpack-benefits-section {
   padding: 100px 0;
-  background-color: #070707;
+  background-color: var(--color-bg-alt);
 }
 
 .section-header {
@@ -399,7 +400,7 @@ import Layout from '@/layouts/Layout.astro';
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 48px;
-  color: var(--color-white);
+  color: #1A1A1A;
   margin-bottom: 30px;
 }
 
@@ -410,7 +411,7 @@ import Layout from '@/layouts/Layout.astro';
 .section-description {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #7A7A7A;
   margin-top: 30px;
 }
 
@@ -421,8 +422,9 @@ import Layout from '@/layouts/Layout.astro';
 }
 
 .benefit-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   border-radius: 20px;
   padding: 40px 30px;
   text-align: center;
@@ -444,14 +446,14 @@ import Layout from '@/layouts/Layout.astro';
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 22px;
-  color: var(--color-white);
+  color: #1A1A1A;
   margin-bottom: 15px;
 }
 
 .benefit-description {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #4A4A4A;
   line-height: 1.5;
 }
 
@@ -460,7 +462,7 @@ import Layout from '@/layouts/Layout.astro';
 /* CTA Section */
 .vpack-cta-section {
   padding: 100px 0;
-  background-color: #070707;
+  background-color: #FFFFFF;
 }
 
 .vpack-cta {
@@ -474,14 +476,14 @@ import Layout from '@/layouts/Layout.astro';
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 36px;
-  color: var(--color-white);
+  color: #1A1A1A;
   margin-bottom: 15px;
 }
 
 .cta-description {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #4A4A4A;
   margin-bottom: 40px;
 }
 
@@ -493,7 +495,7 @@ import Layout from '@/layouts/Layout.astro';
 
 .btn-primary {
   background: linear-gradient(135deg, #6BE03F 0%, #4CAF50 100%);
-  color: #070707;
+  color: #FFFFFF;
   padding: 15px 30px;
   border-radius: 12px;
   text-decoration: none;
@@ -525,13 +527,13 @@ import Layout from '@/layouts/Layout.astro';
 
 .btn-secondary:hover {
   background: #6BE03F;
-  color: #070707;
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
 /* Footer Section - Index.astro'dan kopyalanan */
 .footer-section {
-  background: #6BE03F;
+  background: #1A1A1A;
   padding: 60px 0 30px 0;
   margin-top: 100px;
 }
@@ -561,7 +563,7 @@ import Layout from '@/layouts/Layout.astro';
   font-family: 'GeneralSans-Bold', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  color: #070707;
+  color: #FFFFFF;
   margin-bottom: 15px;
   text-align: left;
 }
@@ -569,7 +571,7 @@ import Layout from '@/layouts/Layout.astro';
 .footer-company-desc {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 16px;
-  color: #070707;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
 }
 
@@ -582,25 +584,25 @@ import Layout from '@/layouts/Layout.astro';
   font-family: 'GeneralSans-Semibold', sans-serif;
   font-weight: 600;
   font-size: 18px;
-  color: #070707;
+  color: #6BE03F;
   margin-bottom: 15px;
 }
 
 .footer-contact-text {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 14px;
-  color: #070707;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
 .footer-link {
-  color: #070707;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  opacity: 0.7;
+  color: #6BE03F;
 }
 
 .footer-bottom {
@@ -608,7 +610,7 @@ import Layout from '@/layouts/Layout.astro';
   justify-content: space-between;
   align-items: center;
   padding-top: 30px;
-  border-top: 1px solid rgba(7, 7, 7, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-social {
@@ -622,21 +624,22 @@ import Layout from '@/layouts/Layout.astro';
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #070707;
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .social-link:hover {
+  background: #6BE03F;
+  color: #1A1A1A;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(7, 7, 7, 0.2);
 }
 
 .footer-copyright {
   font-family: 'GeneralSans-Regular', sans-serif;
   font-size: 14px;
-  color: #070707;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Responsive Design */

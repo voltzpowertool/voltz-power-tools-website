@@ -317,11 +317,11 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .hero-description {
-	font-size: 20px; /* Font boyutu aynı kaldı */
-	line-height: 1.5; /* Satır aralığı genişletildi */
-	color: var(--color-white);
+	font-size: 20px;
+	line-height: 1.5;
+	color: var(--color-text-body);
 	margin: 0;
-	font-weight: 500; /* Medium font weight - h5 için uygun */
+	font-weight: 500;
 }
 
 /* Hero Product Cards */
@@ -489,8 +489,8 @@ const topProducts = productsData.slice(0, 4);
 	justify-content: center;
 	width: 110px;
 	height: 36px;
-	background-color: #FFFFFF; /* Beyaz arka plan */
-	color: #6BE03F; /* Yeşil yazı rengi */
+	background-color: #6BE03F;
+	color: #FFFFFF;
 	border: none;
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
@@ -498,12 +498,11 @@ const topProducts = productsData.slice(0, 4);
 	text-decoration: none;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	/* Sol üst köşe çeltikli efekt */
 	clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
 }
 
 .incele-btn:hover {
-	background-color: #6BE03F;
+	background-color: #1A1A1A;
 	color: #FFFFFF;
 	transform: translateY(-2px);
 }
@@ -514,9 +513,9 @@ const topProducts = productsData.slice(0, 4);
 /* About Section */
 .about-section {
 	padding: 80px 0;
-	background-color: #070707;
+	background-color: var(--color-bg-alt);
 	position: relative;
-	z-index: 1; /* Site background overlay'in üzerinde */
+	z-index: 1;
 }
 
 .about-grid {
@@ -721,11 +720,11 @@ const topProducts = productsData.slice(0, 4);
    PRODUCTS SECTION - 4-COLUMN GRID
    ========================================== */
 .products-section {
-	padding: 100px 0 120px 0; /* Alt padding artırıldı - ürün isimleri için */
-	background-color: #070707;
+	padding: 100px 0 120px 0;
+	background-color: #FFFFFF;
 	position: relative;
-	z-index: 5; /* Background overlay'in üzerinde */
-	overflow: visible; /* Arrow'ların görünmesi için */
+	z-index: 5;
+	overflow: visible;
 }
 
 /* Container artık gerekli değil - arrow'lar section seviyesinde */
@@ -782,8 +781,8 @@ const topProducts = productsData.slice(0, 4);
 .filter-btn {
 	width: 110px;
 	height: 36px;
-	background: var(--color-white); /* Seçilmeyenler beyaz background */
-	border: none;
+	background: var(--color-bg-alt);
+	border: 1px solid var(--color-border);
 	border-radius: 0;
 	cursor: pointer;
 	position: relative;
@@ -791,16 +790,16 @@ const topProducts = productsData.slice(0, 4);
 	align-items: center;
 	justify-content: center;
 	transition: all 0.3s ease;
-	/* Çeltikli tasarım - sağ alt köşe kesik */
 	clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
 }
 
 .filter-btn.active {
-	background: var(--color-light-green); /* Seçili yeşil background */
+	background: var(--color-light-green);
+	border-color: var(--color-light-green);
 }
 
 .filter-btn .btn-text {
-	color: var(--color-light-green); /* Seçilmeyenler yeşil font */
+	color: var(--color-text-heading);
 	font-family: 'GeneralSans-Semibold', sans-serif;
 	font-weight: 600;
 	font-size: 16px;
@@ -869,8 +868,8 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .products-nav-arrow:hover {
-	background: var(--color-white);
-	color: var(--color-light-green);
+	background: var(--color-text-heading);
+	color: var(--color-white);
 	transform: translateY(-50%) scale(1.1);
 }
 
@@ -937,18 +936,17 @@ const topProducts = productsData.slice(0, 4);
 
 .product-name {
 	position: absolute;
-	bottom: -60px; /* Kartın altında - container dışında */
-	left: 189.5px; /* Gradient background'ın merkezi (22 + 335/2) */
+	bottom: -60px;
+	left: 189.5px;
 	transform: translateX(-50%);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 600;
 	font-size: 30px;
 	line-height: 1.67;
 	text-align: center;
-	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	z-index: 3;
-	white-space: nowrap; /* İsim kırılmasın */
+	white-space: nowrap;
 }
 
 /* Battery Voltage Icon - DOĞRU MATEMATIK */
@@ -969,7 +967,7 @@ const topProducts = productsData.slice(0, 4);
    ========================================== */
 .catalog-section {
 	padding: 100px 0;
-	background-color: #070707;
+	background-color: var(--color-bg-alt);
 	position: relative;
 	z-index: 5;
 }
@@ -979,7 +977,7 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .catalog-title {
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 40px;
@@ -992,7 +990,7 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .catalog-text {
-	color: var(--color-white);
+	color: var(--color-text-body);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 20px;
@@ -1012,8 +1010,8 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .download-link:hover {
-	color: #ffffff;
-	text-decoration-color: #ffffff;
+	color: #1A1A1A;
+	text-decoration-color: #1A1A1A;
 	transform: translateY(-1px);
 }
 
@@ -1023,7 +1021,7 @@ const topProducts = productsData.slice(0, 4);
 .footer-section {
 	margin-top: 150px;
 	padding: 60px 0;
-	background-color: var(--color-light-green);
+	background-color: #1A1A1A;
 	position: relative;
 	z-index: 5;
 }
@@ -1058,7 +1056,7 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .footer-company-title {
-	color: var(--color-dark);
+	color: #FFFFFF;
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 24px;
@@ -1067,7 +1065,7 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .footer-company-desc {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.7);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -1081,7 +1079,7 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .footer-contact-title {
-	color: var(--color-dark);
+	color: #6BE03F;
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 16px;
@@ -1090,7 +1088,7 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .footer-contact-text {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.7);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -1099,14 +1097,14 @@ const topProducts = productsData.slice(0, 4);
 }
 
 .footer-link {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.7);
 	text-decoration: none;
 	font-weight: 500;
 	transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-	color: var(--color-white);
+	color: #6BE03F;
 }
 
 .footer-bottom {
@@ -1114,7 +1112,7 @@ const topProducts = productsData.slice(0, 4);
 	justify-content: space-between;
 	align-items: center;
 	padding-top: 30px;
-	border-top: 1px solid rgba(11, 12, 12, 0.2);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-social {
@@ -1128,21 +1126,21 @@ const topProducts = productsData.slice(0, 4);
 	justify-content: center;
 	width: 40px;
 	height: 40px;
-	background-color: var(--color-dark);
-	color: var(--color-light-green);
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #6BE03F;
 	border-radius: 50%;
 	text-decoration: none;
 	transition: all 0.3s ease;
 }
 
 .social-link:hover {
-	background-color: var(--color-white);
-	color: var(--color-dark);
+	background-color: #6BE03F;
+	color: #1A1A1A;
 	transform: translateY(-2px);
 }
 
 .footer-copyright {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.5);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -1973,21 +1971,20 @@ const topProducts = productsData.slice(0, 4);
    SITE BACKGROUND OVERLAY
    ========================================== */
 .site-background-overlay {
-	position: absolute; /* Hero section içinde sabit */
+	position: absolute;
 	top: 0;
-	right: 0; /* Sağ tarafta konumlanmış */
-	width: 60vw; /* Ekranın %60'ı - sağ kısmı kaplayacak */
-	height: 100%; /* Hero section'ın tamamı */
+	right: 0;
+	width: 60vw;
+	height: 100%;
 	background-image: url('/img/sections/background-bg.png');
 	background-size: contain;
 	background-position: center right;
 	background-repeat: no-repeat;
-	opacity: 0.25; /* Biraz daha belirgin - artırıldı */
-	z-index: 0; /* En arkada - tüm içeriklerin altında */
-	pointer-events: none; /* Tıklamayı engelleme */
-	/* Siyah arka plan ile karışım */
-	mix-blend-mode: screen;
-	filter: brightness(0.9) contrast(1.3); /* Daha belirgin filtre */
+	opacity: 0.06;
+	z-index: 0;
+	pointer-events: none;
+	mix-blend-mode: multiply;
+	filter: brightness(1.1) contrast(0.8);
 }
 
 /* Hero Section - diğer stiller */

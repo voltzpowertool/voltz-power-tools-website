@@ -308,7 +308,7 @@ import productsData from '@/data/products.json';
    ========================================== */
 .products-hero-section {
 	position: relative;
-	background-color: #070707;
+	background-color: var(--color-bg-alt);
 	padding: 120px 0 80px 0;
 	overflow: hidden;
 }
@@ -325,7 +325,7 @@ import productsData from '@/data/products.json';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: clamp(48px, 8vw, 72px);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 30px;
 	line-height: 1.1;
 }
@@ -334,7 +334,7 @@ import productsData from '@/data/products.json';
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: clamp(18px, 3vw, 24px);
-	color: var(--color-white);
+	color: var(--color-text-body);
 	line-height: 1.6;
 	margin: 0;
 }
@@ -344,7 +344,7 @@ import productsData from '@/data/products.json';
    ========================================== */
 .products-section {
 	padding: 100px 0;
-	background-color: #070707;
+	background-color: #FFFFFF;
 	position: relative;
 }
 
@@ -357,7 +357,7 @@ import productsData from '@/data/products.json';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: clamp(32px, 5vw, 48px);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 30px;
 	line-height: 1.2;
 }
@@ -424,8 +424,8 @@ import productsData from '@/data/products.json';
 .filter-btn {
 	width: 110px;
 	height: 36px;
-	background: var(--color-white);
-	border: none;
+	background: var(--color-bg-alt);
+	border: 1px solid var(--color-border);
 	border-radius: 0;
 	cursor: pointer;
 	position: relative;
@@ -433,16 +433,16 @@ import productsData from '@/data/products.json';
 	align-items: center;
 	justify-content: center;
 	transition: all 0.3s ease;
-	/* Çeltikli tasarım - sağ alt köşe kesik */
 	clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
 }
 
 .filter-btn.active {
 	background: var(--color-light-green);
+	border-color: var(--color-light-green);
 }
 
 .filter-btn .btn-text {
-	color: var(--color-light-green);
+	color: var(--color-text-heading);
 	font-family: 'GeneralSans-Semibold', sans-serif;
 	font-weight: 600;
 	font-size: 16px;
@@ -451,7 +451,7 @@ import productsData from '@/data/products.json';
 }
 
 .filter-btn.active .btn-text {
-	color: var(--color-dark);
+	color: #FFFFFF;
 }
 
 /* Sub-Category Filters */
@@ -475,8 +475,8 @@ import productsData from '@/data/products.json';
 
 /* Product Card */
 .product-card {
-	background: rgba(255, 255, 255, 0.03);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: #FFFFFF;
+	border: 1px solid var(--color-border);
 	border-radius: 20px;
 	padding: 25px;
 	position: relative;
@@ -486,7 +486,8 @@ import productsData from '@/data/products.json';
 	transform: translateY(0);
 	display: flex;
 	flex-direction: column;
-	height: 500px; /* Sabit yükseklik */
+	height: 500px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .product-card.hidden {
@@ -496,7 +497,7 @@ import productsData from '@/data/products.json';
 .product-card:hover {
 	transform: translateY(-5px);
 	border-color: var(--color-primary-green);
-	box-shadow: 0 10px 40px rgba(68, 214, 44, 0.15);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -509,7 +510,7 @@ import productsData from '@/data/products.json';
 	position: relative;
 	overflow: hidden;
 	border-radius: 12px;
-	background-color: #ffffff;
+	background-color: var(--color-bg-alt);
 	padding: 20px;
 	height: 220px;
 }
@@ -536,7 +537,7 @@ import productsData from '@/data/products.json';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 18px;
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 10px;
 	line-height: 1.2;
 }
@@ -544,7 +545,7 @@ import productsData from '@/data/products.json';
 .product-description {
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-size: 14px;
-	color: rgba(255, 255, 255, 0.7);
+	color: var(--color-text-muted);
 	line-height: 1.4;
 	margin-bottom: 15px;
 }
@@ -561,12 +562,12 @@ import productsData from '@/data/products.json';
 }
 
 .feature-label {
-	color: rgba(255, 255, 255, 0.6);
+	color: var(--color-text-muted);
 	font-family: 'GeneralSans-Regular', sans-serif;
 }
 
 .feature-value {
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 600;
 }
@@ -593,8 +594,8 @@ import productsData from '@/data/products.json';
 
 .product-detail-btn {
 	flex: 1;
-	background: linear-gradient(135deg, var(--color-primary-green) 0%, var(--color-light-green) 100%);
-	color: var(--color-dark);
+	background: #6BE03F;
+	color: #FFFFFF;
 	border: none;
 	padding: 12px 20px;
 	border-radius: 8px;
@@ -642,14 +643,14 @@ import productsData from '@/data/products.json';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 24px;
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 10px;
 }
 
 .no-results-text {
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-size: 16px;
-	color: rgba(255, 255, 255, 0.6);
+	color: var(--color-text-muted);
 	line-height: 1.5;
 }
 
@@ -674,7 +675,7 @@ import productsData from '@/data/products.json';
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: clamp(32px, 5vw, 48px);
-	color: var(--color-white);
+	color: var(--color-text-heading);
 	margin-bottom: 20px;
 	line-height: 1.2;
 }
@@ -683,7 +684,7 @@ import productsData from '@/data/products.json';
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 18px;
-	color: var(--color-white);
+	color: var(--color-text-body);
 	line-height: 1.6;
 	margin-bottom: 40px;
 }
@@ -715,7 +716,7 @@ import productsData from '@/data/products.json';
 .footer-section {
 	margin-top: 150px;
 	padding: 60px 0;
-	background-color: var(--color-light-green);
+	background-color: #1A1A1A;
 	position: relative;
 	z-index: 5;
 }
@@ -750,7 +751,7 @@ import productsData from '@/data/products.json';
 }
 
 .footer-company-title {
-	color: var(--color-dark);
+	color: #FFFFFF;
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 24px;
@@ -760,7 +761,7 @@ import productsData from '@/data/products.json';
 }
 
 .footer-company-desc {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.7);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -774,7 +775,7 @@ import productsData from '@/data/products.json';
 }
 
 .footer-contact-title {
-	color: var(--color-dark);
+	color: #6BE03F;
 	font-family: 'GeneralSans-Bold', sans-serif;
 	font-weight: 700;
 	font-size: 16px;
@@ -783,7 +784,7 @@ import productsData from '@/data/products.json';
 }
 
 .footer-contact-text {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.7);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -792,14 +793,14 @@ import productsData from '@/data/products.json';
 }
 
 .footer-link {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.7);
 	text-decoration: none;
 	font-weight: 500;
 	transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-	color: var(--color-white);
+	color: #6BE03F;
 }
 
 .footer-bottom {
@@ -807,7 +808,7 @@ import productsData from '@/data/products.json';
 	justify-content: space-between;
 	align-items: center;
 	padding-top: 30px;
-	border-top: 1px solid rgba(11, 12, 12, 0.2);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-social {
@@ -821,21 +822,21 @@ import productsData from '@/data/products.json';
 	justify-content: center;
 	width: 40px;
 	height: 40px;
-	background-color: var(--color-dark);
-	color: var(--color-light-green);
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #6BE03F;
 	border-radius: 50%;
 	text-decoration: none;
 	transition: all 0.3s ease;
 }
 
 .social-link:hover {
-	background-color: var(--color-white);
-	color: var(--color-dark);
+	background-color: #6BE03F;
+	color: #1A1A1A;
 	transform: translateY(-2px);
 }
 
 .footer-copyright {
-	color: var(--color-dark);
+	color: rgba(255, 255, 255, 0.5);
 	font-family: 'GeneralSans-Regular', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -973,7 +974,7 @@ import productsData from '@/data/products.json';
 
 	.mobile-filter-btn {
 		width: 100%;
-		background: #070707;
+		background: #FFFFFF;
 		border: 2px solid #6BE03F;
 		border-radius: 8px;
 		padding: 15px 20px;
@@ -1002,7 +1003,7 @@ import productsData from '@/data/products.json';
 	}
 
 	.mobile-filter-selected {
-		color: #ffffff;
+		color: #1A1A1A;
 		font-family: 'GeneralSans-Medium', sans-serif;
 		font-size: 14px;
 		font-weight: 500;
@@ -1367,11 +1368,11 @@ import productsData from '@/data/products.json';
 	background-size: auto 100%; /* Icon'un tam boyutunu korur */
 	background-position: right center; /* Tutarlı pozisyon */
 	background-repeat: no-repeat;
-	opacity: 0.25;
+	opacity: 0.06;
 	z-index: 0;
 	pointer-events: none;
-	mix-blend-mode: screen;
-	filter: brightness(0.9) contrast(1.3);
+	mix-blend-mode: multiply;
+	filter: brightness(1.1) contrast(0.8);
 }
 
 @media (max-width: 1200px) {
