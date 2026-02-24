@@ -79,6 +79,15 @@ import Layout from '@/layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Platform Visual -->
+  <section class="platform-section">
+    <div class="container">
+      <div class="platform-visual">
+        <img src="/img/vpack-platform.png" alt="V-PACK Batarya Platformu - 20V ve 16.8V" class="platform-img" />
+      </div>
+    </div>
+  </section>
+
   <!-- Benefits Section -->
   <section class="benefits-section">
     <div class="container">
@@ -143,7 +152,7 @@ import Layout from '@/layouts/Layout.astro';
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><img src="/img/logo/footer-logo.svg" alt="Voltz" class="footer-logo"><p>Profesyonel el aletlerinde güvenin adresi.</p></div>
+        <div class="footer-brand"><img src="/img/logo/voltz-symbol-green.png" alt="Voltz" class="footer-logo"><p>Profesyonel el aletlerinde güvenin adresi.</p></div>
         <div class="footer-links"><h4>Sayfalar</h4><a href="/">Anasayfa</a><a href="/about">Hakkımızda</a><a href="/products">Ürünlerimiz</a><a href="/contact">İletişim</a></div>
         <div class="footer-links"><h4>Ürünler</h4><a href="/products">Matkaplar</a><a href="/products">Tornavidalar</a><a href="/products">Taşlama</a><a href="/v-pack">V-PACK</a></div>
         <div class="footer-contact-col"><h4>İletişim</h4><p>Teknoloji Caddesi No: 123<br>Sanayi Mahallesi, İstanbul</p><a href="mailto:info@voltzpowertools.com">info@voltzpowertools.com</a><a href="tel:+902123456789">+90 212 345 67 89</a></div>
@@ -372,6 +381,24 @@ import Layout from '@/layouts/Layout.astro';
     font-size: 14px;
     line-height: 1.7;
     color: var(--gray-500);
+  }
+
+  /* ========== PLATFORM VISUAL ========== */
+  .platform-section {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .platform-visual {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .platform-img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* ========== BENEFITS ========== */
