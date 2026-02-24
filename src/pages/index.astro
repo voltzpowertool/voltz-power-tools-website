@@ -1,7 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import productsData from '@/data/products.json';
-
 const tools = productsData.filter(p => !['battery', 'charger', 'storage'].includes(p.category));
 const featuredProducts = productsData.slice(0, 8);
 ---
@@ -14,45 +13,27 @@ const featuredProducts = productsData.slice(0, 8);
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <span class="hero-badge">BRUSHLESS MOTOR TEKNOLOJİSİ</span>
-          <h1>Geleceği <span class="text-green">Şekillendiren</span> Güç</h1>
-          <p class="hero-desc">
-            Her zorlu görevin üstesinden gelecek güç, dayanıklılık ve yenilikçi 
-            performans — profesyonellerin beklentilerini aşan el aletleri.
-          </p>
-          <div class="hero-actions">
-            <a href="/products" class="btn-primary">
-              ÜRÜNLERİ KEŞFET
-              <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </a>
-            <a href="/pdf/voltz-katalog.pdf" download="Voltz-Katalog.pdf" class="btn-outline">
-              KATALOG İNDİR
-              <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v8M5 8l3 3 3-3M3 13h10"/></svg>
-            </a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-value">20V</span>
-              <span class="stat-label">Max Voltaj</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-              <span class="stat-value">500 N.m</span>
-              <span class="stat-label">Max Tork</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-              <span class="stat-value">13+</span>
-              <span class="stat-label">Ürün</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-image">
-          <div class="hero-image-bg"></div>
-          <img src="/img/products/tools/thumbs/vzdr-201.png" alt="Voltz VZDR-201 Darbeli Matkap" class="hero-product-img">
+    <div class="hero-bg">
+      <img src="/voltzgorseller/01.png" alt="Voltz Power Tools Ürün Ailesi" class="hero-bg-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="hero-label">BRUSHLESS MOTOR TEKNOLOJİSİ</span>
+        <h1 class="hero-title">GELECEĞİ<br/>ŞEKİLLENDİREN<br/>GÜÇ</h1>
+        <p class="hero-desc">
+          Her zorlu görevin üstesinden gelecek güç, dayanıklılık ve yenilikçi 
+          performans — profesyonellerin beklentilerini aşan el aletleri.
+        </p>
+        <div class="hero-actions">
+          <a href="/products" class="btn-angular btn-green">
+            ÜRÜNLERİ KEŞFET
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="/pdf/voltz-katalog.pdf" download="Voltz-Katalog.pdf" class="btn-angular btn-border">
+            KATALOG İNDİR
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M8 3v8M5 8l3 3 3-3M3 13h10"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -62,36 +43,33 @@ const featuredProducts = productsData.slice(0, 8);
   <section class="products-section">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">ÜRÜNLERİMİZ</div>
-        <h2>Profesyonel El Aletleri</h2>
-        <p class="section-desc">Endüstriyel ve inşaat profesyonelleri için tasarlanmış, brushless motor teknolojili akülü aletler.</p>
+        <h2 class="section-title">ÜRÜNLERİMİZ</h2>
+        <div class="section-accent"></div>
       </div>
       <div class="products-grid">
         {featuredProducts.map((product) => (
           <a href={`/products/${product.id}`} class="product-card">
             <div class="product-card-img">
-              <img src={product.image} alt={product.title} loading="lazy">
+              <img src={product.image} alt={product.title} loading="lazy" />
               {product.voltage && (
                 <span class="voltage-badge">{product.voltage}</span>
               )}
             </div>
             <div class="product-card-body">
-              <span class="product-card-category">{product.subcategory}</span>
               <h3 class="product-card-title">{product.title}</h3>
-              <div class="product-card-footer">
-                <span class="product-card-link">
-                  Detaylar
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-                </span>
-              </div>
+              <span class="product-card-model">{product.subcategory}</span>
+              <span class="product-card-link">
+                DETAYLAR
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </span>
             </div>
           </a>
         ))}
       </div>
       <div class="products-cta">
-        <a href="/products" class="btn-outline">
+        <a href="/products" class="btn-angular btn-green">
           TÜM ÜRÜNLERİ GÖR
-          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
       </div>
     </div>
@@ -100,30 +78,36 @@ const featuredProducts = productsData.slice(0, 8);
   <!-- TECHNOLOGY -->
   <section class="tech-section">
     <div class="container">
-      <div class="section-header">
-        <div class="section-tag">TEKNOLOJİ</div>
-        <h2>Neden <span class="text-green">Voltz</span>?</h2>
+      <div class="section-header section-header--light">
+        <span class="tech-label">TEKNOLOJİ</span>
+        <h2 class="section-title section-title--white">NEDEN <span class="text-green">VOLTZ</span>?</h2>
       </div>
       <div class="tech-grid">
         <div class="tech-card">
           <div class="tech-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="square">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
           </div>
-          <h3>Brushless Motor</h3>
+          <h3>BRUSHLESS MOTOR</h3>
           <p>Kömürsüz motor teknolojisi ile %30 daha uzun ömür, daha yüksek verimlilik ve bakım gerektirmeyen performans.</p>
         </div>
         <div class="tech-card">
           <div class="tech-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><rect x="6" y="7" width="12" height="13" rx="1"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/><path d="M10 12h4M12 12v3"/></svg>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="square">
+              <rect x="6" y="7" width="12" height="13"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/><path d="M10 12h4M12 12v3"/>
+            </svg>
           </div>
-          <h3>V-PACK Sistem</h3>
+          <h3>V-PACK SİSTEM</h3>
           <p>20V ve 16.8V seçenekleriyle tüm aletleriniz için ortak batarya platformu. Tek şarj, çoklu kullanım.</p>
         </div>
         <div class="tech-card">
           <div class="tech-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="square">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
           </div>
-          <h3>Dayanıklı Yapı</h3>
+          <h3>DAYANIKLI YAPI</h3>
           <p>Endüstriyel şantiye koşullarına dayanıklı, metal mandren ve ergonomik kavrama ile profesyonel kullanım.</p>
         </div>
       </div>
@@ -135,8 +119,8 @@ const featuredProducts = productsData.slice(0, 8);
     <div class="container">
       <div class="about-grid">
         <div class="about-content">
-          <div class="section-tag">HAKKIMIZDA</div>
-          <h2>Her İşe, Her İhtiyaca Güçlü <span class="text-green">Çözümler</span></h2>
+          <span class="about-label">HAKKIMIZDA</span>
+          <h2 class="about-title">HER İŞE, HER İHTİYACA GÜÇLÜ <span class="text-green">ÇÖZÜMLER</span></h2>
           <p>
             Voltz, yoğun ve sürekli kullanım gerektiren endüstriyel ve inşaat 
             profesyonelleri için özel olarak tasarlanmış bir alet markasıdır. 
@@ -148,13 +132,13 @@ const featuredProducts = productsData.slice(0, 8);
             anlayışı sayesinde profesyonel kullanıcıların takdirini ve güvenini 
             kazanmayı hedefliyoruz.
           </p>
-          <a href="/about" class="btn-outline">
+          <a href="/about" class="btn-angular btn-green">
             DAHA FAZLA
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
         </div>
         <div class="about-image">
-          <img src="/img/hero/hero-slider01.jpg" alt="Voltz Power Tools">
+          <img src="/voltzgorseller/03.png" alt="Voltz Power Tools" />
         </div>
       </div>
     </div>
@@ -163,26 +147,13 @@ const featuredProducts = productsData.slice(0, 8);
   <!-- CATALOG CTA -->
   <section id="katalog" class="catalog-section">
     <div class="container">
-      <div class="catalog-card">
-        <div class="catalog-content">
-          <h2>Ürün Kataloğu</h2>
-          <p>Tüm ürünlerimizin teknik detaylarını, özelliklerini ve aksesuarlarını içeren kapsamlı kataloğumuzu indirin.</p>
-          <a href="/pdf/voltz-katalog.pdf" download="Voltz-Katalog.pdf" class="btn-primary">
-            KATALOG İNDİR
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v8M5 8l3 3 3-3M3 13h10"/></svg>
-          </a>
-        </div>
-        <div class="catalog-visual">
-          <div class="catalog-icon">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-        </div>
+      <div class="catalog-inner">
+        <h2 class="catalog-title">ÜRÜN KATALOĞU</h2>
+        <p class="catalog-desc">Tüm ürünlerimizin teknik detaylarını, özelliklerini ve aksesuarlarını içeren kapsamlı kataloğumuzu indirin.</p>
+        <a href="/pdf/voltz-katalog.pdf" download="Voltz-Katalog.pdf" class="btn-angular btn-dark">
+          KATALOG İNDİR
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M8 3v8M5 8l3 3 3-3M3 13h10"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -192,32 +163,32 @@ const featuredProducts = productsData.slice(0, 8);
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="/img/logo/footer-logo.svg" alt="Voltz Power Tools" class="footer-logo">
+          <img src="/img/logo/footer-logo.svg" alt="Voltz Power Tools" class="footer-logo" />
           <p>Profesyonel el aletlerinde güvenin adresi. Brushless motor teknolojisi ile gücü ve dayanıklılığı birleştiriyoruz.</p>
         </div>
         <div class="footer-links">
-          <h4>Sayfalar</h4>
+          <h4>SAYFALAR</h4>
           <a href="/">Anasayfa</a>
           <a href="/about">Hakkımızda</a>
           <a href="/products">Ürünlerimiz</a>
           <a href="/contact">İletişim</a>
         </div>
         <div class="footer-links">
-          <h4>Ürünler</h4>
+          <h4>ÜRÜNLER</h4>
           <a href="/products">Matkaplar</a>
           <a href="/products">Tornavidalar</a>
           <a href="/products">Taşlama</a>
           <a href="/v-pack">V-PACK Sistem</a>
         </div>
         <div class="footer-contact">
-          <h4>İletişim</h4>
-          <p>Teknoloji Caddesi No: 123<br>Sanayi Mahallesi, İstanbul</p>
+          <h4>İLETİŞİM</h4>
+          <p>Teknoloji Caddesi No: 123<br/>Sanayi Mahallesi, İstanbul</p>
           <a href="mailto:info@voltzpowertools.com">info@voltzpowertools.com</a>
           <a href="tel:+902123456789">+90 212 345 67 89</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Voltz Power Tools. Tüm hakları saklıdır.</p>
+        <p>&copy; 2025 Voltz Power Tools. Tüm hakları saklıdır.</p>
         <div class="footer-social">
           <a href="#" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -233,48 +204,144 @@ const featuredProducts = productsData.slice(0, 8);
 </Layout>
 
 <style>
-  /* ========== HERO ========== */
-  .hero {
-    padding: 60px 0 80px;
-    background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
-    overflow: hidden;
+  /* ========== ANGULAR BUTTONS ========== */
+  .btn-angular {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
   }
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+  .btn-green {
+    background: var(--green);
+    color: #111111;
+  }
+
+  .btn-green:hover {
+    background: #5BC935;
+    transform: translateY(-2px);
+  }
+
+  .btn-border {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    clip-path: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    position: relative;
+  }
+
+  .btn-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--white);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    pointer-events: none;
+  }
+
+  .btn-border:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-dark {
+    background: #111111;
+    color: var(--white);
+  }
+
+  .btn-dark:hover {
+    background: #000000;
+    transform: translateY(-2px);
+  }
+
+  .text-green { color: var(--green); }
+
+  /* ========== HERO ========== */
+  .hero {
+    position: relative;
+    min-height: 650px;
+    display: flex;
     align-items: center;
-    min-height: 520px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.7) 40%,
+      rgba(0,0,0,0.2) 70%,
+      transparent 100%
+    );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 100px 24px 140px;
   }
 
   .hero-content {
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 16px;
-    background: rgba(107, 224, 63, 0.1);
-    color: var(--green-dark);
-    font-family: 'GeneralSans-Semibold', sans-serif;
-    font-weight: 600;
+  .hero-label {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(107, 224, 63, 0.15);
+    color: var(--green);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
     font-size: 12px;
-    letter-spacing: 1.5px;
-    border-radius: 100px;
+    letter-spacing: 2px;
     width: fit-content;
-    border: 1px solid rgba(107, 224, 63, 0.2);
+    border-left: 3px solid var(--green);
   }
 
-  .text-green { color: var(--green); }
+  .hero-title {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
 
   .hero-desc {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.7;
-    color: var(--gray-700);
+    color: rgba(255,255,255,0.7);
     max-width: 480px;
   }
 
@@ -282,142 +349,42 @@ const featuredProducts = productsData.slice(0, 8);
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    padding-top: 8px;
   }
 
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 28px;
-    background: var(--green);
-    color: var(--white);
-    text-decoration: none;
-    font-family: 'GeneralSans-Bold', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    border-radius: var(--radius-sm);
-    transition: all var(--transition);
-    border: 2px solid var(--green);
-  }
-
-  .btn-primary:hover {
-    background: var(--dark);
-    border-color: var(--dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 28px;
-    background: transparent;
-    color: var(--dark);
-    text-decoration: none;
-    font-family: 'GeneralSans-Bold', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    border-radius: var(--radius-sm);
-    border: 2px solid var(--border);
-    transition: all var(--transition);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--green);
-    color: var(--green);
-    transform: translateY(-2px);
-  }
-
-  .hero-stats {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    margin-top: 8px;
-  }
-
-  .stat { display: flex; flex-direction: column; gap: 4px; }
-  .stat-value {
-    font-family: 'GeneralSans-Bold', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: var(--dark);
-  }
-  .stat-label {
-    font-size: 13px;
-    color: var(--gray-500);
-  }
-  .stat-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--border);
-  }
-
-  .hero-image {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-  }
-
-  .hero-image-bg {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(107,224,63,0.08) 0%, transparent 70%);
-  }
-
-  .hero-product-img {
-    position: relative;
-    z-index: 2;
-    max-width: 100%;
-    max-height: 420px;
-    object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
-    transition: transform 0.5s ease;
-  }
-
-  .hero-image:hover .hero-product-img {
-    transform: scale(1.03) rotate(-1deg);
-  }
-
-  /* ========== SECTION HEADER ========== */
-  .section-header {
-    text-align: center;
-    margin-bottom: 56px;
-  }
-
-  .section-tag {
-    display: inline-block;
-    padding: 4px 14px;
-    background: rgba(107, 224, 63, 0.1);
-    color: var(--green-dark);
-    font-family: 'GeneralSans-Semibold', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    border-radius: 100px;
-    margin-bottom: 16px;
-  }
-
-  .section-desc {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--gray-500);
-    max-width: 560px;
-    margin: 12px auto 0;
-  }
-
-  /* ========== PRODUCTS GRID ========== */
+  /* ========== PRODUCTS ========== */
   .products-section {
     padding: 100px 0;
     background: var(--white);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-header--light {
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 42px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  .section-title--white {
+    color: var(--white);
+  }
+
+  .section-accent {
+    width: 60px;
+    height: 4px;
+    background: var(--green);
+    margin: 16px auto 0;
   }
 
   .products-grid {
@@ -429,21 +396,22 @@ const featuredProducts = productsData.slice(0, 8);
   .product-card {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
     overflow: hidden;
     text-decoration: none;
     transition: all var(--transition);
+    position: relative;
+    border-left: 4px solid transparent;
   }
 
   .product-card:hover {
-    border-color: var(--green);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+    border-left-color: var(--green);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   }
 
   .product-card-img {
     position: relative;
-    background: var(--gray-100);
+    background: #F5F6F8;
     padding: 24px;
     display: flex;
     align-items: center;
@@ -473,19 +441,14 @@ const featuredProducts = productsData.slice(0, 8);
     font-family: 'GeneralSans-Bold', sans-serif;
     font-weight: 700;
     font-size: 11px;
-    letter-spacing: 0.5px;
-    border-radius: 4px;
+    letter-spacing: 1px;
   }
 
   .product-card-body {
     padding: 20px;
-  }
-
-  .product-card-category {
-    font-size: 12px;
-    color: var(--gray-500);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .product-card-title {
@@ -493,13 +456,15 @@ const featuredProducts = productsData.slice(0, 8);
     font-weight: 700;
     font-size: 18px;
     color: var(--dark);
-    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
-  .product-card-footer {
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
+  .product-card-model {
+    font-size: 13px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   .product-card-link {
@@ -507,10 +472,11 @@ const featuredProducts = productsData.slice(0, 8);
     align-items: center;
     gap: 6px;
     color: var(--green);
-    font-family: 'GeneralSans-Semibold', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.3px;
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 12px;
     transition: gap var(--transition);
   }
 
@@ -518,32 +484,48 @@ const featuredProducts = productsData.slice(0, 8);
 
   .products-cta {
     text-align: center;
-    margin-top: 48px;
+    margin-top: 56px;
   }
 
-  /* ========== TECH SECTION ========== */
+  /* ========== TECHNOLOGY ========== */
   .tech-section {
-    padding: 100px 0;
-    background: var(--gray-100);
+    padding: 120px 0;
+    background: #1A1A1A;
+    clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+    margin-top: -40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tech-label {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(107, 224, 63, 0.15);
+    color: var(--green);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--green);
   }
 
   .tech-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
+    margin-top: 56px;
   }
 
   .tech-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    background: #2D2D2D;
     padding: 40px 32px;
     transition: all var(--transition);
+    border-bottom: 3px solid transparent;
   }
 
   .tech-card:hover {
-    border-color: var(--green);
-    box-shadow: var(--shadow-green);
+    border-bottom-color: var(--green);
     transform: translateY(-4px);
   }
 
@@ -554,18 +536,23 @@ const featuredProducts = productsData.slice(0, 8);
     align-items: center;
     justify-content: center;
     background: rgba(107, 224, 63, 0.1);
-    border-radius: var(--radius-md);
     margin-bottom: 24px;
   }
 
   .tech-card h3 {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
     margin-bottom: 12px;
   }
 
   .tech-card p {
     font-size: 15px;
     line-height: 1.7;
-    color: var(--gray-500);
+    color: rgba(255,255,255,0.5);
   }
 
   /* ========== ABOUT ========== */
@@ -587,19 +574,41 @@ const featuredProducts = productsData.slice(0, 8);
     gap: 20px;
   }
 
+  .about-label {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(107, 224, 63, 0.1);
+    color: var(--green);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    width: fit-content;
+    border-left: 3px solid var(--green);
+  }
+
+  .about-title {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.15;
+    color: var(--dark);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
   .about-content p {
     font-size: 16px;
     line-height: 1.8;
     color: var(--gray-700);
   }
 
-  .about-content .btn-outline {
+  .about-content .btn-angular {
     width: fit-content;
     margin-top: 8px;
   }
 
   .about-image {
-    border-radius: var(--radius-lg);
     overflow: hidden;
     aspect-ratio: 4/3;
   }
@@ -615,50 +624,36 @@ const featuredProducts = productsData.slice(0, 8);
 
   /* ========== CATALOG ========== */
   .catalog-section {
-    padding: 80px 0 100px;
-    background: var(--gray-100);
+    padding: 80px 0;
+    background: var(--green);
   }
 
-  .catalog-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 48px 56px;
-    gap: 40px;
+  .catalog-inner {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
-  .catalog-content h2 {
-    margin-bottom: 12px;
+  .catalog-title {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: #111111;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
   }
 
-  .catalog-content p {
+  .catalog-desc {
     font-size: 16px;
     line-height: 1.7;
-    color: var(--gray-500);
-    max-width: 480px;
-    margin-bottom: 24px;
-  }
-
-  .catalog-visual {
-    flex-shrink: 0;
-  }
-
-  .catalog-icon {
-    width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(107, 224, 63, 0.08);
-    border-radius: 50%;
+    color: rgba(0,0,0,0.7);
+    margin-bottom: 32px;
   }
 
   /* ========== FOOTER ========== */
   .site-footer {
-    background: var(--dark);
+    background: #111111;
     padding: 64px 0 32px;
     color: var(--white);
   }
@@ -668,7 +663,7 @@ const featuredProducts = productsData.slice(0, 8);
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 48px;
     padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
   .footer-logo {
@@ -681,7 +676,7 @@ const featuredProducts = productsData.slice(0, 8);
   .footer-brand p {
     font-size: 14px;
     line-height: 1.7;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.5);
     max-width: 280px;
   }
 
@@ -689,19 +684,19 @@ const featuredProducts = productsData.slice(0, 8);
   .footer-contact h4 {
     font-family: 'GeneralSans-Bold', sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--green);
-    margin-bottom: 16px;
-    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
   }
 
   .footer-links a,
   .footer-contact a {
     display: block;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.5);
     text-decoration: none;
     font-size: 14px;
-    padding: 4px 0;
+    padding: 5px 0;
     transition: color var(--transition);
   }
 
@@ -711,7 +706,7 @@ const featuredProducts = productsData.slice(0, 8);
   .footer-contact p {
     font-size: 14px;
     line-height: 1.6;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.5);
     margin-bottom: 12px;
   }
 
@@ -724,7 +719,7 @@ const featuredProducts = productsData.slice(0, 8);
 
   .footer-bottom p {
     font-size: 13px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.3);
   }
 
   .footer-social {
@@ -736,67 +731,70 @@ const featuredProducts = productsData.slice(0, 8);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 50%;
-    color: rgba(255,255,255,0.6);
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.5);
     transition: all var(--transition);
   }
 
   .footer-social a:hover {
     background: var(--green);
-    color: var(--dark);
+    color: #111111;
   }
 
   /* ========== RESPONSIVE ========== */
   @media (max-width: 1024px) {
-    .hero-grid { gap: 40px; }
     .products-grid { grid-template-columns: repeat(3, 1fr); }
     .tech-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .about-grid { gap: 48px; }
   }
 
   @media (max-width: 768px) {
     .hero {
-      padding: 40px 0 60px;
+      min-height: 500px;
+      clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
     }
 
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      min-height: auto;
+    .hero-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.6) 100%
+      );
     }
 
-    .hero-content { text-align: center; align-items: center; }
-    .hero-desc { max-width: 100%; }
-    .hero-actions { justify-content: center; }
-    .hero-stats { justify-content: center; }
-
-    .hero-image {
-      min-height: 280px;
-      order: -1;
+    .hero-inner {
+      padding: 80px 20px 120px;
     }
 
-    .hero-image-bg { width: 260px; height: 260px; }
-    .hero-product-img { max-height: 260px; }
+    .hero-title {
+      font-size: clamp(32px, 8vw, 48px);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn-angular {
+      width: 100%;
+      justify-content: center;
+    }
 
     .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .product-card-img { height: 160px; padding: 16px; }
+
+    .tech-section {
+      clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%);
+      padding: 80px 0;
+    }
 
     .tech-grid { grid-template-columns: 1fr; }
     .tech-card { padding: 32px 24px; }
 
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-image { order: -1; }
-
-    .catalog-card {
-      flex-direction: column;
-      text-align: center;
-      padding: 32px 24px;
-    }
-
-    .catalog-content p { max-width: 100%; }
 
     .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
     .footer-brand p { max-width: 100%; margin: 0 auto; }
@@ -806,7 +804,9 @@ const featuredProducts = productsData.slice(0, 8);
 
   @media (max-width: 480px) {
     .products-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 20px; }
-    .stat-value { font-size: 20px; }
+
+    .hero {
+      min-height: 450px;
+    }
   }
 </style>

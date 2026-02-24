@@ -11,6 +11,7 @@ const categories = [
   { key: 'battery', label: 'Batarya' },
   { key: 'charger', label: 'Şarj' },
   { key: 'storage', label: 'Taşıma' },
+  { key: 'set', label: 'Setler' },
 ];
 ---
 
@@ -21,11 +22,12 @@ const categories = [
 >
 
   <section class="page-hero">
+    <div class="hero-bg-overlay"></div>
     <div class="container">
       <div class="page-hero-inner">
         <span class="section-tag">ÜRÜN KATALOĞU</span>
-        <h1>Ürünlerimiz</h1>
-        <p>Profesyonel işlerinizi bir üst seviyeye taşıyacak premium kalitede el aletleri. Her ürün V-PACK batarya sistemi ile uyumlu.</p>
+        <h1>ÜRÜNLERİMİZ</h1>
+        <p>Profesyonel işlerinizi bir üst seviyeye taşıyacak premium kalitede el aletleri.</p>
       </div>
     </div>
   </section>
@@ -50,25 +52,14 @@ const categories = [
             <div class="card-body">
               <span class="card-category">{product.subcategory}</span>
               <h3 class="card-title">{product.title}</h3>
-              <p class="card-desc">{product.description}</p>
-              <div class="card-specs">
-                {product.torque && <span class="spec"><strong>Tork:</strong> {product.torque}</span>}
-                {product.speed && <span class="spec"><strong>Hız:</strong> {product.speed}</span>}
-                {product.weight && <span class="spec"><strong>Ağırlık:</strong> {product.weight}</span>}
-              </div>
-              <div class="card-footer">
-                <span class="card-link">
-                  Detaylar
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-                </span>
-              </div>
+              <span class="card-link">DETAYLAR &gt;</span>
             </div>
           </a>
         ))}
       </div>
 
       <div class="no-results" id="noResults" style="display:none">
-        <h3>Ürün Bulunamadı</h3>
+        <h3>ÜRÜN BULUNAMADI</h3>
         <p>Bu kategoride henüz ürün bulunmuyor.</p>
       </div>
     </div>
@@ -79,12 +70,9 @@ const categories = [
       <div class="cta-card">
         <div class="cta-content">
           <span class="section-tag">V-PACK SİSTEMİ</span>
-          <h2>Tek Platform, Sınırsız Güç</h2>
+          <h2>TEK PLATFORM, SINIRSIZ GÜÇ</h2>
           <p>V-PACK batarya sistemi ile tüm aletleriniz aynı bataryayı kullanır. 20V ve 16.8V seçenekleriyle ihtiyacınıza uygun gücü seçin.</p>
-          <a href="/v-pack" class="btn-primary">
-            V-PACK'İ KEŞFET
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
+          <a href="/v-pack" class="btn-primary">V-PACK'İ KEŞFET</a>
         </div>
       </div>
     </div>
@@ -93,80 +81,87 @@ const categories = [
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="/img/logo/footer-logo.svg" alt="Voltz Power Tools" class="footer-logo">
-          <p>Profesyonel el aletlerinde güvenin adresi.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Sayfalar</h4>
-          <a href="/">Anasayfa</a>
-          <a href="/about">Hakkımızda</a>
-          <a href="/products">Ürünlerimiz</a>
-          <a href="/contact">İletişim</a>
-        </div>
-        <div class="footer-links">
-          <h4>Ürünler</h4>
-          <a href="/products">Matkaplar</a>
-          <a href="/products">Tornavidalar</a>
-          <a href="/products">Taşlama</a>
-          <a href="/v-pack">V-PACK Sistem</a>
-        </div>
-        <div class="footer-contact-col">
-          <h4>İletişim</h4>
-          <p>Teknoloji Caddesi No: 123<br>Sanayi Mahallesi, İstanbul</p>
-          <a href="mailto:info@voltzpowertools.com">info@voltzpowertools.com</a>
-          <a href="tel:+902123456789">+90 212 345 67 89</a>
-        </div>
+        <div class="footer-brand"><img src="/img/logo/footer-logo.svg" alt="Voltz" class="footer-logo"><p>Profesyonel el aletlerinde güvenin adresi.</p></div>
+        <div class="footer-links"><h4>Sayfalar</h4><a href="/">Anasayfa</a><a href="/about">Hakkımızda</a><a href="/products">Ürünlerimiz</a><a href="/contact">İletişim</a></div>
+        <div class="footer-links"><h4>Ürünler</h4><a href="/products">Matkaplar</a><a href="/products">Tornavidalar</a><a href="/products">Taşlama</a><a href="/v-pack">V-PACK</a></div>
+        <div class="footer-contact-col"><h4>İletişim</h4><p>Teknoloji Caddesi No: 123<br>Sanayi Mahallesi, İstanbul</p><a href="mailto:info@voltzpowertools.com">info@voltzpowertools.com</a><a href="tel:+902123456789">+90 212 345 67 89</a></div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 Voltz Power Tools. Tüm hakları saklıdır.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
+      <div class="footer-bottom"><p>© 2025 Voltz Power Tools. Tüm hakları saklıdır.</p><div class="footer-social"><a href="#">LI</a><a href="#">IG</a></div></div>
     </div>
   </footer>
 
 </Layout>
 
 <style>
-  .section-tag {
-    display: inline-block;
-    padding: 4px 14px;
-    background: rgba(107, 224, 63, 0.1);
-    color: var(--green-dark, #5BC935);
-    font-family: 'GeneralSans-Semibold', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    border-radius: 100px;
-    margin-bottom: 16px;
+  :root {
+    --green: #6BE03F;
+    --dark: #1A1A1A;
+    --darker: #111111;
+    --gray-900: #2D2D2D;
+    --gray-700: #4A4A4A;
+    --gray-500: #7A7A7A;
+    --gray-100: #F5F6F8;
+    --white: #FFFFFF;
+    --border: #E5E7EB;
   }
 
+  /* ── HERO ── */
   .page-hero {
-    padding: 60px 0 48px;
-    background: var(--gray-100, #F5F6F8);
+    position: relative;
+    padding: 100px 0 80px;
+    background: var(--dark);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('/voltzgorseller/03.png') center / cover no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
   }
 
   .page-hero-inner {
-    max-width: 640px;
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
     margin: 0 auto;
   }
 
+  .section-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(107, 224, 63, 0.15);
+    color: var(--green);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
   .page-hero h1 {
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 6vw, 56px);
+    color: var(--white);
+    letter-spacing: 3px;
+    text-transform: uppercase;
     margin-bottom: 16px;
   }
 
   .page-hero p {
     font-size: 17px;
     line-height: 1.7;
-    color: var(--gray-500, #7A7A7A);
+    color: rgba(255, 255, 255, 0.6);
   }
 
+  /* ── FILTER BAR ── */
   .products-section {
-    padding: 48px 0 80px;
+    padding: 64px 0 80px;
   }
 
   .filter-bar {
@@ -178,29 +173,32 @@ const categories = [
   }
 
   .filter-btn {
-    padding: 8px 20px;
-    background: var(--white, #fff);
-    border: 1.5px solid var(--border, #E5E7EB);
-    border-radius: 100px;
-    font-family: 'GeneralSans-Semibold', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--gray-700, #4A4A4A);
+    padding: 10px 22px;
+    background: transparent;
+    border: 2px solid var(--dark);
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--dark);
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
   }
 
   .filter-btn:hover {
-    border-color: var(--green, #6BE03F);
-    color: var(--green, #6BE03F);
+    background: var(--dark);
+    color: var(--green);
   }
 
   .filter-btn.active {
-    background: var(--green, #6BE03F);
-    border-color: var(--green, #6BE03F);
-    color: var(--white, #fff);
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--dark);
   }
 
+  /* ── PRODUCTS GRID ── */
   .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -208,25 +206,24 @@ const categories = [
   }
 
   .product-card {
-    background: var(--white, #fff);
-    border: 1px solid var(--border, #E5E7EB);
-    border-radius: 12px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid transparent;
     overflow: hidden;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
   }
 
   .product-card.hidden { display: none; }
 
   .product-card:hover {
-    border-color: var(--green, #6BE03F);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-left-color: var(--green);
     transform: translateY(-4px);
   }
 
   .card-img {
     position: relative;
-    background: var(--gray-100, #F5F6F8);
+    background: var(--gray-100);
     padding: 24px;
     display: flex;
     align-items: center;
@@ -238,24 +235,24 @@ const categories = [
     max-width: 80%;
     max-height: 160px;
     object-fit: contain;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
   }
 
   .product-card:hover .card-img img {
-    transform: scale(1.06);
+    transform: scale(1.05);
   }
 
   .voltage-badge {
     position: absolute;
     top: 12px;
     right: 12px;
-    padding: 4px 10px;
-    background: var(--dark, #1A1A1A);
-    color: var(--green, #6BE03F);
+    padding: 5px 12px;
+    background: var(--dark);
+    color: var(--green);
     font-family: 'GeneralSans-Bold', sans-serif;
     font-weight: 700;
     font-size: 11px;
-    border-radius: 4px;
+    letter-spacing: 0.5px;
   }
 
   .card-body {
@@ -264,66 +261,36 @@ const categories = [
 
   .card-category {
     font-size: 11px;
-    color: var(--gray-500, #7A7A7A);
+    color: var(--gray-500);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    font-family: 'GeneralSans-Semibold', sans-serif;
+    font-weight: 600;
   }
 
   .card-title {
     font-family: 'GeneralSans-Bold', sans-serif;
     font-weight: 700;
-    font-size: 18px;
-    color: var(--dark, #1A1A1A);
-    margin: 4px 0 8px;
-  }
-
-  .card-desc {
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--gray-500, #7A7A7A);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
-  }
-
-  .spec {
-    font-size: 11px;
-    color: var(--gray-700, #4A4A4A);
-    background: var(--gray-100, #F5F6F8);
-    padding: 3px 8px;
-    border-radius: 4px;
-  }
-
-  .spec strong {
-    color: var(--dark, #1A1A1A);
-  }
-
-  .card-footer {
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border, #E5E7EB);
+    font-size: 16px;
+    color: var(--dark);
+    margin: 6px 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
   }
 
   .card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--green, #6BE03F);
-    font-family: 'GeneralSans-Semibold', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    transition: gap 0.25s ease;
+    display: inline-block;
+    color: var(--green);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: letter-spacing 0.2s ease;
   }
 
-  .product-card:hover .card-link { gap: 10px; }
+  .product-card:hover .card-link {
+    letter-spacing: 2px;
+  }
 
   .no-results {
     text-align: center;
@@ -332,23 +299,26 @@ const categories = [
 
   .no-results h3 {
     margin-bottom: 8px;
-    color: var(--dark, #1A1A1A);
+    color: var(--dark);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .no-results p {
-    color: var(--gray-500, #7A7A7A);
+    color: var(--gray-500);
   }
 
-  /* V-PACK CTA */
+  /* ── V-PACK CTA ── */
   .vpack-cta {
     padding: 0 0 80px;
   }
 
   .cta-card {
-    background: linear-gradient(135deg, var(--dark, #1A1A1A) 0%, #2d2d2d 100%);
-    border-radius: 16px;
+    background: var(--dark);
     padding: 56px;
     text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
   }
 
   .cta-card .section-tag {
@@ -356,45 +326,46 @@ const categories = [
   }
 
   .cta-card h2 {
-    color: var(--white, #fff);
+    color: var(--white);
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 4vw, 36px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin-bottom: 12px;
   }
 
   .cta-card p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 16px;
     line-height: 1.7;
     max-width: 520px;
-    margin: 0 auto 24px;
+    margin: 0 auto 28px;
   }
 
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 28px;
-    background: var(--green, #6BE03F);
-    color: var(--white, #fff);
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--green);
+    color: var(--dark);
     text-decoration: none;
     font-family: 'GeneralSans-Bold', sans-serif;
     font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    border-radius: 8px;
-    border: 2px solid var(--green, #6BE03F);
-    transition: all 0.3s ease;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    transition: all 0.25s ease;
   }
 
   .btn-primary:hover {
-    background: var(--white, #fff);
-    color: var(--dark, #1A1A1A);
-    border-color: var(--white, #fff);
-    transform: translateY(-2px);
+    background: var(--white);
+    color: var(--dark);
   }
 
-  /* FOOTER */
+  /* ── FOOTER ── */
   .site-footer {
-    background: var(--dark, #1A1A1A);
+    background: var(--darker);
     padding: 64px 0 32px;
     color: #fff;
   }
@@ -404,37 +375,39 @@ const categories = [
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 48px;
     padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .footer-logo { height: 48px; width: auto; display: block; margin-bottom: 16px; }
-  .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); }
+  .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(255, 255, 255, 0.5); }
 
   .footer-links h4,
   .footer-contact-col h4 {
     font-family: 'GeneralSans-Bold', sans-serif;
-    font-size: 14px;
-    color: var(--green, #6BE03F);
+    font-size: 13px;
+    color: var(--green);
     margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
   }
 
   .footer-links a,
   .footer-contact-col a {
     display: block;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
     font-size: 14px;
     padding: 4px 0;
-    transition: color 0.25s ease;
+    transition: color 0.2s ease;
   }
 
   .footer-links a:hover,
-  .footer-contact-col a:hover { color: var(--green, #6BE03F); }
+  .footer-contact-col a:hover { color: var(--green); }
 
   .footer-contact-col p {
     font-size: 14px;
     line-height: 1.6;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 12px;
   }
 
@@ -445,7 +418,7 @@ const categories = [
     padding-top: 24px;
   }
 
-  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.4); }
+  .footer-bottom p { font-size: 13px; color: rgba(255, 255, 255, 0.3); }
 
   .footer-social { display: flex; gap: 12px; }
 
@@ -455,29 +428,34 @@ const categories = [
     justify-content: center;
     width: 36px;
     height: 36px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 50%;
-    color: rgba(255,255,255,0.6);
-    transition: all 0.25s ease;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-family: 'GeneralSans-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
   }
 
   .footer-social a:hover {
-    background: var(--green, #6BE03F);
-    color: var(--dark, #1A1A1A);
+    background: var(--green);
+    color: var(--dark);
   }
 
-  /* RESPONSIVE */
+  /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .products-grid { grid-template-columns: repeat(3, 1fr); }
     .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   }
 
   @media (max-width: 768px) {
+    .page-hero { padding: 80px 0 64px; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
     .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .card-img { height: 160px; padding: 16px; }
-    .card-specs { display: none; }
-    .cta-card { padding: 32px 24px; }
+    .cta-card { padding: 32px 24px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%); }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-logo { margin: 0 auto 16px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     .footer-social { justify-content: center; }
   }
@@ -485,7 +463,7 @@ const categories = [
   @media (max-width: 480px) {
     .products-grid { grid-template-columns: 1fr; }
     .filter-bar { gap: 8px; }
-    .filter-btn { padding: 6px 14px; font-size: 12px; }
+    .filter-btn { padding: 8px 16px; font-size: 11px; }
   }
 </style>
 

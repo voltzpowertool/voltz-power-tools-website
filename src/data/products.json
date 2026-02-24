@@ -305,5 +305,123 @@
     "category": "storage",
     "subcategory": "Taşıma Kutusu Sistemi", 
     "description": "Profesyonel taşıma kutusu sistemi. İstiflenebilir modüler tasarım."
+  },
+  {
+    "id": "vzrh-20",
+    "title": "VZRH-20",
+    "voltage": "20V",
+    "speed": "0-1100 RPM",
+    "bpm": "0-5400 BPM",
+    "weight": "3.2 kg",
+    "drillDiameter": "28mm",
+    "impactEnergy": "3.5J",
+    "features": ["Kömürsüz Motor", "SDS Plus", "Anti-Vibrasyon", "LED Işık", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vzrh-20.png",
+    "images": [
+      "/img/products/tools/thumbs/vzrh-20.png",
+      "/img/products/tools/thumbs/vzrh-20-1.png",
+      "/img/products/tools/thumbs/vzrh-20-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/thumbs/vzrh-20.png",
+      "/img/products/tools/thumbs/vzrh-20-1.png",
+      "/img/products/tools/thumbs/vzrh-20-2.png"
+    ],
+    "category": "hammer",
+    "subcategory": "Akülü Kırıcı Delici",
+    "description": "Ağır hizmet tipi akülü kırıcı delici. Yüksek darbe enerjisi ve anti-vibrasyon teknolojisi.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vziw-20-10",
+    "title": "VZIW-20-10",
+    "voltage": "20V",
+    "torque": "450 / 650 / 800 N.m",
+    "speed": "0-1800 / 0-2200 / 0-2600 RPM",
+    "bpm": "2600 / 3200 / 3800 BPM",
+    "weight": "1.85 kg",
+    "chuck": "1\" Kare Sürücü",
+    "features": ["Kömürsüz Motor", "1\" Kare Sürücü", "LED Işık", "Ayarlanabilir Hız", "V-PACK Uyumlu"],
+    "image": "/img/products/tools/thumbs/vziw-20-10.png",
+    "images": [
+      "/img/products/tools/thumbs/vziw-20-10.png",
+      "/img/products/tools/thumbs/vziw-20-10-1.png",
+      "/img/products/tools/thumbs/vziw-20-10-2.png"
+    ],
+    "imagesHd": [
+      "/img/products/tools/thumbs/vziw-20-10.png",
+      "/img/products/tools/thumbs/vziw-20-10-1.png",
+      "/img/products/tools/thumbs/vziw-20-10-2.png"
+    ],
+    "category": "driver",
+    "subcategory": "Akülü Somun Sökme",
+    "description": "Profesyonel 1 inç somun sökme. Yüksek tork kapasitesi ile ağır hizmet uygulamaları.",
+    "batteryIncluded": true,
+    "chargerIncluded": true
+  },
+  {
+    "id": "vz20-4kit",
+    "title": "VZ20-4KIT",
+    "voltage": "20V",
+    "features": ["Kırıcı Delici", "Darbeli Matkap", "Avuç Taşlama", "2x 5.0Ah Batarya", "Şarj Cihazı", "V-STACK Kutu"],
+    "image": "/img/products/sets/thumbs/vz20-4kit.png",
+    "images": [
+      "/img/products/sets/thumbs/vz20-4kit.png"
+    ],
+    "imagesHd": [
+      "/img/products/sets/thumbs/vz20-4kit.png"
+    ],
+    "category": "set",
+    "subcategory": "20V 4'lü Set",
+    "description": "Profesyonel 20V 4'lü alet seti. Kırıcı delici, darbeli matkap, avuç taşlama, batarya ve şarj cihazı."
+  },
+  {
+    "id": "vz20-3kit-a",
+    "title": "VZ20-3KIT-A",
+    "voltage": "20V",
+    "features": ["Darbeli Matkap", "Somun Sökme", "Avuç Taşlama", "2x 5.0Ah Batarya", "Şarj Cihazı"],
+    "image": "/img/products/sets/thumbs/vz20-3kit-a.png",
+    "images": [
+      "/img/products/sets/thumbs/vz20-3kit-a.png"
+    ],
+    "imagesHd": [
+      "/img/products/sets/thumbs/vz20-3kit-a.png"
+    ],
+    "category": "set",
+    "subcategory": "20V 3'lü Set A",
+    "description": "20V 3'lü alet seti. Darbeli matkap, somun sökme ve avuç taşlama."
+  },
+  {
+    "id": "vz20-3kit-b",
+    "title": "VZ20-3KIT-B",
+    "voltage": "20V",
+    "features": ["Kırıcı Delici", "Darbeli Matkap", "Avuç Taşlama", "2x 5.0Ah Batarya", "Şarj Cihazı"],
+    "image": "/img/products/sets/thumbs/vz20-3kit-b.png",
+    "images": [
+      "/img/products/sets/thumbs/vz20-3kit-b.png"
+    ],
+    "imagesHd": [
+      "/img/products/sets/thumbs/vz20-3kit-b.png"
+    ],
+    "category": "set",
+    "subcategory": "20V 3'lü Set B",
+    "description": "20V 3'lü alet seti. Kırıcı delici, darbeli matkap ve avuç taşlama."
+  },
+  {
+    "id": "vz16-3kit",
+    "title": "VZ16-3KIT",
+    "voltage": "16.8V",
+    "features": ["Darbeli Matkap", "Tornavida", "Somun Sökme", "2x 2.0Ah Batarya", "Şarj Cihazı"],
+    "image": "/img/products/sets/thumbs/vz16-3kit.png",
+    "images": [
+      "/img/products/sets/thumbs/vz16-3kit.png"
+    ],
+    "imagesHd": [
+      "/img/products/sets/thumbs/vz16-3kit.png"
+    ],
+    "category": "set",
+    "subcategory": "16.8V 3'lü Set",
+    "description": "16.8V 3'lü alet seti. Darbeli matkap, tornavida ve somun sökme."
   }
 ] 
