@@ -383,16 +383,21 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     }
 
     @media (max-width: 768px) {
-      body { padding-top: 74px; }
+      body { padding-top: 64px; }
 
-      .header-inner { height: 70px; }
-      .header-logo img { height: 44px; }
+      .header-inner { height: 60px; }
+      .header-logo img { height: 24px; }
 
       .desktop-only { display: none !important; }
       .menu-toggle { display: block; }
 
-      .mobile-overlay { padding: 90px 20px 32px; }
-      .mobile-overlay nav a { font-size: 20px; padding: 16px 0; }
+      .mobile-overlay { padding: 80px 20px 32px; }
+      .mobile-overlay nav a { font-size: 18px; padding: 14px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner { height: 56px; }
+      .header-logo img { height: 20px; }
     }
   </style>
   
